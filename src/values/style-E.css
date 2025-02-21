@@ -1,0 +1,46 @@
+.shadow{
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
+}
+
+.button:hover {
+    -fx-scale-x: 1.005; /* Grow horizontally */
+    -fx-scale-y: 1.005; /* Grow vertically */
+    -fx-effect: dropshadow(gaussian, rgb(83, 112, 211), 10, 0.5, 0, 2); /* Emphasized shadow */
+}
+
+.tab{
+    -fx-font-family: "B Roya";
+    -fx-font-size: 14px;
+    -fx-background-color: no color; /* رنگ پس‌زمینه تب */
+    -fx-text-fill: white; /* رنگ نوشته تب */
+    -fx-padding: 10px; /* فضای داخلی تب */
+}
+
+.tab-pane {
+    -fx-border-color: #FFFFFF; /* رنگ حاشیه TabPane */
+    -fx-border-width: 0.5px; /* عرض حاشیه */
+    -fx-background-color: #f5f5f5; /* رنگ پس‌زمینه TabPane */
+}
+
+.tab:selected {
+    -fx-background-color:  #81cae3; /* رنگ پس‌زمینه تب فعال */
+    -fx-font-weight: bold; /* متن ضخیم‌تر */
+}
+
+.custom-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-width: 2px;
+}
+
+.custom-scroll-pane .viewport {
+    -fx-background-color:  #e0fbff;
+}
+
+.custom-scroll-pane .scroll-bar {
+    -fx-background-color: #bdc3c7;
+}
+
+.hbox{
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #3587b3, #555ca3);
+
+}

@@ -22,7 +22,7 @@
                     <children>
                         <ImageView fitHeight="810.0" fitWidth="558.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../img/Flux_Dev_A_moody_photograph_of_the_Javad_Bank_building_showcas_0.jpeg" />
+                                <Image url="@../img/Flux_Dev_A_modern_highcontrast_photograph_of_the_Javad_Bank_bu_2.jpeg" />
                             </image>
                         </ImageView>
                     </children>
@@ -45,14 +45,14 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="65.0" prefWidth="952.0">
                             <children>
-                                <Label prefHeight="49.0" prefWidth="109.0" text="Javad" textFill="#878787">
+                                <Label prefHeight="49.0" prefWidth="109.0" text="جاواد" textFill="#878787">
                                     <font>
-                                        <Font name="Cambria Bold" size="40.0" />
+                                        <Font name="B Homa" size="50.0" />
                                     </font>
                                 </Label>
-                                <Label text="Bank" textFill="#878787">
+                                <Label text="بانک" textFill="#878787">
                                     <font>
-                                        <Font name="Cambria" size="40.0" />
+                                        <Font name="B Homa" size="40.0" />
                                     </font>
                                 </Label>
                             </children>
