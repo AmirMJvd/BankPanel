@@ -50,14 +50,9 @@
     -fx-background-radius: 100;
 }
 
-.free-delivery-card{
-    -fx-background-color: #D3D3D3;
-    -fx-background-radius: 30;
-}
-
 .fruit-item{
     -fx-background-color: #FFFFFF;
-        -fx-background-radius: 30;
+    -fx-background-radius: 30;
 }
 
 .button:hover {
@@ -67,10 +62,10 @@
 }
 
 #vorud{
--fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0.5, 0, 4);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0.5, 0, 4);
 }
 #vorud:hover{
--fx-text-fill: #3498db; /* Default color: light blue */
+    -fx-text-fill: #3498db; /* Default color: light blue */
 }
 
 
@@ -142,4 +137,85 @@
 /* حالت hover (زمانی که موس روی HBox می‌رود) */
 .HBox:hover {
     -fx-background-color: #9fecad; /* تغییر رنگ پس‌زمینه  */
+}
+
+
+
+.free-delivery-card{
+    -fx-background-color: #D3D3D3;
+    -fx-background-radius: 30;
+}
+
+.free-delivery-card2{
+    -fx-background-color: #608bc1;
+    -fx-background-radius: 15;
+}
+
+
+.free-delivery-card3{
+    -fx-background-color: #A6AEBF;
+    -fx-background-radius: 15;
+}
+
+.free-delivery-card4{
+    -fx-background-color: #c4e9c2;
+    -fx-background-radius: 15;
+}
+.free-delivery-card5{
+    -fx-background-color: #eaeaea;
+    -fx-background-radius: 30;
+}
+
+.free-delivery-card6{
+    -fx-background-color: #ff9696;
+    -fx-background-radius: 2;
+}
+.free-delivery-card7{
+    -fx-background-color: #e1e1e1;
+    -fx-background-radius: 30;
+}
+.free-delivery-card8{
+    -fx-background-color: #eaeaea;
+    -fx-background-radius: 20;
+}
+
+.combo-box .list-cell {
+    -fx-pref-width: 300px; /* طول هر گزینه را به 300px تغییر می‌دهد */
+}
+
+.combo-box .popup {
+    -fx-max-height: 200px; /* ارتفاع حداکثری Popup را تنظیم می‌کند */
+    -fx-max-width: 350px;  /* عرض حداکثری Popup را تنظیم می‌کند */
+}
+
+.combo-box {
+    -fx-pref-width: 350px;  /* عرض ComboBox در حالت عادی */
+}
+
+.search-box1{
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius: 10;
+}
+
+.tab-pane .tab-header-area {
+    -fx-background-color: #0D4715; /* رنگ پس‌زمینه سربرگ */
+    -fx-padding: 5px; /* فاصله داخلی */
+}
+
+.tab-pane .tab {
+    -fx-background-color: #adadad; /* رنگ پس‌زمینه تب‌ها */
+    -fx-text-fill: white; /* رنگ متن تب */
+    -fx-padding: 8px 15px; /* فاصله داخلی برای زیبایی */
+    -fx-font-size: 14px; /* اندازه فونت */
+    -fx-border-radius: 5px 5px 0 0; /* گرد کردن لبه‌های بالا */
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #ff7373; /* رنگ تب فعال */
+    -fx-text-fill: white; /* رنگ متن تب فعال */
+    -fx-font-weight: bold; /* متن ضخیم‌تر */
+}
+
+.tab-pane .tab:hover {
+    -fx-background-color: #27ae60; /* تغییر رنگ در حالت هاور */
 }

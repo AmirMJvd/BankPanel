@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" style="-fx-background-color: #e0fbff;" stylesheets="@../values/style-E.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ManagerController">
+   <center>
+      <TabPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e0fbff;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="کاربر جدید">
+               <content>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Pane prefHeight="0.0" prefWidth="682.0" />
+                        <HBox alignment="CENTER" prefHeight="542.0" prefWidth="1298.0">
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" />
+                              <VBox prefHeight="308.0" prefWidth="299.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="اطلاعات شخصی:">
+                                             <font>
+                                                <Font name="B Homa" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="CENTER" prefHeight="500.0" prefWidth="299.0" style="-fx-background-color: #81cae3; -fx-background-radius: 15;">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="206.0">
+                                             <children>
+                                                <Label prefWidth="100.0" text="نام:">
+                                                   <font>
+                                                      <Font name="B Roya" size="20.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="15.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="USFName" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="B Roya Bold" size="12.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="button" />
+                                                   </styleClass>
+                                                </TextField>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="206.0">
+                                             <children>
+                                                <Label prefWidth="100.0" text="نام خانوادگی:">
+                                                   <font>
+                                                      <Font name="B Roya" size="20.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="15.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="USLname" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="B Roya" size="12.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="button" />
+                                                   </styleClass>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="206.0">
+                                             <children>
+                                                <Label prefWidth="100.0" text="کد ملی:">
+                                                   <font>
+                                                      <Font name="B Roya" size="20.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="15.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="NationalCode" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="B Roya" size="12.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="button" />
+                                                   </styleClass>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="206.0">
+                                             <children>
+                                                <Label prefWidth="100.0" text="تاریخ تولد:">
+                                                   <font>
+                                                      <Font name="B Roya" size="20.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="15.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <DatePicker fx:id="BirthDate" prefHeight="30.0" prefWidth="150.0" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                                   <styleClass>
+                                                      <String fx:value="button" />
+                                                      <String fx:value="shadow" />
+                                                   </styleClass>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </DatePicker>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="220.0">
+                                             <children>
+                                                <Label prefHeight="30.0" prefWidth="100.0" text="جنسیت:">
+                                                   <font>
+                                                      <Font name="B Roya" size="20.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="15.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <ComboBox fx:id="gender" prefHeight="14.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: white;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                                   <styleClass>
+                                                      <String fx:value="button" />
+                                                      <String fx:value="shadow" />
+                                                   </styleClass>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </ComboBox>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="50.0" prefWidth="282.0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="300.0" prefWidth="380.0">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="اطلاعات حساب:">
+                                             <font>
+                                                <Font name="B Homa" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="CENTER" prefHeight="500.0" prefWidth="380.0" style="-fx-background-color: #81cae3; -fx-background-radius: 15;">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="50.0" prefWidth="282.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#create" prefWidth="120.0" style="-fx-background-color: nocolor; -fx-border-color: #4e52cc;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css" text="ساخت حساب" textFill="#4e52cc">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="206.0">
+                                             <children>
+                                                <Label prefWidth="100.0" text="شماره حساب:">
+                                                   <font>
+                                                      <Font name="B Roya" size="20.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="15.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="AccNum" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                                   <font>
+                                                      <Font name="B Roya Bold" size="12.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="button" />
+                                                   </styleClass>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="206.0">
+                                             <children>
+                                                <Label prefWidth="100.0" text="شبا:">
+                                                   <font>
+                                                      <Font name="B Roya" size="20.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="15.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="ShabaNum" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="B Roya Bold" size="12.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="button" />
+                                                   </styleClass>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="206.0">
+                                             <children>
+                                                <Label prefWidth="100.0" text="شماره کارت:">
+                                                   <font>
+                                                      <Font name="B Roya" size="20.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="15.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="CardNum4" prefHeight="30.0" prefWidth="48.0" promptText="****" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="B Roya Bold" size="12.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="button" />
+                                                   </styleClass>
+                                                </TextField>
+                                                <TextField fx:id="CardNum3" prefHeight="30.0" prefWidth="48.0" promptText="****" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                                   <font>
+                                                      <Font name="B Roya Bold" size="12.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="button" />
+                                                   </styleClass>
+                                                </TextField>
+                                                <TextField fx:id="CardNum2" prefHeight="30.0" prefWidth="48.0" promptText="****" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                                   <font>
+                                                      <Font name="B Roya Bold" size="12.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="button" />
+                                                   </styleClass>
+                                                </TextField>
+                                                <TextField fx:id="CardNum1" prefHeight="30.0" prefWidth="46.0" promptText="****" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                                   <font>
+                                                      <Font name="B Roya Bold" size="12.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="button" />
+                                                   </styleClass>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="206.0">
+                                             <children>
+                                                <Label prefWidth="100.0" text="تاریخ انقضا:">
+                                                   <font>
+                                                      <Font name="B Roya" size="20.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="15.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <DatePicker fx:id="ExpDate" prefHeight="30.0" prefWidth="200.0" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                                   <styleClass>
+                                                      <String fx:value="button" />
+                                                      <String fx:value="shadow" />
+                                                   </styleClass>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </DatePicker>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="206.0">
+                                             <children>
+                                                <Label prefWidth="100.0" text=":CVV2">
+                                                   <font>
+                                                      <Font name="Book Antiqua" size="20.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="15.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="CVV2Num" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="B Roya Bold" size="12.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="button" />
+                                                   </styleClass>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="206.0">
+                                             <children>
+                                                <Label prefHeight="22.0" prefWidth="100.0" text="موجودی اولیه:">
+                                                   <font>
+                                                      <Font name="B Roya" size="20.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="15.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="inventory" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                   <font>
+                                                      <Font name="B Roya Bold" size="12.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="button" />
+                                                   </styleClass>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="206.0">
+                                             <children>
+                                                <Label prefWidth="100.0" text="نوع حساب:">
+                                                   <font>
+                                                      <Font name="B Roya" size="20.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="15.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <ComboBox fx:id="AccType" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 20; -fx-background-color: white;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                                   <styleClass>
+                                                      <String fx:value="button" />
+                                                      <String fx:value="shadow" />
+                                                   </styleClass>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </ComboBox>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="206.0">
+                                             <children>
+                                                <Label prefWidth="100.0" text="رمز کارت:">
+                                                   <font>
+                                                      <Font name="B Roya" size="20.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="15.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="CardPass" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                                   <font>
+                                                      <Font name="B Roya Bold" size="12.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="button" />
+                                                   </styleClass>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <Pane prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <Pane prefHeight="0.0" prefWidth="682.0" />
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#registration" style="-fx-border-color: #4e52cc; -fx-background-color: no color;" text="ثبت اطلاعات" textFill="#4e52cc">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </content>
+          </Tab>
+            <Tab text="مدیر جدید">
+               <content>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Pane prefHeight="0.0" prefWidth="682.0" />
+                        <HBox alignment="CENTER" prefHeight="483.0" prefWidth="1298.0">
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                              <VBox alignment="CENTER" prefHeight="462.0" prefWidth="400.0" style="-fx-background-color: #81cae3; -fx-background-radius: 15;">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="206.0">
+                                       <children>
+                                          <Label prefWidth="100.0" text="نام کاربری:">
+                                             <font>
+                                                <Font name="B Roya" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="UserName" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font name="B Roya" size="12.0" />
+                                             </font>
+                                             <styleClass>
+                                                <String fx:value="shadow" />
+                                                <String fx:value="button" />
+                                             </styleClass>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="206.0">
+                                       <children>
+                                          <Label prefWidth="100.0" text="شماره تلفن:">
+                                             <font>
+                                                <Font name="B Roya" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="ManFName" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font name="B Roya Bold" size="12.0" />
+                                             </font>
+                                             <styleClass>
+                                                <String fx:value="shadow" />
+                                                <String fx:value="button" />
+                                             </styleClass>
+                                          </TextField>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="206.0">
+                                       <children>
+                                          <Label prefWidth="100.0" text="ایمیل:">
+                                             <font>
+                                                <Font name="B Roya" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="ManLName" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font name="B Roya" size="12.0" />
+                                             </font>
+                                             <styleClass>
+                                                <String fx:value="shadow" />
+                                                <String fx:value="button" />
+                                             </styleClass>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="206.0">
+                                       <children>
+                                          <Label prefWidth="100.0" text="رمز عبور:">
+                                             <font>
+                                                <Font name="B Roya" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="Password" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font name="B Roya" size="12.0" />
+                                             </font>
+                                             <styleClass>
+                                                <String fx:value="shadow" />
+                                                <String fx:value="button" />
+                                             </styleClass>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="206.0">
+                                       <children>
+                                          <Label prefWidth="100.0" text="تکرار رمز عبور:">
+                                             <font>
+                                                <Font name="B Roya" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="PasswordRepetition" prefHeight="30.0" prefWidth="200.0" style="-fx-background-radius: 20;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font name="B Roya" size="12.0" />
+                                             </font>
+                                             <styleClass>
+                                                <String fx:value="shadow" />
+                                                <String fx:value="button" />
+                                             </styleClass>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="206.0">
+                                       <children>
+                                          <Label prefWidth="100.0" text="سمت:">
+                                             <font>
+                                                <Font name="B Roya" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <ComboBox fx:id="RoleCombo" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
+                                             <styleClass>
+                                                <String fx:value="button" />
+                                                <String fx:value="shadow" />
+                                             </styleClass>
+                                          </ComboBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="206.0">
+                                       <children>
+                                          <Label prefWidth="100.0" text="شعبه:">
+                                             <font>
+                                                <Font name="B Roya" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="25.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <ComboBox fx:id="branch" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
+                                             <styleClass>
+                                                <String fx:value="button" />
+                                                <String fx:value="shadow" />
+                                             </styleClass>
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#RegistrationAdmin" prefHeight="37.0" prefWidth="111.0" style="-fx-background-color: no color; -fx-border-color: #4e52cc;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css" text="ثبت اطلاعات" textFill="#4e52cc">
+                                 <font>
+                                    <Font name="B Mehr Bold" size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <Pane prefHeight="0.0" prefWidth="682.0" />
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab text="درخواست ها">
+               <content>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+                    </content>
+                     <styleClass>
+                        <String fx:value="custom-scroll-pane" />
+                        <String fx:value="scroll-bar" />
+                        <String fx:value="viewport" />
+                     </styleClass>
+                  </ScrollPane>
+               </content>
+            </Tab>
+            <Tab text="انتقال وجه">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="کاربران">
+               <content>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+                    </content>
+                     <styleClass>
+                        <String fx:value="custom-scroll-pane" />
+                        <String fx:value="scroll-bar" />
+                        <String fx:value="viewport" />
+                     </styleClass>
+                  </ScrollPane>
+               </content>
+            </Tab>
+        </tabs>
+         <BorderPane.margin>
+            <Insets left="8.0" right="8.0" />
+         </BorderPane.margin>
+      </TabPane>
+   </center>
+   <top>
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" styleClass="hbox" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox alignment="CENTER_RIGHT" layoutX="93.0" layoutY="-1.0" prefHeight="102.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="100.0" text="نام کاربر" textFill="WHITE" />
+                        <Label fx:id="Role" alignment="CENTER_RIGHT" prefWidth="100.0" text="سمت" textFill="WHITE" />
+                     </children>
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                  </VBox>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="193.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
+            <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="بانک جاواد" textFill="WHITE">
+                     <font>
+                        <Font name="B Paatch Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="Javad Bank" textFill="WHITE">
+                     <font>
+                        <Font name="Digi Nozha Regular" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
