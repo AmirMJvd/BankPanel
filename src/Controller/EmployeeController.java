@@ -1,22 +1,41 @@
 package Controller;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+//import javafx.scene.robot.Robot;
+import java.awt.Robot;
+import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.io.File;
+
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import model.User;
 
+import javax.imageio.ImageIO;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.awt.image.BufferedImage;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.security.SecureRandom;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.*;
+
+
 
 import static main.Main.CURRENCY;
 
@@ -73,11 +92,16 @@ public class EmployeeController {
     private TextField CardNumber;
 
     @FXML
+    private TextField CardNumber1;
+
+    @FXML
+    private TextField CardNumber2;
+
+    @FXML
     private TextField DepositNumber;
 
     @FXML
     private TextField ShabaNumber;
-
 
     @FXML
     private TextField inventory;
@@ -90,6 +114,13 @@ public class EmployeeController {
 
     @FXML
     private TextField TransferAmount;
+
+    @FXML
+    private TextField TransferAmount1;
+
+    @FXML
+    private TextField TransferAmount2;
+
 
     @FXML
     private TextField OriginCardNumber;
@@ -119,7 +150,16 @@ public class EmployeeController {
     private VBox Three;
 
     @FXML
-    private VBox Three1;
+    private VBox Two1;
+
+    @FXML
+    private VBox Two2;
+
+    @FXML
+    private VBox Two21;
+
+    @FXML
+    private VBox Two11;
 
     @FXML
     private VBox Four;
@@ -128,7 +168,19 @@ public class EmployeeController {
     private VBox Five;
 
     @FXML
+    private VBox Five1;
+
+    @FXML
+    private VBox Five2;
+
+    @FXML
     private HBox search;
+
+    @FXML
+    private VBox one1;
+
+    @FXML
+    private VBox one2;
 
     @FXML
     private ImageView Cancel;
@@ -137,17 +189,105 @@ public class EmployeeController {
     private Label NameLabel;
 
     @FXML
+    private Label NameLabel1;
+
+    @FXML
+    private Label NameLabel2;
+
+    @FXML
     private Label PriceLabel;
+
+    @FXML
+    private Label PriceLabel1;
+
+    @FXML
+    private Label PriceLabel2;
 
     @FXML
     private Label destinationLabel;
 
     @FXML
+    private Label destinationLabel1;
+
+    @FXML
+    private Label destinationLabel2;
+
+    @FXML
     private Label OriginCardNumberLabel;
+
+    @FXML
+    private Label amount;
+
+    @FXML
+    private Label amount1;
+
+    @FXML
+    private Label amount2;
+
+    @FXML
+    private Label origin;
+
+    @FXML
+    private Label originName;
+
+    @FXML
+    private Label destination;
+
+    @FXML
+    private Label destination1;
+
+    @FXML
+    private Label destination2;
+
+    @FXML
+    private Label destinationName;
+
+    @FXML
+    private Label destinationName1;
+
+    @FXML
+    private Label destinationName2;
+
+    @FXML
+    private Label DateLabel;
+
+    @FXML
+    private Label DateLabel1;
+
+    @FXML
+    private Label DateLabel2;
+
+    @FXML
+    private Label HourLabel;
+
+    @FXML
+    private Label HourLabel1;
+
+    @FXML
+    private Label HourLabel2;
+
+    @FXML
+    private Label trackingNumber;
+
+    @FXML
+    private Label trackingNumber1;
+
+    @FXML
+    private Label trackingNumber2;
 
 
     @FXML
+    private Button downloadButton;
+
+    @FXML
+    private Button Download1;
+
+    @FXML
+    private Button Download2;
+
+    @FXML
     private ComboBox<String> gender;
+
 
     private final SecureRandom random = new SecureRandom(); // برای تولید اعداد تصادفی امن‌تر
 
@@ -219,7 +359,45 @@ public class EmployeeController {
             TransferAmount.setText(formattedValue);
         });
 
+        TransferAmount1.textProperty().addListener((observable, oldValue, newValue) -> {
+            // فقط اعداد ویرایش شوند، حروف حذف شوند
+            String cleanValue = newValue.replaceAll("[^0-9]", "");
+
+            if (cleanValue.isEmpty()) {
+                TransferAmount1.setText("");
+                return;
+            }
+
+            // تبدیل مقدار به عدد و افزودن کاما
+            String formattedValue = formatWithCommas(cleanValue);
+
+            // غیرفعال کردن Listener برای جلوگیری از بازگشتی شدن تغییرات
+            TransferAmount1.setText(formattedValue);
+        });
+
+        TransferAmount2.textProperty().addListener((observable, oldValue, newValue) -> {
+            // فقط اعداد ویرایش شوند، حروف حذف شوند
+            String cleanValue = newValue.replaceAll("[^0-9]", "");
+
+            if (cleanValue.isEmpty()) {
+                TransferAmount2.setText("");
+                return;
+            }
+
+            // تبدیل مقدار به عدد و افزودن کاما
+            String formattedValue = formatWithCommas(cleanValue);
+
+            // غیرفعال کردن Listener برای جلوگیری از بازگشتی شدن تغییرات
+            TransferAmount2.setText(formattedValue);
+        });
+
+
+
+
         LoadUser();
+        downloadButton.setOnAction(event -> takeScreenshot());
+        Download1.setOnAction(event -> takeScreenshot1());
+        Download2.setOnAction(event -> takeScreenshot2());
 
     }
 
@@ -287,7 +465,7 @@ public class EmployeeController {
         AccNum.setText(accountNumber);
 
         // تولید کد شبا ۲۴ رقمی که با "IR" شروع شود
-        String shabaNumber = "IR" + generateRandomNumber(22);
+        String shabaNumber = "IR" + generateRandomNumber(24);
         ShabaNum.setText(shabaNumber);
 
         // مقداردهی اولیه بخش‌های کارت بانکی
@@ -446,7 +624,7 @@ public class EmployeeController {
             long amount = Long.parseLong(amountText);
 
             // بررسی سقف مبلغ (100 میلیون)
-            if (amount > 100_000_000) {
+            if (amount > 1_000_000_000) {
                 showAlert("مبلغ بیش از حد مجاز", "مبلغ وارد شده بیش از 100 میلیون تومان است!");
                 return;
             }
@@ -512,7 +690,7 @@ public class EmployeeController {
             showAlert("موفقیت", "شماره کارت ثبت شد.");
 
             // جستجو برای پیدا کردن User ID از شماره کارت
-            String userID = searchUserIDByCardNumber(cardNum);
+                String userID = searchUserIDByCardNumber(cardNum);
             if (userID != null) {
                 // جستجو برای یافتن نام و نام خانوادگی کاربر
                 String[] userInfo = searchUserInfoByUserID(userID);
@@ -807,51 +985,6 @@ public class EmployeeController {
         Two.setManaged(true);  // فضای عنصر را از Layout حذف می‌کند (اختیاری)
     }
 
-//    @FXML
-//    void ReceivePassword(ActionEvent event) {
-//        String CartNumber =OriginCardNumberLabel.getText();
-//        String [] Date = searchYear(CartNumber);
-//        String txtYear = Year1.getText();
-//        String txtMonth = Month1.getText();
-//        String cvv2 = CVV2.getText();
-//
-//        if (txtYear.isEmpty() || txtMonth.isEmpty() || cvv2.isEmpty()) {
-//            showAlert("خطا", "لطفاً سال و ماه و CVV2 را وارد کنید.");
-//            return; // از ادامه اجرا جلوگیری می‌کنیم
-//        }
-//        if(Date!=null){
-//            String Year = Date[0];
-//            String Month = Date[1];
-//            if(Year.equals(txtYear) && Month.equals(txtMonth)){
-//                // جستجو برای پیدا کردن User ID از شماره کارت
-//                String userID = searchUserIDByCardNumber(CartNumber);
-//                if (userID != null) {
-//                    // جستجو برای یافتن نام و نام خانوادگی کاربر
-//                    String userInfo = searchUserEmail(userID);
-//                    if (userInfo != null) {
-//                        String recipient = userInfo; // ایمیل گیرنده
-//                        String code = generateRandomCode(); // تولید رمز تصادفی
-//                        boolean isSent = sendEmail(recipient, code);
-//                        if (isSent) {
-//                            showAlert("موفقیت", "رمز پویا به ایمیل شما ارسال گردید !");
-//                        } else {
-//                            showAlert("خطا", "ارسال رمز نا موفق!");
-//                        }
-//                    } else {
-//                        showAlert("خطا", "اطلاعات کاربر یافت نشد.");
-//                    }
-//                } else {
-//                    showAlert("خطا", "شماره کارت معتبر نیست.");
-//                }
-//            }else {
-//                showAlert("خطا!","تاریخ انقضا اشتباه هست !");
-//            }
-//
-//        }else {
-//            showAlert("خطا!","تاریخ انقضا پیدا نشد");
-//        }
-//
-//    }
 
     private String sentCode;  // برای ذخیره کد ارسال‌شده به ایمیل
 
@@ -882,7 +1015,6 @@ public class EmployeeController {
                     String userInfo = searchUserEmail(userID);
                     if (userInfo != null) {
                         String recipient = userInfo; // ایمیل گیرنده
-                        String code = generateRandomCode(); // تولید رمز تصادفی
                         sentCode = generateRandomCode();  // تولید کد تصادفی
                         boolean isSent = sendEmail(recipient, sentCode);
                         if (isSent) {
@@ -1033,17 +1165,230 @@ public class EmployeeController {
 
 
     @FXML
-    void next3(ActionEvent event) {
+    void next3(ActionEvent event) throws IOException {
         String enteredCode = Password.getText();  // کد واردشده توسط کاربر از تکست فیلد Password
 
         // بررسی اینکه کد واردشده با کد ارسال‌شده برابر باشد
         if (sentCode != null && sentCode.equals(enteredCode)) {
-            // اگر کدها برابر بودند، عملیات زیر را انجام بده
-            Four.setVisible(false);  // عنصر را نامرئی می‌کند
-            Four.setManaged(false);  // فضای عنصر را از Layout حذف می‌کند
+            String cardNum = transferArray[4].toString();
+            String userID = searchUserIDByCardNumber(cardNum);
+            String inventoryStr = searchUserinventoryByUserID(userID);
+            if(transferArray[1].toString().equals("کارت")){
+                System.out.println("____________________________");
+                String userID1 = searchUserIDByCardNumber(transferArray[2].toString());
+                String inventoryStr1 = searchUserinventoryByUserID(userID1);
+                System.out.println(inventoryStr1);
+
+                // گرفتن مقدار خانه اول آرایه و تبدیل به عدد
+                String transferStr1 = transferArray[0].toString().trim();
+                String transferCleaned1 = transferStr1.replaceAll("[^\\d]", "");
+                int transferAmount1 = Integer.parseInt(transferCleaned1);
+
+                // حذف تمام حروف غیراعداد (مثل "ريال" و فاصله‌های اضافی)
+                String inventoryCleaned1 = inventoryStr1.replaceAll("[^\\d]", "");
+                int inventory1 = Integer.parseInt(inventoryCleaned1);
+                int remainingAmount1 = inventory1 + transferAmount1;
+                updateInventory1(userID1,remainingAmount1);
+            }else if(transferArray[1].toString().equals("سپرده")){
+                String userID1 = searchUserIDByAccountNumber(transferArray[2].toString());
+                String inventoryStr1 = searchUserinventoryByUserID(userID1);
+
+                // گرفتن مقدار خانه اول آرایه و تبدیل به عدد
+                String transferStr = transferArray[0].toString().trim();
+                String transferCleaned = transferStr.replaceAll("[^\\d]", "");
+                int transferAmount1 = Integer.parseInt(transferCleaned);
+
+                // حذف تمام حروف غیراعداد (مثل "ريال" و فاصله‌های اضافی)
+                String inventoryCleaned1 = inventoryStr1.replaceAll("[^\\d]", "");
+                int inventory1 = Integer.parseInt(inventoryCleaned1);
+                int remainingAmount1 = inventory1 + transferAmount1;
+                updateInventory1(userID1,remainingAmount1);
+            }else if(transferArray[1].toString().equals("شبا")){
+                String userID1 = searchUserIDByShabaNumber(transferArray[2].toString());
+                String inventoryStr1 = searchUserinventoryByUserID(userID1);
+
+                // گرفتن مقدار خانه اول آرایه و تبدیل به عدد
+                String transferStr = transferArray[0].toString().trim();
+                String transferCleaned = transferStr.replaceAll("[^\\d]", "");
+                int transferAmount1 = Integer.parseInt(transferCleaned);
+
+                // حذف تمام حروف غیراعداد (مثل "ريال" و فاصله‌های اضافی)
+                String inventoryCleaned1 = inventoryStr1.replaceAll("[^\\d]", "");
+                int inventory1 = Integer.parseInt(inventoryCleaned1);
+                int remainingAmount1 = inventory1 + transferAmount1;
+                updateInventory1(userID1,remainingAmount1);
+            }
+
+            // حذف تمام حروف غیراعداد (مثل "ريال" و فاصله‌های اضافی)
+            String inventoryCleaned = inventoryStr.replaceAll("[^\\d]", "");
+            int inventory = Integer.parseInt(inventoryCleaned);
+
+
+            // گرفتن مقدار خانه اول آرایه و تبدیل به عدد
+            String transferStr = transferArray[0].toString().trim();
+            String transferCleaned = transferStr.replaceAll("[^\\d]", "");
+            int transferAmount = Integer.parseInt(transferCleaned);
+
+            // بررسی مقدار و چاپ نتیجه
+            if (inventory > transferAmount) {
+                int remainingAmount = inventory - transferAmount;
+                System.out.println("مقدار باقی‌مانده: " + remainingAmount);
+                updateInventory(userID,remainingAmount);
+
+                // اگر کدها برابر بودند، عملیات زیر را انجام بده
+                Four.setVisible(false);  // عنصر را نامرئی می‌کند
+                Four.setManaged(false);  // فضای عنصر را از Layout حذف می‌کند
+
+                String track  = generateRandomNumber(9);
+                transferArray[6] = track;
+                // دریافت تاریخ امروز
+                LocalDate today = LocalDate.now();
+                // تبدیل تاریخ به آرایه
+                String[] dateArray = {
+                        String.valueOf(today.getYear()),  // سال
+                        String.valueOf(today.getMonthValue()),  // ماه
+                        String.valueOf(today.getDayOfMonth())  // روز
+                };
+
+                // دریافت زمان فعلی
+                LocalTime now = LocalTime.now();
+                String[] timeArray = {
+                        String.valueOf(now.getHour()),    // ساعت
+                        String.valueOf(now.getMinute()),  // دقیقه
+                        String.valueOf(now.getSecond())   // ثانیه
+                };
+
+                // نمایش تاریخ
+                transferArray[7] = String.join("/", dateArray);
+                transferArray[8] =String.join(":", timeArray);
+
+                amount.setText( transferArray[0].toString().trim());
+                origin.setText(transferArray[2].toString().trim());
+                originName.setText(transferArray[3].toString().trim());
+                destination.setText(transferArray[4].toString().trim());
+                destinationName.setText(transferArray[5].toString().trim());
+                trackingNumber.setText(transferArray[6].toString().trim());
+                DateLabel.setText(transferArray[7].toString().trim());
+                HourLabel.setText(transferArray[8].toString().trim());
+
+                File file = new File("Transfers.txt");
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+                FileWriter fw = new FileWriter(file,true);
+                fw.write("Amount transferred :" + transferArray[0].toString().trim());
+                fw.write("\n");
+                fw.write("Transfer type :"+ transferArray[1].toString().trim());
+                fw.write("\n");
+                fw.write("destination number :" + transferArray[2].toString().trim());
+                fw.write("\n");
+                fw.write("destination name :" + transferArray[3].toString().trim());
+                fw.write("\n");
+                fw.write("Origin number :" + transferArray[4].toString().trim());
+                fw.write("\n");
+                fw.write("Origin name :" + transferArray[5].toString().trim());
+                fw.write("\n");
+                fw.write("tracking code :" + transferArray[6].toString().trim());
+                fw.write("\n");
+                fw.write("Date :" + transferArray[7].toString().trim());
+                fw.write("\n");
+                fw.write("Time :" + transferArray[8].toString().trim());
+                fw.write("\n");
+                fw.write("-------------");
+                fw.write("\n");
+                fw.close();
+
+
+
+            } else {
+                showAlert("خطا!", "موجودی کافی نیست!");
+            }
+
+
         } else {
             showAlert("خطا", "کد وارد شده اشتباه است.");
         }
+
+    }
+    public void updateInventory(String userID, int remainingAmount) {
+        String fileName = "userID.txt";
+        List<String> lines = new ArrayList<>();
+
+        try {
+            // خواندن تمام خطوط فایل
+            lines = Files.readAllLines(Paths.get(fileName));
+
+            for (int i = 0; i < lines.size(); i++) {
+                if (lines.get(i).trim().equals("User ID: " + userID)) {
+                    int targetLineIndex = i + 8; // رفتن به خط هشتم
+
+                    if (targetLineIndex < lines.size()) {
+                        // تغییر مقدار inventory
+                        lines.set(targetLineIndex, "inventory Price: " + remainingAmount + "  ريال");
+                    }
+                    break; // بعد از تغییر، نیازی به ادامه جستجو نیست
+                }
+            }
+
+            // بازنویسی فایل با مقادیر جدید
+            Files.write(Paths.get(fileName), lines, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
+
+        } catch (IOException e) {
+            System.out.println("خطایی رخ داد: " + e.getMessage());
+        }
+    }
+
+    public void updateInventory1(String userID, int remainingAmount) {
+        String fileName = "userID.txt";
+        List<String> lines = new ArrayList<>();
+
+        try {
+            // خواندن تمام خطوط فایل
+            lines = Files.readAllLines(Paths.get(fileName));
+
+            for (int i = 0; i < lines.size(); i++) {
+                if (lines.get(i).trim().equals("User ID: " + userID)) {
+                    int targetLineIndex = i + 8; // رفتن به خط هشتم
+
+                    if (targetLineIndex < lines.size()) {
+                        // تغییر مقدار inventory
+                        lines.set(targetLineIndex, "inventory Price: " + remainingAmount + "  ريال");
+                    }
+                    break; // بعد از تغییر، نیازی به ادامه جستجو نیست
+                }
+            }
+
+            // بازنویسی فایل با مقادیر جدید
+            Files.write(Paths.get(fileName), lines, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
+
+        } catch (IOException e) {
+            System.out.println("خطایی رخ داد: " + e.getMessage());
+        }
+    }
+
+    private String searchUserinventoryByUserID(String userID) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("userID.txt"))) {
+            String line;
+            String inventory = null;
+
+            while ((line = reader.readLine()) != null) {
+                if (line.startsWith("User ID: " + userID)) {
+                    // به دنبال نام و نام خانوادگی می‌گردیم
+                    while ((line = reader.readLine()) != null) {
+                        if (line.startsWith("inventory Price:")) {
+                            inventory = line.split(":")[1].trim();
+                        }
+                        if (inventory != null ) {
+                            break;
+                        }
+                    }
+                    return inventory;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 
@@ -1236,5 +1581,540 @@ public class EmployeeController {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void takeScreenshot() {
+        try {
+            // تعیین محدوده‌ای که باید عکس بگیریم
+            int x = 295, y = 367, width = 344, height = 340;
+            Robot robot = new Robot();
+            Rectangle captureArea = new Rectangle(x, y, width, height);
+
+            // گرفتن اسکرین‌شات
+            BufferedImage bufferedImage = robot.createScreenCapture(captureArea);
+
+            // باز کردن پنجره ذخیره‌سازی فایل
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Save Screenshot");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PNG Image", "*.png"));
+
+            // انتخاب مسیر ذخیره‌سازی
+            File file = fileChooser.showSaveDialog(new Stage());
+
+            if (file != null) {
+                ImageIO.write(bufferedImage, "png", file);
+                System.out.println("Screenshot saved at: " + file.getAbsolutePath());
+            } else {
+                System.out.println("Saving cancelled.");
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void takeScreenshot1() {
+        try {
+            // تعیین محدوده‌ای که باید عکس بگیریم
+            int x = 1100, y = 367, width = 344, height = 339;
+            Robot robot = new Robot();
+            Rectangle captureArea = new Rectangle(x, y, width, height);
+
+            // گرفتن اسکرین‌شات
+            BufferedImage bufferedImage = robot.createScreenCapture(captureArea);
+
+            // باز کردن پنجره ذخیره‌سازی فایل
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Save Screenshot");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PNG Image", "*.png"));
+
+            // انتخاب مسیر ذخیره‌سازی
+            File file = fileChooser.showSaveDialog(new Stage());
+
+            if (file != null) {
+                ImageIO.write(bufferedImage, "png", file);
+                System.out.println("Screenshot saved at: " + file.getAbsolutePath());
+            } else {
+                System.out.println("Saving cancelled.");
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void takeScreenshot2() {
+        try {
+            // تعیین محدوده‌ای که باید عکس بگیریم
+            int x = 689, y = 364, width = 344, height = 340;
+            Robot robot = new Robot();
+            Rectangle captureArea = new Rectangle(x, y, width, height);
+
+            // گرفتن اسکرین‌شات
+            BufferedImage bufferedImage = robot.createScreenCapture(captureArea);
+
+            // باز کردن پنجره ذخیره‌سازی فایل
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Save Screenshot");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PNG Image", "*.png"));
+
+            // انتخاب مسیر ذخیره‌سازی
+            File file = fileChooser.showSaveDialog(new Stage());
+
+            if (file != null) {
+                ImageIO.write(bufferedImage, "png", file);
+                System.out.println("Screenshot saved at: " + file.getAbsolutePath());
+            } else {
+                System.out.println("Saving cancelled.");
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    // آرایه برای ذخیره اطلاعات
+    private Object[] transferArray1 = new Object[7]; // استفاده از Object به جای long تا امکان مقدار null وجود داشته باشد.
+
+    @FXML
+    void next11 (ActionEvent event) {
+        // دریافت مقدار از TextField و حذف کاماها
+        String amountText = TransferAmount1.getText().replace(",", "");
+
+        // بررسی اینکه مقدار خالی نباشد
+        if (amountText.isEmpty()) {
+            showAlert("خطا", "لطفاً مبلغی وارد کنید.");
+            return;
+        }
+
+        try {
+            // تبدیل مقدار به عدد
+            long amount = Long.parseLong(amountText);
+
+
+            // ذخیره مقدار در خانه اول آرایه
+            transferArray1[0] = amount;
+
+            one1.setVisible(false);  // عنصر را نامرئی می‌کند
+            one1.setManaged(false);  // فضای عنصر را از Layout حذف می‌کند (اختیاری)
+            Two11.setVisible(false);
+            Two11.setManaged(false);
+
+            // پیام موفقیت‌آمیز
+            showAlert("موفقیت", "مبلغ ذخیره شد: " + amount);
+        } catch (NumberFormatException e) {
+            showAlert("خطا", "مبلغ وارد شده نامعتبر است.");
+        }
+
+    }
+
+    @FXML
+    void next12 (ActionEvent event) throws IOException {
+        // بررسی مقدار ذخیره‌شده در خانه اول (مبلغ انتقالی)
+        if (transferArray1[0] == null) {
+            showAlert("خطا", "ابتدا مبلغ را وارد کنید.");
+            return;
+        }
+
+        long amount;
+        try {
+            amount = (long) transferArray1[0]; // تبدیل مقدار ذخیره شده به عدد
+        } catch (Exception e) {
+            showAlert("خطا", "مبلغ نامعتبر است!");
+            return;
+        }
+
+        String depositNum = CardNumber1.getText().trim();
+
+            if (!depositNum.matches("\\d{14}")) {
+                showAlert("خطا", "شماره سپرده نامعتبر است! باید 14 رقم باشد.");
+                return;
+            }
+
+            transferArray1[1] = depositNum;
+            showAlert("موفقیت", "شماره سپرده ثبت شد.");
+
+            // جستجو برای پیدا کردن User ID از شماره کارت
+            String userID = searchUserIDByAccountNumber(depositNum);
+            if (userID != null) {
+                // جستجو برای یافتن نام و نام خانوادگی کاربر
+                String[] userInfo = searchUserInfoByUserID(userID);
+                if (userInfo != null) {
+                    setUserInfoInUI(userInfo[0], userInfo[1]);  // نمایش نام و نام خانوادگی
+                    transferArray1[2] = userInfo[0] + " " + userInfo[1]; // ذخیره در آرایه
+
+                    PriceLabel1.setText(transferArray1[0].toString());
+                    destinationLabel1.setText(transferArray1[1].toString());
+                    NameLabel1.setText(transferArray1[2].toString());
+
+
+                    String userID1 = searchUserIDByAccountNumber(transferArray1[1].toString());
+                    String inventoryStr1 = searchUserinventoryByUserID(userID1);
+
+                    // گرفتن مقدار خانه اول آرایه و تبدیل به عدد
+                    String transferStr = transferArray1[0].toString().trim();
+                    String transferCleaned = transferStr.replaceAll("[^\\d]", "");
+                    int transferAmount1 = Integer.parseInt(transferCleaned);
+
+                    // حذف تمام حروف غیراعداد (مثل "ريال" و فاصله‌های اضافی)
+                    String inventoryCleaned1 = inventoryStr1.replaceAll("[^\\d]", "");
+                    int inventory1 = Integer.parseInt(inventoryCleaned1);
+                    int remainingAmount1 = inventory1 + transferAmount1;
+                    updateInventory1(userID1,remainingAmount1);
+
+                    String track  = generateRandomNumber(9);
+                    transferArray1[3] = track;
+                    // دریافت تاریخ امروز
+                    LocalDate today = LocalDate.now();
+                    // تبدیل تاریخ به آرایه
+                    String[] dateArray = {
+                            String.valueOf(today.getYear()),  // سال
+                            String.valueOf(today.getMonthValue()),  // ماه
+                            String.valueOf(today.getDayOfMonth())  // روز
+                    };
+
+                    // دریافت زمان فعلی
+                    LocalTime now = LocalTime.now();
+                    String[] timeArray = {
+                            String.valueOf(now.getHour()),    // ساعت
+                            String.valueOf(now.getMinute()),  // دقیقه
+                            String.valueOf(now.getSecond())   // ثانیه
+                    };
+
+                    // نمایش تاریخ
+                    transferArray1[4] = String.join("/", dateArray);
+                    transferArray1[5] =String.join(":", timeArray);
+
+                    amount1.setText(transferArray1[0].toString().trim());
+                    destination1.setText(transferArray1[1].toString().trim());
+                    destinationName1.setText(transferArray1[2].toString().trim());
+                    trackingNumber1.setText(transferArray1[3].toString().trim());
+                    DateLabel1.setText(transferArray1[4].toString().trim());
+                    HourLabel1.setText(transferArray1[5].toString().trim());
+
+                    File file = new File("Deposits.txt");
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    FileWriter fw = new FileWriter(file,true);
+                    fw.write("Amount transferred :" + transferArray1[0].toString().trim());
+                    fw.write("\n");
+                    fw.write("Transfer type :" + "واریز وجه");
+                    fw.write("\n");
+                    fw.write("destination number :" + transferArray1[1].toString().trim());
+                    fw.write("\n");
+                    fw.write("destination name : " +transferArray1[2].toString().trim());
+                    fw.write("\n");
+                    fw.write("Name of the employee :");
+                    fw.write("\n");
+                    fw.write("tracking code :" + transferArray1[3].toString().trim());
+                    fw.write("\n");
+                    fw.write("Date :" + transferArray1[4].toString().trim());
+                    fw.write("\n");
+
+                    fw.close();
+
+
+                    Two1.setVisible(false);
+                    Two1.setManaged(false);
+
+                } else {
+                    showAlert("خطا", "اطلاعات کاربر یافت نشد.");
+                }
+            } else {
+                showAlert("خطا", "شماره سپرده معتبر نیست.");
+            }
+
+    }
+
+    @FXML
+    void Show1 (MouseEvent event) throws IOException {
+        // بررسی مقدار ذخیره‌شده در خانه اول (مبلغ انتقالی)
+        if (transferArray1[0] == null) {
+            showAlert("خطا", "ابتدا مبلغ را وارد کنید.");
+            return;
+        }
+
+        long amount;
+        try {
+            amount = (long) transferArray1[0]; // تبدیل مقدار ذخیره شده به عدد
+        } catch (Exception e) {
+            showAlert("خطا", "مبلغ نامعتبر است!");
+            return;
+        }
+
+        String depositNum = CardNumber1.getText().trim();
+
+            if (!depositNum.matches("\\d{14}")) {
+                showAlert("خطا", "شماره سپرده نامعتبر است! باید 14 رقم باشد.");
+                return;
+            }
+
+            transferArray1[1] = depositNum;
+            showAlert("موفقیت", "شماره سپرده ثبت شد.");
+
+            // جستجو برای پیدا کردن User ID از شماره کارت
+            String userID = searchUserIDByAccountNumber(depositNum);
+            if (userID != null) {
+                // جستجو برای یافتن نام و نام خانوادگی کاربر
+                String[] userInfo = searchUserInfoByUserID(userID);
+                if (userInfo != null) {
+                    setUserInfoInUI(userInfo[0], userInfo[1]);  // نمایش نام و نام خانوادگی
+                    transferArray1[2] = userInfo[0] + " " + userInfo[1]; // ذخیره در آرایه
+
+                    PriceLabel1.setText(transferArray1[0].toString());
+                    destinationLabel1.setText(transferArray1[1].toString());
+                    NameLabel1.setText(transferArray1[2].toString());
+
+                    Two11.setVisible(true);
+                    Two11.setManaged(true);
+
+                } else {
+                    showAlert("خطا", "اطلاعات کاربر یافت نشد.");
+                }
+            } else {
+                showAlert("خطا", "شماره سپرده معتبر نیست.");
+            }
+
+    }
+
+
+    @FXML
+    void Back11 (ActionEvent event) {
+        one1.setVisible(true);  // عنصر را نامرئی می‌کند
+        one1.setManaged(true);  // فضای عنصر را از Layout حذف می‌کند (اختیاری)
+    }
+
+    @FXML
+    void End1  (ActionEvent event) {
+        one1.setVisible(true);
+        one1.setManaged(true);
+        Two1.setVisible(true);
+        Two1.setManaged(true);
+    }
+
+    // آرایه برای ذخیره اطلاعات
+    private Object[] transferArray2 = new Object[7]; // استفاده از Object به جای long تا امکان مقدار null وجود داشته باشد.
+
+    @FXML
+    void next21 (ActionEvent event){
+        // دریافت مقدار از TextField و حذف کاماها
+        String amountText = TransferAmount2.getText().replace(",", "");
+
+        // بررسی اینکه مقدار خالی نباشد
+        if (amountText.isEmpty()) {
+            showAlert("خطا", "لطفاً مبلغی وارد کنید.");
+            return;
+        }
+
+        try {
+            // تبدیل مقدار به عدد
+            long amount = Long.parseLong(amountText);
+
+            // ذخیره مقدار در خانه اول آرایه
+            transferArray2[0] = amount;
+
+            one2.setVisible(false);
+            one2.setManaged(false);
+            Two21.setVisible(false);
+            Two21.setManaged(false);
+
+            // پیام موفقیت‌آمیز
+            showAlert("موفقیت", "مبلغ ذخیره شد: " + amount);
+        } catch (NumberFormatException e) {
+            showAlert("خطا", "مبلغ وارد شده نامعتبر است.");
+        }
+
+    }
+
+    @FXML
+    void next22 (ActionEvent event) throws IOException {
+        // بررسی مقدار ذخیره‌شده در خانه اول (مبلغ انتقالی)
+        if (transferArray2[0] == null) {
+            showAlert("خطا", "ابتدا مبلغ را وارد کنید.");
+            return;
+        }
+
+        long amount;
+        try {
+            amount = (long) transferArray2[0]; // تبدیل مقدار ذخیره شده به عدد
+        } catch (Exception e) {
+            showAlert("خطا", "مبلغ نامعتبر است!");
+            return;
+        }
+
+        String depositNum = CardNumber2.getText().trim();
+
+
+        if (!depositNum.isEmpty()) {
+            if (!depositNum.matches("\\d{14}")) {
+                showAlert("خطا", "شماره سپرده نامعتبر است! باید 14 رقم باشد.");
+                return;
+            }
+
+            transferArray2[1] = depositNum;
+            showAlert("موفقیت", "شماره سپرده ثبت شد.");
+
+            // جستجو برای پیدا کردن User ID از شماره کارت
+            String userID = searchUserIDByAccountNumber(depositNum);
+            if (userID != null) {
+                // جستجو برای یافتن نام و نام خانوادگی کاربر
+                String[] userInfo = searchUserInfoByUserID(userID);
+                if (userInfo != null) {
+                    setUserInfoInUI(userInfo[0], userInfo[1]);  // نمایش نام و نام خانوادگی
+                    transferArray2[2] = userInfo[0] + " " + userInfo[1]; // ذخیره در آرایه
+
+                    PriceLabel2.setText(transferArray2[0].toString());
+                    destinationLabel2.setText(transferArray2[1].toString());
+                    NameLabel2.setText(transferArray2[2].toString());
+
+
+                    String userID1 = searchUserIDByAccountNumber(transferArray2[1].toString());
+                    String inventoryStr1 = searchUserinventoryByUserID(userID1);
+
+                    // گرفتن مقدار خانه اول آرایه و تبدیل به عدد
+                    String transferStr = transferArray2[0].toString().trim();
+                    String transferCleaned = transferStr.replaceAll("[^\\d]", "");
+                    int transferAmount1 = Integer.parseInt(transferCleaned);
+
+                    // حذف تمام حروف غیراعداد (مثل "ريال" و فاصله‌های اضافی)
+                    String inventoryCleaned1 = inventoryStr1.replaceAll("[^\\d]", "");
+                    int inventory1 = Integer.parseInt(inventoryCleaned1);
+                    if(inventory1>transferAmount1) {
+                        int remainingAmount1 = inventory1 - transferAmount1;
+                        updateInventory1(userID1, remainingAmount1);
+
+                        String track  = generateRandomNumber(9);
+                        transferArray2[3] = track;
+                        // دریافت تاریخ امروز
+                        LocalDate today = LocalDate.now();
+                        // تبدیل تاریخ به آرایه
+                        String[] dateArray = {
+                                String.valueOf(today.getYear()),  // سال
+                                String.valueOf(today.getMonthValue()),  // ماه
+                                String.valueOf(today.getDayOfMonth())  // روز
+                        };
+
+                        // دریافت زمان فعلی
+                        LocalTime now = LocalTime.now();
+                        String[] timeArray = {
+                                String.valueOf(now.getHour()),    // ساعت
+                                String.valueOf(now.getMinute()),  // دقیقه
+                                String.valueOf(now.getSecond())   // ثانیه
+                        };
+
+                        // نمایش تاریخ
+                        transferArray2[4] = String.join("/", dateArray);
+                        transferArray2[5] =String.join(":", timeArray);
+
+                        amount2.setText(transferArray2[0].toString().trim());
+                        destination2.setText(transferArray2[1].toString().trim());
+                        destinationName2.setText(transferArray2[2].toString().trim());
+                        trackingNumber2.setText(transferArray2[3].toString().trim());
+                        DateLabel2.setText(transferArray2[4].toString().trim());
+                        HourLabel2.setText(transferArray2[5].toString().trim());
+
+                        File file = new File("Deposits.txt");
+                        if (!file.exists()) {
+                            file.createNewFile();
+                        }
+                        FileWriter fw = new FileWriter(file,true);
+                        fw.write("Amount transferred : " + transferArray2[0].toString().trim());
+                        fw.write("\n");
+                        fw.write("Transfer type : " + "برداشت وجه");
+                        fw.write("\n");
+                        fw.write("destination number : " + transferArray2[1].toString().trim());
+                        fw.write("\n");
+                        fw.write("destination name : " +transferArray2[2].toString().trim());
+                        fw.write("\n");
+                        fw.write("Name of the employee : ");
+                        fw.write("\n");
+                        fw.write("tracking code : " + transferArray2[3].toString().trim());
+                        fw.write("\n");
+                        fw.write("Date : " + transferArray2[4].toString().trim());
+                        fw.write("\n");
+                        fw.write("Time : " + transferArray2[5].toString().trim());
+                        fw.write("\n");
+                        fw.write("-------------");
+                        fw.write("\n");
+                        fw.close();
+                        Two2.setVisible(false);
+                        Two2.setManaged(false);
+                    }else {
+                        showAlert("خطا!" , "موجودی کافی نیست !");
+                    }
+                } else {
+                    showAlert("خطا", "اطلاعات کاربر یافت نشد.");
+                }
+            } else {
+                showAlert("خطا", "شماره سپرده معتبر نیست.");
+            }
+        }
+    }
+
+    @FXML
+    void Show2 (MouseEvent event) throws IOException {
+        // بررسی مقدار ذخیره‌شده در خانه اول (مبلغ انتقالی)
+        if (transferArray2[0] == null) {
+            showAlert("خطا", "ابتدا مبلغ را وارد کنید.");
+            return;
+        }
+
+        long amount;
+        try {
+            amount = (long) transferArray2[0]; // تبدیل مقدار ذخیره شده به عدد
+        } catch (Exception e) {
+            showAlert("خطا", "مبلغ نامعتبر است!");
+            return;
+        }
+
+        String depositNum = CardNumber2.getText().trim();
+
+
+
+            if (!depositNum.matches("\\d{14}")) {
+                showAlert("خطا", "شماره سپرده نامعتبر است! باید 14 رقم باشد.");
+                return;
+            }
+
+            transferArray2[1] = depositNum;
+            showAlert("موفقیت", "شماره سپرده ثبت شد.");
+
+            // جستجو برای پیدا کردن User ID از شماره کارت
+            String userID = searchUserIDByAccountNumber(depositNum);
+            if (userID != null) {
+                // جستجو برای یافتن نام و نام خانوادگی کاربر
+                String[] userInfo = searchUserInfoByUserID(userID);
+                if (userInfo != null) {
+                    setUserInfoInUI(userInfo[0], userInfo[1]);  // نمایش نام و نام خانوادگی
+                    transferArray2[2] = userInfo[0] + " " + userInfo[1]; // ذخیره در آرایه
+
+                    PriceLabel2.setText(transferArray2[0].toString());
+                    destinationLabel2.setText(transferArray2[1].toString());
+                    NameLabel2.setText(transferArray2[2].toString());
+
+                    Two21.setVisible(true);
+                    Two21.setManaged(true);
+
+                } else {
+                    showAlert("خطا", "اطلاعات کاربر یافت نشد.");
+                }
+            } else {
+                showAlert("خطا", "شماره سپرده معتبر نیست.");
+            }
+    }
+
+    @FXML
+    void Back21 (ActionEvent event) {
+        one2.setVisible(true);  // عنصر را نامرئی می‌کند
+        one2.setManaged(true);  // فضای عنصر را از Layout حذف می‌کند (اختیاری)
+    }
+
+    @FXML
+    void End2 (ActionEvent event) {
+        one2.setVisible(true);
+        one2.setManaged(true);
+        Two2.setVisible(true);
+        Two2.setManaged(true);
     }
 }

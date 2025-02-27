@@ -1,0 +1,60 @@
+.shadow{
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
+}
+
+.button:hover {
+    -fx-scale-x: 1.005; /* Grow horizontally */
+    -fx-scale-y: 1.005; /* Grow vertically */
+    -fx-effect: dropshadow(gaussian, rgb(129, 132, 142), 10, 0.5, 0, 2); /* Emphasized shadow */
+}
+
+.tab{
+    -fx-font-family: "B Roya";
+    -fx-font-size: 19px;
+    -fx-background-color: no color; /* رنگ پس‌زمینه تب */
+    -fx-text-fill: white; /* رنگ نوشته تب */
+    -fx-padding: 7px; /* فضای داخلی تب */
+}
+
+.tab-pane {
+    -fx-background-color: #b3afaf; /* رنگ پس‌زمینه TabPane */
+}
+
+.tab:selected {
+    -fx-background-color:  #b3afaf; /* رنگ پس‌زمینه تب فعال */
+    -fx-font-weight: bold; /* متن ضخیم‌تر */
+}
+
+.custom-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-width: 2px;
+}
+
+.custom-scroll-pane .viewport {
+    -fx-background-color:  #e6e6e6;
+}
+
+.custom-scroll-pane .scroll-bar {
+    -fx-background-color: #bdc3c7;
+}
+
+.hbox{
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #959090, #cacaca);
+
+}
+
+.button-style {
+    -fx-border-color: #111111;
+    -fx-border-radius: 20px;
+    -fx-background-color: #828282;
+}
+
+.Cardviwe{
+    -fx-background-color: linear-gradient(from 10% 10% to 100% 100%, #5a5757, #afabab);
+
+}
+
+.border-style {
+    -fx-border-color: #111111;
+    -fx-border-radius: 20px;
+}

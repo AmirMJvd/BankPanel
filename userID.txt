@@ -1,12 +1,12 @@
 User ID: @0579b67c
-Account Number: 61228886408115
-Shaba Number: IR803939093402385323085233
+Account Number: 61228886408112
+Shaba Number: IR803939093402385323085232
 Card Number: 6393461094387725
 Card Passvord: 4635
 expiration Date: 08-06
 CVV2 Number: 549
 Account Type: کوتاه مدت
-inventory Price: 10000000  ريال
+inventory Price: 103900000  ريال
 ---------------
 User ID: @0579b68e
 Account Number: 61228886408115
@@ -16,5 +16,5 @@ Card Passvord: 4635
 expiration Date: 08-07
 CVV2 Number: 549
 Account Type: کوتاه مدت
-inventory Price: 20000000  ريال
+inventory Price: 25700000  ريال
 ---------------

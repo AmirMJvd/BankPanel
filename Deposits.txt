@@ -1,0 +1,32 @@
+Amount transferred:100000
+Transfer type :برداشت وجه
+destination number :61228886408112
+destination name : امیر جوادزاده
+Name of the employee :
+tracking code :795817470
+Date :2025/2/25
+Time :18:2:33
+-------------
+Amount transferred : 100000
+Transfer type : برداشت وجه
+destination number : 61228886408115
+destination name : پیام اسدی
+Name of the employee : 
+tracking code : 942211418
+Date : 2025/2/25
+Time : 18:16:25
+-------------
+Amount transferred :100000
+Transfer type :واریز وجه
+destination number :61228886408115
+destination name : پیام اسدی
+Name of the employee :
+tracking code :480359507
+Date :2025/2/25
+Amount transferred :100000
+Transfer type :واریز وجه
+destination number :61228886408115
+destination name : پیام اسدی
+Name of the employee :
+tracking code :890970389
+Date :2025/2/25

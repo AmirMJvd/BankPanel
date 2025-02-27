@@ -1,0 +1,60 @@
+Amount transferred :100000
+Transfer type :کارت
+destination number :6104338767725126
+destination name :پیام اسدی
+Origin number :6393461094387725
+Origin name :امیر جوادزاده
+tracking code :903123758
+Date :2025/2/27
+Time :1:21:54
+-------------
+Amount transferred :100000
+Transfer type :کارت
+destination number :6104338767725126
+destination name :پیام اسدی
+Origin number :6393461094387725
+Origin name :امیر جوادزاده
+tracking code :373473853
+Date :2025/2/27
+Time :1:27:36
+-------------
+Amount transferred :100000
+Transfer type :کارت
+destination number :6104338767725126
+destination name :پیام اسدی
+Origin number :6393461094387725
+Origin name :امیر جوادزاده
+tracking code :001012625
+Date :2025/2/27
+Time :1:38:37
+-------------
+Amount transferred :500000
+Transfer type :کارت
+destination number :6393461094387725
+destination name :امیر جوادزاده
+Origin number :6104338767725126
+Origin name :پیام اسدی
+tracking code :549075821
+Date :2025/2/27
+Time :1:50:37
+-------------
+Amount transferred :500000
+Transfer type :شبا
+destination number :IR803939093402385323085232
+destination name :امیر جوادزاده
+Origin number :6104338767725126
+Origin name :پیام اسدی
+tracking code :712852757
+Date :2025/2/27
+Time :2:0:2
+-------------
+Amount transferred :100000
+Transfer type :کارت
+destination number :6393461094387725
+destination name :امیر جوادزاده
+Origin number :6104338767725126
+Origin name :پیام اسدی
+tracking code :859816855
+Date :2025/2/27
+Time :2:3:34
+-------------
