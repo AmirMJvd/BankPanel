@@ -1,0 +1,24 @@
+Bill type : برق
+Bill shebaNumer : 0611974012893
+Payment shebaNumer : 21296325
+Bill Name : محمد
+Bill amount : 100,000
+Bill date : 2025-02-27
+Bill time : 18:47:31
+Bill payment status : پرداخت شده
+Bill payment tracking code : 582957328
+Bill payment date : 2025-02-28
+Bill payment time : 01:58:38
+-----------------------
+Bill type : برق
+Bill shebaNumer : 0611974012855
+Payment shebaNumer : 21296346
+Bill Name : محمد
+Bill amount : 100,000
+Bill date : 2025-02-27
+Bill time : 18:47:31
+Bill payment status : پرداخت شده
+Bill payment tracking code : 060638011
+Bill payment date : 2025-02-28
+Bill payment time : 03:21:27
+-----------------------

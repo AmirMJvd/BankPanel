@@ -219,3 +219,8 @@
 .tab-pane .tab:hover {
     -fx-background-color: #27ae60; /* تغییر رنگ در حالت هاور */
 }
+
+.border-style {
+    -fx-border-color: #111111;
+    -fx-border-radius: 20px;
+}

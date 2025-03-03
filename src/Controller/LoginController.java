@@ -9,8 +9,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import model.SharedData;
 
 import java.io.File;
@@ -59,7 +59,7 @@ public class LoginController {
 
 
             if (role.equals("کاربر")) {
-                openPage("../views/Employee.fxml", "Bank", username);
+                openPage("../views/userpage.fxml", "Bank", username);
             } else if (role.equals("مدیر")) {
                 openPage("../views/Manager.fxml", "Manager Panel", username);
             } else if (role.equals("کارمند")){
@@ -114,13 +114,16 @@ public class LoginController {
     private void openPage(String fxmlPath, String title, String username) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-            AnchorPane pane = loader.load();
+            BorderPane pane = loader.load();
 //
-//            // تنظیم نام کاربری در کنترلر
-//            if (title.equals("Bank")) {
-//                AdminController controller = loader.getController();
+            // تنظیم نام کاربری در کنترلر
+            if (title.equals("Bank")) {
+                UserPageController  controller = loader.getController();
+                controller.setId(username);
+            }
+//              UserPageController  controller = loader.getController();
 //                controller.setId(username);
-//
+//            }
 //            } else if (title.equals("Admin Panel")) {
 //                admin1Controller controller = loader.getController();
 //                controller.setId(username);

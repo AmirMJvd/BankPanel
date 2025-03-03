@@ -3,6 +3,7 @@ package Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,6 +11,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.security.SecureRandom;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -24,6 +27,9 @@ public class ManagerController {
     private ComboBox<String> AccType;
 
     @FXML
+    private ComboBox<String> BillType;
+
+    @FXML
     private DatePicker BirthDate;
 
     @FXML
@@ -31,6 +37,12 @@ public class ManagerController {
 
     @FXML
     private TextField CardNum1;
+
+    @FXML
+    private TextField NameTextField;
+
+    @FXML
+    private TextField NameTextField1;
 
     @FXML
     private TextField CardNum2;
@@ -66,6 +78,51 @@ public class ManagerController {
     private Label Role;
 
     @FXML
+    private Label amount;
+
+    @FXML
+    private Label PhoneNumber;
+
+    @FXML
+    private Label operatorLabel;
+
+    @FXML
+    private Label  BillID;
+
+    @FXML
+    private Label  BillID1;
+
+    @FXML
+    private Label PaymentID;
+
+    @FXML
+    private Label PaymentID1;
+
+    @FXML
+    private Label NameLabel;
+
+    @FXML
+    private Label NameLabel1;
+
+    @FXML
+    private Label DateLabel;
+
+    @FXML
+    private Label DateLabel1;
+
+    @FXML
+    private Label  TimeLabel;
+
+    @FXML
+    private Label  TimeLabel1;
+
+    @FXML
+    private Label PriceLabel;
+
+    @FXML
+    private Label BillTypeLab;
+
+    @FXML
     private ComboBox<String> RoleCombo;
 
     @FXML
@@ -87,7 +144,32 @@ public class ManagerController {
     private ComboBox<String> gender;
 
     @FXML
+    private ComboBox<String> Operator;
+
+    @FXML
     private TextField inventory;
+
+    @FXML
+    private TextField BillAmountTextField;
+
+
+    @FXML
+    private VBox one;
+
+    @FXML
+    private VBox one1;
+
+    @FXML
+    private VBox Two;
+
+    @FXML
+    private VBox Two1;
+
+    @FXML
+    private VBox Three;
+
+    @FXML
+    private Button Download;
 
     private String userID;
 
@@ -99,6 +181,41 @@ public class ManagerController {
         AccType.getItems().addAll("بلند مدت" , "کوتاه مدت");
         RoleCombo.getItems().addAll("مدیر" , "کارمند");
         branch.getItems().addAll("مرکزی" , "آبرسان","شهناز");
+        BillType.getItems().addAll( "تلفن ثابت","تلفن همراه" ,"برق" , "آب" , "گاز");
+        Operator.getItems().addAll( "همراه اول","ایرانسل");
+        BillAmountTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            // فقط اعداد ویرایش شوند، حروف حذف شوند
+            String cleanValue = newValue.replaceAll("[^0-9]", "");
+
+            if (cleanValue.isEmpty()) {
+                BillAmountTextField.setText("");
+                return;
+            }
+
+            // تبدیل مقدار به عدد و افزودن کاما
+            String formattedValue = formatWithCommas(cleanValue);
+
+            // غیرفعال کردن Listener برای جلوگیری از بازگشتی شدن تغییرات
+            BillAmountTextField.setText(formattedValue);
+        });
+    }
+
+    // متد برای افزودن کاما بعد از هر سه رقم
+    private String formatWithCommas(String number) {
+        StringBuilder formatted = new StringBuilder();
+        int length = number.length();
+        int counter = 0;
+
+        for (int i = length - 1; i >= 0; i--) {
+            formatted.insert(0, number.charAt(i));
+            counter++;
+            if (counter == 3 && i > 0) {
+                formatted.insert(0, ",");
+                counter = 0;
+            }
+        }
+
+        return formatted.toString();
     }
 
     @FXML
@@ -108,7 +225,7 @@ public class ManagerController {
         AccNum.setText(accountNumber);
 
         // تولید کد شبا ۲۴ رقمی که با "IR" شروع شود
-        String shabaNumber = "IR" + generateRandomNumber(22);
+        String shabaNumber = "IR" + generateRandomNumber(24);
         ShabaNum.setText(shabaNumber);
 
         // مقداردهی اولیه بخش‌های کارت بانکی
@@ -325,6 +442,168 @@ public class ManagerController {
         }
     }
 
+    // آرایه برای ذخیره اطلاعات
+    private Object[] transferArray = new Object[7]; // استفاده از Object به جای long تا امکان مقدار null وجود داشته باشد.
+
+    @FXML
+    void CreateAnInvoice (ActionEvent event) {
+       String BilType = BillType.getSelectionModel().getSelectedItem();
+       String Price = BillAmountTextField.getText().trim();
+
+       if(BilType == null || Price == null) {
+           showAlert1(Alert.AlertType.ERROR, "خطا", "تمامی فیلدها باید پر شوند!");
+       }else {
+           transferArray[0] = BilType;
+           transferArray[4] = Price;
+           // تولید CVV2 سه رقمی
+           BillID.setText(generateRandomNumber(13));
+           PaymentID.setText(generateRandomNumber(8));
+           PriceLabel.setText(Price);
+           transferArray[1] = BillID.getText();
+           transferArray[2] = PaymentID.getText();
+           one.setVisible(false);
+           one.setManaged(false);
+       }
+
+    }
+
+    @FXML
+    void IssuanceOfInvoices (ActionEvent event) throws IOException {
+        String name = NameTextField.getText().trim();
+        if(name == null || name.isEmpty()) {
+            showAlert1(Alert.AlertType.ERROR, "خطا", "لطفا نام کاربر را وارد کنید!");
+        }else {
+            transferArray[3] =name;
+
+            // دریافت تاریخ و زمان جاری
+            LocalDateTime now = LocalDateTime.now();
+
+            // فرمت تاریخ (مثلاً: 2025-02-27)
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            String Date = now.format(dateFormatter);
+
+            // فرمت زمان (مثلاً: 14:30:45)
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+            String Time = now.format(timeFormatter);
+
+            transferArray[5] =Date;
+            transferArray[6] =Time;
+            File file = new File("Bill.txt");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileWriter fileWriter = new FileWriter(file, true);
+            fileWriter.write("Bill type : " + transferArray[0].toString() + "\n");
+            fileWriter.write("Bill ID : " + transferArray[1].toString() + "\n");
+            fileWriter.write("Payment ID : " + transferArray[2].toString() + "\n");
+            fileWriter.write("Bill Name : " + transferArray[3].toString() + "\n");
+            fileWriter.write("Bill amount : " + transferArray[4].toString() + "\n");
+            fileWriter.write("Bill date : " + transferArray[5].toString() + "\n");
+            fileWriter.write("Bill time : " + transferArray[6].toString() + "\n");
+            fileWriter.write("Bill payment status : پرداخت نشده" + "\n");
+            fileWriter.write("Bill payment tracking code : " + "\n");
+            fileWriter.write("Bill payment date : " + "\n");
+            fileWriter.write("Bill payment time : "  + "\n");
+            fileWriter.write("-----------------------"  + "\n");
+            fileWriter.close();
+
+            showAlert1(Alert.AlertType.INFORMATION, "موفقیت", "صدورقبض با موفقیت انجام شد!");
+
+            amount.setText( transferArray[4].toString());
+            BillTypeLab.setText(transferArray[0].toString());
+            BillID1.setText(transferArray[1].toString());
+            PaymentID1.setText(transferArray[2].toString());
+            NameLabel.setText(transferArray[3].toString());
+            DateLabel.setText(transferArray[5].toString());
+            TimeLabel.setText(transferArray[6].toString());
+            Two.setVisible(false);
+            Two.setManaged(false);
+        }
+    }
+    @FXML
+    void Back (ActionEvent event)  {
+        one.setVisible(true);
+        one.setManaged(true);
+    }
+
+    @FXML
+    void reissue (ActionEvent event)  {
+        one.setVisible(true);
+        one.setManaged(true);
+        Two.setVisible(true);
+        Two.setManaged(true);
+    }
+    // آرایه برای ذخیره اطلاعات
+    private Object[] Phone = new Object[5]; // استفاده از Object به جای long تا امکان مقدار null وجود داشته باشد.
+
+    @FXML
+    void CreatePhone (ActionEvent event) throws IOException {
+        Phone[1] = Operator.getSelectionModel().getSelectedItem();
+        Phone[2] = NameTextField1.getText();
+        String phone = generateRandomNumber(7);
+        if( Phone[1] == null || NameTextField1.getText().isEmpty() ) {
+            showAlert1(Alert.AlertType.ERROR, "خطا", "لطفا تمام فیلد ها را پر کنید!");
+        }else{
+            if(Phone[1].equals("همراه اول")){
+                Phone[0] =  "0914" + phone;
+            }else if (Phone[1].equals("ایرانسل")){
+                Phone[0] = "0903" + phone;
+            }else {
+                showAlert1(Alert.AlertType.ERROR, "خطا", "اپراتور پیدا نشد!");
+            }
+            // دریافت تاریخ و زمان جاری
+            LocalDateTime now = LocalDateTime.now();
+
+            // فرمت تاریخ (مثلاً: 2025-02-27)
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            String Date = now.format(dateFormatter);
+
+            // فرمت زمان (مثلاً: 14:30:45)
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+            String Time = now.format(timeFormatter);
+
+            Phone[3] = Date;
+            Phone[4] = Time;
+
+            one1.setVisible(false);
+            one1.setManaged(false);
+
+
+
+            FileWriter fw = new FileWriter("PhoneInformation.txt", true);
+            fw.write("PhoneNumber : " + Phone[0].toString() + "\n");
+            fw.write("Operator : " + Phone[1].toString() + "\n");
+            fw.write("Name : " + Phone[2].toString() + "\n");
+            fw.write("inventory : 0" + "\n");
+            fw.write("Date : " + Phone[3].toString() + "\n");
+            fw.write("Time : " + Phone[4].toString() + "\n");
+            fw.write("----------------" + "\n");
+            fw.close();
+
+            PhoneNumber.setText(Phone[0].toString());
+            operatorLabel.setText(Phone[1].toString());
+            NameLabel1.setText(Phone[2].toString());
+            DateLabel1.setText(Phone[3].toString());
+            TimeLabel1.setText(Phone[4].toString());
+
+
+            for(int i = 0;i<5;i++){
+                System.out.println(Phone[i]);
+            }
+
+        }
+
+
+
+    }
+
+    @FXML
+    void Reregister (ActionEvent event)  {
+        one1.setVisible(true);
+        one.setManaged(true);
+
+    }
+
     private void showAlert1(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
@@ -341,6 +620,7 @@ public class ManagerController {
         PasswordRepetition.clear();
         RoleCombo.getSelectionModel().clearSelection();
     }
+
 
 
 }
