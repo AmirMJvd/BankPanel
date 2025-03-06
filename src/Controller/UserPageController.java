@@ -1984,7 +1984,7 @@ public class UserPageController {
                 GridPane.setMargin(anchorPane, new Insets(10));
             }
             // اضافه کردن وسط‌چین کردن
-            containerVBox.setAlignment(Pos.TOP_CENTER);
+
 
         } catch (IOException e) {
             e.printStackTrace();

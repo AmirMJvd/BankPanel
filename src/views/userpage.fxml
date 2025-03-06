@@ -23,7 +23,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" style="-fx-background-color: DDDDDDFF;" stylesheets="@../values/style_U.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserPageController">
     <center>
-        <TabPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6e7e8;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <TabPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6e7e8;" stylesheets="@../values/style_U.css" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
             <tabs>
                 <Tab text="صفحه اصلی">
                <content>
@@ -628,10 +628,10 @@
                                     </ImageView>
                                     <Label text="پرداخت قبض">
                                        <font>
-                                          <Font size="25.0" />
+                                          <Font name="B Homa" size="27.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets left="110.0" top="15.0" />
+                                          <Insets left="115.0" top="15.0" />
                                        </VBox.margin>
                                     </Label>
                                     <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="42.0" prefWidth="334.0" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
@@ -645,7 +645,7 @@
                                                 <Insets />
                                              </HBox.margin>
                                              <font>
-                                                <Font size="15.0" />
+                                                <Font name="B Roya" size="18.0" />
                                              </font>
                                           </TextField>
                                        </children>
@@ -664,7 +664,7 @@
                                                 <Insets />
                                              </HBox.margin>
                                              <font>
-                                                <Font size="15.0" />
+                                                <Font name="B Roya" size="18.0" />
                                              </font>
                                           </TextField>
                                        </children>
@@ -672,10 +672,13 @@
                                           <Insets left="8.0" top="30.0" />
                                        </VBox.margin>
                                     </HBox>
-                                    <Button mnemonicParsing="false" onAction="#payment" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card2" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="ادامه">
+                                    <Button mnemonicParsing="false" onAction="#payment" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card2" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="ادامه" textFill="WHITE">
                                        <VBox.margin>
                                           <Insets left="130.0" top="25.0" />
                                        </VBox.margin>
+                                       <font>
+                                          <Font name="B Mitra" size="25.0" />
+                                       </font>
                                     </Button>
                                  </children>
                               </VBox>
@@ -1453,15 +1456,15 @@
                                           <Image url="@../img/fund.png" />
                                        </image>
                                        <VBox.margin>
-                                          <Insets left="140.0" top="45.0" />
+                                          <Insets left="145.0" top="45.0" />
                                        </VBox.margin>
                                     </ImageView>
                                     <Label text="انتقال وجه">
                                        <font>
-                                          <Font size="25.0" />
+                                          <Font name="B Homa" size="27.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets left="120.0" top="15.0" />
+                                          <Insets left="125.0" top="15.0" />
                                        </VBox.margin>
                                     </Label>
                                     <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="42.0" prefWidth="334.0" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
@@ -1470,13 +1473,16 @@
                                           <String fx:value="shadow" />
                                        </styleClass>
                                        <children>
-                                          <Label prefHeight="44.0" prefWidth="142.0" text="ریال        " />
+                                          <Label alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="125.0" text="ریال">
+                                             <font>
+                                                <Font name="B Mitra" size="17.0" />
+                                             </font></Label>
                                           <TextField fx:id="TransferAmount" alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="379.0" promptText=" مبلغ انتقال : " styleClass="transparent" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
                                              <HBox.margin>
                                                 <Insets />
                                              </HBox.margin>
                                              <font>
-                                                <Font size="15.0" />
+                                                <Font name="B Roya" size="18.0" />
                                              </font>
                                           </TextField>
                                        </children>
@@ -1484,10 +1490,13 @@
                                           <Insets left="8.0" top="55.0" />
                                        </VBox.margin>
                                     </HBox>
-                                    <Button mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card2" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="ادامه">
+                                    <Button mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card2" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="ادامه" textFill="WHITE">
                                        <VBox.margin>
                                           <Insets left="130.0" top="100.0" />
                                        </VBox.margin>
+                                       <font>
+                                          <Font name="B Mitra" size="25.0" />
+                                       </font>
                                     </Button>
                                  </children>
                               </VBox>
@@ -2085,7 +2094,7 @@
                                     </ImageView>
                                     <Label prefHeight="36.0" prefWidth="317.0" text="شارژ مستقیم تلفن همراه">
                                        <font>
-                                          <Font size="25.0" />
+                                          <Font name="B Homa" size="27.0" />
                                        </font>
                                        <VBox.margin>
                                           <Insets left="50.0" top="15.0" />
@@ -2102,7 +2111,7 @@
                                                 <Insets />
                                              </HBox.margin>
                                              <font>
-                                                <Font size="15.0" />
+                                                <Font name="B Roya" size="18.0" />
                                              </font>
                                           </TextField>
                                        </children>
@@ -2117,16 +2126,25 @@
                                        </styleClass>
                                        <children>
                                           <ComboBox fx:id="chargPrice" nodeOrientation="RIGHT_TO_LEFT" prefHeight="42.0" prefWidth="150.0" styleClass="transparent" />
-                                          <Label prefHeight="44.0" prefWidth="142.0" text="مبلغ شارژ:" />
+                                          <Label alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="142.0" text="مبلغ شارژ:">
+                                             <font>
+                                                <Font name="B Roya" size="15.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="8.0" />
+                                             </HBox.margin></Label>
                                        </children>
                                        <VBox.margin>
                                           <Insets left="8.0" top="30.0" />
                                        </VBox.margin>
                                     </HBox>
-                                    <Button mnemonicParsing="false" onAction="#charg" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card2" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="شارژ">
+                                    <Button mnemonicParsing="false" onAction="#charg" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card2" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="شارژ" textFill="WHITE">
                                        <VBox.margin>
                                           <Insets left="130.0" top="25.0" />
                                        </VBox.margin>
+                                       <font>
+                                          <Font name="B Mitra" size="25.0" />
+                                       </font>
                                     </Button>
                                  </children>
                               </VBox>
@@ -2161,16 +2179,20 @@
                      <children>
                         <ScrollPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
-                              <VBox fx:id="containerVBox" prefHeight="652.0" prefWidth="1315.0">
-                                 <children>
-                                    <GridPane fx:id="grid1" nodeOrientation="LEFT_TO_RIGHT">
-                                       <rowConstraints>
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                    </GridPane>
-                                 </children>
-                              </VBox>
+                              <GridPane fx:id="grid1" nodeOrientation="LEFT_TO_RIGHT">
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <padding>
+                                    <Insets left="130.0" />
+                                 </padding>
+                              </GridPane>
                            </content>
+                           <styleClass>
+                              <String fx:value="custom-scroll-pane" />
+                              <String fx:value="scroll-bar" />
+                              <String fx:value="viewport" />
+                           </styleClass>
                         </ScrollPane>
                      </children>
                   </AnchorPane>
@@ -2196,6 +2218,10 @@
             <BorderPane.margin>
                 <Insets />
             </BorderPane.margin>
+         <styleClass>
+            <String fx:value="tab" />
+            <String fx:value="tab-pane" />
+         </styleClass>
         </TabPane>
     </center>
     <top>
@@ -2203,7 +2229,7 @@
             <children>
                 <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                     <children>
-                        <HBox alignment="CENTER" layoutX="124.0" layoutY="-3.0" prefHeight="100.0" prefWidth="250.0">
+                        <HBox alignment="CENTER" layoutX="14.0" prefHeight="100.0" prefWidth="250.0">
                             <children>
                                 <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -2233,7 +2259,7 @@
                         </Label>
                         <Label text="Javad Bank" textFill="WHITE">
                             <font>
-                                <Font name="Digi Nozha Regular" size="28.0" />
+                                <Font name="Ink Free" size="26.0" />
                             </font>
                         </Label>
                     </children>

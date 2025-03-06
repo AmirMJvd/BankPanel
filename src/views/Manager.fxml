@@ -20,9 +20,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" style="-fx-background-color: #e0fbff;" stylesheets="@../values/style-E.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ManagerController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" style="-fx-background-color: #e6e7e8;" stylesheets="@../values/style-E.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ManagerController">
    <center>
-      <TabPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e0fbff;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6e7e8;" stylesheets="@../values/style_U.css" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
           <Tab text="کاربر جدید">
                <content>
@@ -1369,12 +1369,16 @@
             </Tab>
         </tabs>
          <BorderPane.margin>
-            <Insets left="8.0" right="8.0" />
+            <Insets />
          </BorderPane.margin>
+         <styleClass>
+            <String fx:value="tab" />
+            <String fx:value="tab-pane" />
+         </styleClass>
       </TabPane>
    </center>
    <top>
-      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" styleClass="hbox" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" styleClass="hbox" stylesheets="@../values/style_U.css" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
@@ -1390,24 +1394,27 @@
                   <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="193.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
-            <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="300.0">
                <children>
                   <Label text="بانک جاواد" textFill="WHITE">
                      <font>
-                        <Font name="B Paatch Bold" size="18.0" />
+                        <Font name="B Paatch Bold" size="28.0" />
                      </font>
                   </Label>
                   <Label text="Javad Bank" textFill="WHITE">
                      <font>
-                        <Font name="Digi Nozha Regular" size="18.0" />
+                        <Font name="Ink Free" size="26.0" />
                      </font>
                   </Label>
                </children>
             </VBox>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
-                  <Insets right="20.0" />
+                  <Insets left="5.0" right="20.0" top="5.0" />
                </HBox.margin>
+               <image>
+                  <Image url="@../img/pfizer.png" />
+               </image>
             </ImageView>
          </children>
       </HBox>
