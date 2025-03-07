@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GarzController">
+    <children>
+        <ScrollPane fx:id="scrollPane" pannable="true" prefHeight="800.0" prefWidth="1315.0" styleClass="transparent" stylesheets="@../values/style1.css" vvalue="0.77" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <VBox prefHeight="2254.0" prefWidth="1300.0">
+                            <children>
+                                <ImageView fitHeight="150.0" fitWidth="50.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../img/delete.png" />
+                                    </image>
+                                    <VBox.margin>
+                                        <Insets left="1240.0" top="10.0" />
+                                    </VBox.margin>
+                                </ImageView>
+                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="1312.0" styleClass="free-delivery-card9">
+                                    <VBox.margin>
+                                        <Insets left="-100.0" top="10.0" />
+                                    </VBox.margin>
+                                    <children>
+                                        <VBox maxHeight="-Infinity" prefHeight="440.0" prefWidth="799.0">
+                                            <children>
+                                                <Label alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="828.0" text="وام قرض الحسنه">
+                                                    <font>
+                                                        <Font size="80.0" />
+                                                    </font>
+                                                    <VBox.margin>
+                                                        <Insets top="120.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="51.0" prefWidth="814.0" text="تسهیلاتی برای خوش حسابان" textFill="#635353">
+                                                    <font>
+                                                        <Font size="35.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <ImageView fitHeight="275.0" fitWidth="441.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../img/assets.png" />
+                                            </image>
+                                            <HBox.margin>
+                                                <Insets left="90.0" top="85.0" />
+                                            </HBox.margin>
+                                        </ImageView>
+                                    </children>
+                                </HBox>
+                                <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="403.0" prefWidth="858.0" spacing="15.0" styleClass="free-delivery-card4">
+                                    <children>
+                                        <HBox prefHeight="62.0" prefWidth="1300.0">
+                                            <children>
+                                                <Label alignment="CENTER_RIGHT" prefHeight="112.0" prefWidth="1204.0" text="شرایط دریافت وام ">
+                                                    <font>
+                                                        <Font size="35.0" />
+                                                    </font>
+                                                </Label>
+                                                <ImageView fitHeight="97.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/correct.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                            <VBox.margin>
+                                                <Insets />
+                                            </VBox.margin>
+                                        </HBox>
+                                        <HBox prefHeight="50.0" prefWidth="886.0">
+                                            <children>
+                                                <Label alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" text="تنها یکبار به هر فرد تعلق میگیرد ">
+                                                    <font>
+                                                        <Font size="26.0" />
+                                                    </font>
+                                                </Label>
+                                                <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/pin.png" />
+                                                    </image>
+                                                    <HBox.margin>
+                                                        <Insets right="15.0" />
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                            <VBox.margin>
+                                                <Insets top="15.0" />
+                                            </VBox.margin>
+                                        </HBox>
+                                        <HBox layoutX="10.0" layoutY="123.0" prefHeight="50.0" prefWidth="886.0">
+                                            <children>
+                                                <Label alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" text="یک ضامن بازنشته یا حقوق بگیردولت">
+                                                    <font>
+                                                        <Font size="26.0" />
+                                                    </font>
+                                                </Label>
+                                                <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/pin.png" />
+                                                    </image>
+                                                    <HBox.margin>
+                                                        <Insets right="15.0" />
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="10.0" layoutY="188.0" prefHeight="50.0" prefWidth="886.0">
+                                            <children>
+                                                <Label alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" text="داشتن حداقل 2 سال حساب در جاواد بانک">
+                                                    <font>
+                                                        <Font size="26.0" />
+                                                    </font>
+                                                </Label>
+                                                <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/pin.png" />
+                                                    </image>
+                                                    <HBox.margin>
+                                                        <Insets right="15.0" />
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="10.0" layoutY="254.0" prefHeight="50.0" prefWidth="886.0">
+                                            <children>
+                                                <Label alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" text="داشتن کارت پایان خدمت ">
+                                                    <font>
+                                                        <Font size="26.0" />
+                                                    </font>
+                                                </Label>
+                                                <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/pin.png" />
+                                                    </image>
+                                                    <HBox.margin>
+                                                        <Insets right="15.0" />
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets left="218.0" top="105.0" />
+                                    </VBox.margin>
+                                </VBox>
+                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Label alignment="CENTER_RIGHT" prefHeight="78.0" prefWidth="759.0" text="مدارک مورد نیاز">
+                                            <font>
+                                                <Font size="50.0" />
+                                            </font>
+                                            <padding>
+                                                <Insets left="20.0" right="20.0" />
+                                            </padding>
+                                            <HBox.margin>
+                                                <Insets top="6.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <ImageView fitHeight="104.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../img/resume.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets top="25.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <VBox layoutX="228.0" layoutY="555.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="403.0" prefWidth="858.0" spacing="15.0" styleClass="curved-pane">
+                                    <children>
+                                        <HBox prefHeight="62.0" prefWidth="1300.0">
+                                            <children>
+                                                <Label alignment="CENTER_RIGHT" prefHeight="112.0" prefWidth="1204.0" text="متقاضی">
+                                                    <font>
+                                                        <Font size="50.0" />
+                                                    </font>
+                                                    <HBox.margin>
+                                                        <Insets right="10.0" />
+                                                    </HBox.margin>
+                                                </Label>
+                                                <ImageView fitHeight="97.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/application.png" />
+                                                    </image>
+                                                    <HBox.margin>
+                                                        <Insets right="10.0" top="10.0" />
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                            <VBox.margin>
+                                                <Insets />
+                                            </VBox.margin>
+                                        </HBox>
+                                        <HBox onMouseClicked="#uploadfile1" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
+                                            <children>
+                                                <Label fx:id="uploadLabel1" alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="گواهی اشتغال به کار یا جواز کسب ">
+                                                    <font>
+                                                        <Font size="26.0" />
+                                                    </font>
+                                                </Label>
+                                                <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/left-chevron.png" />
+                                                    </image>
+                                                    <HBox.margin>
+                                                        <Insets right="15.0" />
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                            <VBox.margin>
+                                                <Insets top="15.0" />
+                                            </VBox.margin>
+                                        </HBox>
+                                        <HBox layoutX="12.0" layoutY="151.0" onMouseClicked="#uploadfile2" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
+                                            <children>
+                                                <Label fx:id="uploadLabel2" alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="اسناد مالکیت محل سکونت">
+                                                    <font>
+                                                        <Font size="26.0" />
+                                                    </font>
+                                                </Label>
+                                                <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/left-chevron.png" />
+                                                    </image>
+                                                    <HBox.margin>
+                                                        <Insets right="15.0" />
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="12.0" layoutY="216.0" onMouseClicked="#uploadfile3" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
+                                            <children>
+                                                <Label fx:id="uploadLabel3" alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="صورتحساب بانکی 3 ماه اخیر">
+                                                    <font>
+                                                        <Font size="26.0" />
+                                                    </font>
+                                                </Label>
+                                                <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/left-chevron.png" />
+                                                    </image>
+                                                    <HBox.margin>
+                                                        <Insets right="15.0" />
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="12.0" layoutY="282.0" onMouseClicked="#uploadfile6" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
+                                            <children>
+                                                <Label fx:id="uploadLabel4" alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="کارت پایان خدمت ">
+                                                    <font>
+                                                        <Font size="26.0" />
+                                                    </font>
+                                                </Label>
+                                                <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/left-chevron.png" />
+                                                    </image>
+                                                    <HBox.margin>
+                                                        <Insets right="15.0" />
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets left="500.0" top="25.0" />
+                                    </VBox.margin>
+                                </VBox>
+                                <VBox layoutX="510.0" layoutY="1158.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="346.0" prefWidth="680.0" spacing="15.0" styleClass="curved-pane1">
+                                    <children>
+                                        <HBox prefHeight="62.0" prefWidth="1300.0">
+                                            <children>
+                                                <Label alignment="CENTER_RIGHT" prefHeight="112.0" prefWidth="1204.0" text="ضامن">
+                                                    <font>
+                                                        <Font size="50.0" />
+                                                    </font>
+                                                    <HBox.margin>
+                                                        <Insets right="10.0" />
+                                                    </HBox.margin>
+                                                </Label>
+                                                <ImageView fitHeight="97.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/guarantor.png" />
+                                                    </image>
+                                                    <HBox.margin>
+                                                        <Insets right="10.0" top="10.0" />
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                            <VBox.margin>
+                                                <Insets />
+                                            </VBox.margin>
+                                        </HBox>
+                                        <HBox onMouseClicked="#uploadfile5" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
+                                            <children>
+                                                <Label fx:id="uploadLabel5" alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="گواهی اشتغال به کار یا جواز کسب">
+                                                    <font>
+                                                        <Font size="26.0" />
+                                                    </font>
+                                                </Label>
+                                                <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/left-chevron.png" />
+                                                    </image>
+                                                    <HBox.margin>
+                                                        <Insets right="15.0" />
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                            <VBox.margin>
+                                                <Insets top="15.0" />
+                                            </VBox.margin>
+                                        </HBox>
+                                        <HBox layoutX="12.0" layoutY="151.0" onMouseClicked="#uploadfile6" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
+                                            <children>
+                                                <Label fx:id="uploadLabel6" alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="سابقه بیمه یا صورتحساب بانکی 3 ماه اخیر">
+                                                    <font>
+                                                        <Font size="26.0" />
+                                                    </font>
+                                                </Label>
+                                                <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/left-chevron.png" />
+                                                    </image>
+                                                    <HBox.margin>
+                                                        <Insets right="15.0" />
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="12.0" layoutY="216.0" onMouseClicked="#uploadfile7" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
+                                            <children>
+                                                <Label fx:id="uploadLabel7" alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="شناسنامه ضامن">
+                                                    <font>
+                                                        <Font size="26.0" />
+                                                    </font>
+                                                </Label>
+                                                <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/left-chevron.png" />
+                                                    </image>
+                                                    <HBox.margin>
+                                                        <Insets right="15.0" />
+                                                    </HBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets top="50.0" />
+                                    </VBox.margin>
+                                </VBox>
+                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="136.0" prefWidth="1226.0" styleClass="free-delivery-card10">
+                                    <children>
+                                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="136.0" prefWidth="1109.0">
+                                            <children>
+                                                <Label alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="1109.0" text="متقاضی گرامی با کلیک روی عنوان مدارک ، فایل مدرک مربوطه را اپلود کرده ">
+                                                    <font>
+                                                        <Font size="30.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label alignment="TOP_RIGHT" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1112.0" text="و منتظر ایمیل تاییدیه از طرف جاواد بانک باشید">
+                                                    <font>
+                                                        <Font size="30.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <ImageView fitHeight="136.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../img/alarm.png" />
+                                            </image>
+                                            <HBox.margin>
+                                                <Insets top="15.0" />
+                                            </HBox.margin>
+                                        </ImageView>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets left="35.0" top="80.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <Button mnemonicParsing="false" onAction="#request" prefHeight="122.0" prefWidth="275.0" text="درخواست وام ">
+                                    <font>
+                                        <Font size="35.0" />
+                                    </font>
+                                    <styleClass>
+                                        <String fx:value="shadow" />
+                                        <String fx:value="add-btn" />
+                                    </styleClass>
+                                    <VBox.margin>
+                                        <Insets left="515.0" top="70.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>
