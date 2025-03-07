@@ -108,7 +108,20 @@ public class EzdevajController implements Initializable {
     private void saveFileInfo(String userID) {
         File infoFile = new File("vaminfo.txt");
 
+        try (Scanner scanner = new Scanner(infoFile)) {
+            while (scanner.hasNextLine()) {
+                if (scanner.nextLine().equals("ID: " + userID)) {
+                    errorLabel.setText("مدارک قبلاً ثبت شده‌اند.");
+                    errorLabel.setStyle("-fx-text-fill: orange;");
+                    return;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("خطا در خواندن فایل: " + e.getMessage());
+        }
+
         try (FileWriter writer = new FileWriter(infoFile, true)) {
+            writer.write("EZDEVAJ\n");
             writer.write("ID: " + userID + "\n");
 
             for (int i = 0; i < fileTitles.length; i++) {
@@ -126,6 +139,7 @@ public class EzdevajController implements Initializable {
             errorLabel.setStyle("-fx-text-fill: red;");
         }
     }
+
 
     @FXML
     void request(ActionEvent event) {

@@ -14,7 +14,7 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MaskanController">
     <children>
-        <ScrollPane fx:id="scrollPane" pannable="true" prefHeight="790.0" prefWidth="1300.0" styleClass="transparent" stylesheets="@../values/style1.css" vvalue="0.57" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <ScrollPane fx:id="scrollPane" pannable="true" prefHeight="790.0" prefWidth="1300.0" styleClass="transparent" stylesheets="@../values/style1.css" vvalue="1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <content>
                 <AnchorPane prefHeight="810.0" prefWidth="1300.0">
                     <children>
@@ -203,9 +203,9 @@
                                                 <Insets />
                                             </VBox.margin>
                                         </HBox>
-                                        <HBox prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
+                                        <HBox onMouseClicked="#uploadfile1" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
                                             <children>
-                                                <Label alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="گواهی اشتغال به کار یا جواز کسب ">
+                                                <Label fx:id="uploadLabel1" alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="گواهی اشتغال به کار یا جواز کسب ">
                                                     <font>
                                                         <Font size="26.0" />
                                                     </font>
@@ -223,9 +223,9 @@
                                                 <Insets top="15.0" />
                                             </VBox.margin>
                                         </HBox>
-                                        <HBox layoutX="12.0" layoutY="151.0" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
+                                        <HBox layoutX="12.0" layoutY="151.0" onMouseClicked="#uploadfile2" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
                                             <children>
-                                                <Label alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="اسناد مالکیت محل سکونت">
+                                                <Label fx:id="uploadLabel2" alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="اسناد مالکیت محل سکونت">
                                                     <font>
                                                         <Font size="26.0" />
                                                     </font>
@@ -240,9 +240,9 @@
                                                 </ImageView>
                                             </children>
                                         </HBox>
-                                        <HBox layoutX="12.0" layoutY="216.0" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
+                                        <HBox layoutX="12.0" layoutY="216.0" onMouseClicked="#uploadfile3" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
                                             <children>
-                                                <Label alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="صورتحساب بانکی 3 ماه اخیر">
+                                                <Label fx:id="uploadLabel3" alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="صورتحساب بانکی 3 ماه اخیر">
                                                     <font>
                                                         <Font size="26.0" />
                                                     </font>
@@ -257,9 +257,9 @@
                                                 </ImageView>
                                             </children>
                                         </HBox>
-                                        <HBox layoutX="12.0" layoutY="282.0" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
+                                        <HBox layoutX="12.0" layoutY="282.0" onMouseClicked="#uploadfile4" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
                                             <children>
-                                                <Label alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="تصویر سند یا قولنامه رسمی مسکن">
+                                                <Label fx:id="uploadLabel4" alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="تصویر سند یا قولنامه رسمی مسکن">
                                                     <font>
                                                         <Font size="26.0" />
                                                     </font>
@@ -304,9 +304,9 @@
                                                 <Insets />
                                             </VBox.margin>
                                         </HBox>
-                                        <HBox prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
+                                        <HBox onMouseClicked="#uploadfile5" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
                                             <children>
-                                                <Label alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="گواهی اشتغال به کار یا جواز کسب">
+                                                <Label fx:id="uploadLabel5" alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="گواهی اشتغال به کار یا جواز کسب">
                                                     <font>
                                                         <Font size="26.0" />
                                                     </font>
@@ -324,9 +324,9 @@
                                                 <Insets top="15.0" />
                                             </VBox.margin>
                                         </HBox>
-                                        <HBox layoutX="12.0" layoutY="151.0" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
+                                        <HBox layoutX="12.0" layoutY="151.0" onMouseClicked="#uploadfile6" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
                                             <children>
-                                                <Label alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="سابقه بیمه یا صورتحساب بانکی 3 ماه اخیر">
+                                                <Label fx:id="uploadLabel6" alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="سابقه بیمه یا صورتحساب بانکی 3 ماه اخیر">
                                                     <font>
                                                         <Font size="26.0" />
                                                     </font>
@@ -341,9 +341,9 @@
                                                 </ImageView>
                                             </children>
                                         </HBox>
-                                        <HBox layoutX="12.0" layoutY="216.0" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
+                                        <HBox layoutX="12.0" layoutY="216.0" onMouseClicked="#uploadfile7" prefHeight="50.0" prefWidth="886.0" styleClass="HBox">
                                             <children>
-                                                <Label alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="صورتحساب بانکی 3 ماه اخیر">
+                                                <Label fx:id="uploadLabel7" alignment="CENTER_RIGHT" prefHeight="64.0" prefWidth="914.0" styleClass="hover-label" text="سه صفحه اول شناسنامه">
                                                     <font>
                                                         <Font size="26.0" />
                                                     </font>
@@ -392,7 +392,14 @@
                                         <Insets left="35.0" top="80.0" />
                                     </VBox.margin>
                                 </HBox>
-                                <Button mnemonicParsing="false" prefHeight="122.0" prefWidth="275.0" text="درخواست وام ">
+                        <Label fx:id="errorLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="33.0" prefWidth="1300.0" text="">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin></Label>
+                                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#request" prefHeight="102.0" prefWidth="275.0" text="درخواست وام ">
                                     <font>
                                         <Font size="35.0" />
                                     </font>
@@ -401,7 +408,7 @@
                                         <String fx:value="add-btn" />
                                     </styleClass>
                                     <VBox.margin>
-                                        <Insets left="515.0" top="70.0" />
+                                        <Insets bottom="25.0" left="515.0" />
                                     </VBox.margin>
                                 </Button>
                             </children>

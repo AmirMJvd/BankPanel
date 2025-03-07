@@ -73,7 +73,7 @@ public class GarzController implements Initializable {
     private String findUserId(String username){
         try{
             if (username != null){
-                FileReader fr = new FileReader("user.txt");
+                FileReader fr = new FileReader("users.txt");
                 Scanner reader = new Scanner(fr);
                 while (reader.hasNextLine()){
                     if (reader.nextLine().equals(username)){
@@ -105,14 +105,27 @@ public class GarzController implements Initializable {
         }
     }
 
-    private void saveFileInfo(String userID){
+    private void saveFileInfo(String userID) {
         File infoFile = new File("vaminfo.txt");
 
-        try(FileWriter writer = new FileWriter(infoFile, true)) {
-            writer.write("ID:" +userID+"\n");
+        try (Scanner scanner = new Scanner(infoFile)) {
+            while (scanner.hasNextLine()) {
+                if (scanner.nextLine().equals("ID: " + userID)) {
+                    errorLabel.setText("مدارک قبلاً ثبت شده‌اند.");
+                    errorLabel.setStyle("-fx-text-fill: orange;");
+                    return;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("خطا در خواندن فایل: " + e.getMessage());
+        }
 
-            for (int i = 0 ; i < fileTitles.length; i++){
-                String filePath = (filePaths[i] != null ) ? filePaths[i] :  "آپلود نشده";
+        try (FileWriter writer = new FileWriter(infoFile, true)) {
+            writer.write("GARZ\n");
+            writer.write("ID: " + userID + "\n");
+
+            for (int i = 0; i < fileTitles.length; i++) {
+                String filePath = (filePaths[i] != null) ? filePaths[i] : "آپلود نشده";
                 writer.write(fileTitles[i] + ": " + filePath + "\n");
             }
 
@@ -126,6 +139,7 @@ public class GarzController implements Initializable {
             errorLabel.setStyle("-fx-text-fill: red;");
         }
     }
+
 
     @FXML
     void request(ActionEvent event){

@@ -45,7 +45,7 @@ public class LoginController {
         String pass = password.getText().trim();
 
         if (username.isEmpty() || pass.isEmpty()) {
-//            showAlert(Alert.AlertType.ERROR, "خطا", "نام کاربری و رمز عبور نمی‌توانند خالی باشند!");
+          showAlert(Alert.AlertType.ERROR, "خطا", "نام کاربری و رمز عبور نمی‌توانند خالی باشند!");
             return;
         }
 
@@ -66,9 +66,9 @@ public class LoginController {
                 openPage("../views/Employee.fxml", "Employee Panel", username);
             }
         }
-//        else {
-//            showAlert(Alert.AlertType.ERROR, "خطا", "نام کاربری یا رمز عبور اشتباه است!");
-//        }
+        else {
+            showAlert(Alert.AlertType.ERROR, "خطا", "نام کاربری یا رمز عبور اشتباه است!");
+        }
     }
 
     private String validateLogin(String username, String password) {
@@ -139,14 +139,14 @@ public class LoginController {
             e.printStackTrace();
         }
     }
-//
-//    private void showAlert(Alert.AlertType alertType, String title, String message) {
-//        Alert alert = new Alert(alertType);
-//        alert.setTitle(title);
-//        alert.setHeaderText(null);
-//        alert.setContentText(message);
-//        alert.showAndWait();
-//    }
+
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 
 
     @FXML
