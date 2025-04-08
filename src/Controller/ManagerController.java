@@ -177,8 +177,6 @@ public class ManagerController {
 
     @FXML
     public void initialize() {
-        gender.getItems().addAll("مرد", "زن");
-        AccType.getItems().addAll("بلند مدت" , "کوتاه مدت");
         RoleCombo.getItems().addAll("مدیر" , "کارمند");
         branch.getItems().addAll("مرکزی" , "آبرسان","شهناز");
         BillType.getItems().addAll( "تلفن ثابت","تلفن همراه" ,"برق" , "آب" , "گاز");
@@ -501,6 +499,7 @@ public class ManagerController {
             fileWriter.write("Bill date : " + transferArray[5].toString() + "\n");
             fileWriter.write("Bill time : " + transferArray[6].toString() + "\n");
             fileWriter.write("Bill payment status : پرداخت نشده" + "\n");
+            fileWriter.write("Bill payment card Number : " + "\n");
             fileWriter.write("Bill payment tracking code : " + "\n");
             fileWriter.write("Bill payment date : " + "\n");
             fileWriter.write("Bill payment time : "  + "\n");

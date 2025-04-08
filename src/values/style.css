@@ -224,3 +224,37 @@
     -fx-border-color: #111111;
     -fx-border-radius: 20px;
 }
+
+.date-picker {
+    -fx-background-color: #F5F5F5;
+    -fx-border-color: #DADADA;
+    -fx-border-radius: 20px; /* حاشیه کرو */
+    -fx-background-radius: 20px; /* پس‌زمینه کرو */
+    -fx-padding: 4px;
+}
+
+.date-picker .text-field {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    -fx-background-color: transparent;
+    -fx-background-radius: 20px; /* کرو کردن فیلد متنی */
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 20px; /* کرو کردن دکمه فلش */
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-fill: #888888;
+}
+
+.date-picker:focused {
+    -fx-border-color: #AAAAAA;
+}
+
+.date-picker .icon {
+    -fx-fill: #888888;
+}
+
+

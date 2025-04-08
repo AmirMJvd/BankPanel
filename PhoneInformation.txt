@@ -1,7 +1,7 @@
 PhoneNumber : 09035456443
 Operator : ایرانسل
 Name : امیر
-inventory Price: 300000  ريال
+inventory Price: 550000  ريال
 Date : 2025-03-01
 Time : 00:17:27
 ----------------
@@ -22,7 +22,14 @@ Time : 00:23:03
 PhoneNumber : 09030643843
 Operator : ایرانسل
 Name : پیام
-inventory : 0
+inventory Price: 200000  ريال
 Date : 2025-03-01
 Time : 00:24:32
+----------------
+PhoneNumber : 09030284046
+Operator : ایرانسل
+Name : محمد
+inventory Price: 200000  ريال
+Date : 2025-03-26
+Time : 00:31:41
 ----------------
