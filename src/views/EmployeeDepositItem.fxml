@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="257.0" prefWidth="1000.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;" stylesheets="@../values/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EmployeeDepositItemController">
+   <children>
+      <HBox alignment="CENTER_RIGHT" prefHeight="69.0" prefWidth="998.0">
+         <children>
+            <ImageView fitHeight="56.0" fitWidth="39.0" onMouseClicked="#CloseDeposite" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/close.png" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="69.0" prefWidth="567.0" />
+            <Label fx:id="DepositName" alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="333.0" text="سپرده قرض الحسنه پس انداز">
+               <font>
+                  <Font name="B Mitra" size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="35.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="20.0" prefWidth="200.0">
+         <children>
+            <Separator prefWidth="200.0" HBox.hgrow="ALWAYS" />
+         </children>
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="450.0">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="Inventory" layoutX="73.0" layoutY="17.0" prefHeight="29.0" prefWidth="280.0" text="5000000000">
+                                 <font>
+                                    <Font name="B Roya" size="22.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Label text="موجودی کل :" textFill="#959595">
+                           <font>
+                              <Font name="B Roya" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="Date" layoutX="73.0" layoutY="13.0" prefWidth="150.0" text="1404/01/01">
+                                 <font>
+                                    <Font name="B Roya" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Label text="تاریخ افتتاح :" textFill="#959595">
+                           <font>
+                              <Font name="B Roya" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets right="45.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="450.0">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="depostNum" layoutX="-1.0" layoutY="11.0" text="12345678901234">
+                                 <font>
+                                    <Font name="B Roya" size="22.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Label text="سپرده :" textFill="#959595">
+                           <font>
+                              <Font name="B Roya" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="shebaNum" layoutX="-1.0" layoutY="11.0" text="11111111111111111111111111">
+                                 <font>
+                                    <Font name="B Roya" size="22.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Label text="شبا :" textFill="#959595">
+                           <font>
+                              <Font name="B Roya" size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets right="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="DepositType" alignment="CENTER" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #959595; -fx-background-radius: 20;" text="بلند مدت">
+               <font>
+                  <Font name="B Nazanin" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+   <styleClass>
+      <String fx:value="shadow" />
+      <String fx:value="border-style" />
+   </styleClass>
+</VBox>

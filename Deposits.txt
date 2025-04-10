@@ -118,3 +118,11 @@ tracking code :683280166
 Date :2025/3/29
 Time :0:42:59
 -------------
+Amount transferred : 499250000
+Transfer type : برداشت وجه
+destination number : 61228886408112
+destination name : امیر جوادزاده
+tracking code : 169850208
+Date : 2025/4/10
+Time : 20:37:36
+-------------

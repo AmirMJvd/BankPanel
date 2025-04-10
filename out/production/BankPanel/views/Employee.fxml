@@ -2301,6 +2301,62 @@
                         </AnchorPane>
                     </content>
                   </Tab>
+                  <Tab text="کارت">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox prefHeight="661.0" prefWidth="241.0">
+                                       <children>
+                                          <TextField fx:id="NameAndFamilyTextfield" prefHeight="41.0" prefWidth="236.0" promptText="نام و نام خانوادگی" />
+                                          <TextField fx:id="nationalCodeTextfield" prefHeight="41.0" prefWidth="236.0" promptText="کد ملی" />
+                                          <Button mnemonicParsing="false" onAction="#searchbtn" text="Button" />
+                                       </children>
+                                    </VBox>
+                                    <ScrollPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="661.0" prefWidth="1068.0">
+                                       <content>
+                                          <GridPane fx:id="grid1" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="حساب">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox prefHeight="661.0" prefWidth="241.0">
+                                       <children>
+                                          <TextField fx:id="NameAndFamilyTextfield1" prefHeight="41.0" prefWidth="236.0" promptText="نام و نام خانوادگی" />
+                                          <TextField fx:id="nationalCodeTextfield1" prefHeight="41.0" prefWidth="236.0" promptText="کد ملی" />
+                                          <Button mnemonicParsing="false" onAction="#searchbtn1" text="Button" />
+                                       </children>
+                                    </VBox>
+                                    <ScrollPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="661.0" prefWidth="1068.0">
+                                       <content>
+                                          <GridPane fx:id="grid2" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
                </tabs>
                <BorderPane.margin>
                   <Insets left="8.0" right="8.0" />

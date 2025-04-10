@@ -1,12 +1,12 @@
 User ID: @0579b67c
 Account Number: 61228886408112
-Shaba Number: IR803939093402385323085232
-Card Number: 6104338767725130
-Card Password: 4444
+Shaba Number: IR802269884967225500811633
+Card Number: 6393461038776532
+Card Password: 7539
 expiration Date: 1409/01
-CVV2 Number: 549
+CVV2 Number: 323
 Account Type: سپرده سرمایه گذاری بلند مدت
-inventory Price: 499250000  ريال
+inventory Price: 499250000    ريال
 create Date: 2025-03-29
 ---------------
 User ID: @0579b68e
@@ -16,7 +16,7 @@ Card Number: 6104338767725126
 Card Password: 4635
 expiration Date: 1409/01
 CVV2 Number: 549
-Account Type:  مدت
+Account Type:   سپرده سرمایه گذاری کوتاه مدت
 inventory Price: 53999100000  ريال
 create Date: 2025-03-29
 ---------------
@@ -27,7 +27,7 @@ Card Number: 6393461016887062
 Card Password: 5212
 expiration Date: 1409/01
 CVV2 Number: 550
-Account Type: کوتاه مدت
+Account Type:  سپرده سرمایه گذاری کوتاه مدت
 inventory Price: 999997000000  ريال
 create Date: 2025-03-29
 ---------------
@@ -42,14 +42,25 @@ Account Type: سپرده قرض الحسنه جاری
 inventory Price: 5000000  ريال
 create Date: 2025-03-29
 ---------------
-User ID: @0579b67c
-Account Number: 50060704995027
+User ID: @a6771b5d
+Account Number: 20507907593214
 Shaba Number: 
 Card Number: 
 Card Password: 
 expiration Date: /
 CVV2 Number: 
 Account Type: سپرده سرمایه گذاری بلند مدت
-inventory Price: 500,000,000  ريال
-create Date: 2025-03-29
+inventory Price: 500,000  ريال
+create Date: 2025-04-10
+---------------
+User ID: @0579b67c
+Account Number: 71691696087556
+Shaba Number: 
+Card Number: 
+Card Password: 
+expiration Date: /
+CVV2 Number: 
+Account Type: سپرده سرمایه گذاری بلند مدت
+inventory Price: 5,000,000  ريال
+create Date: 2025-04-10
 ---------------

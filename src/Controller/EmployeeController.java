@@ -1,9 +1,11 @@
 package Controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -17,6 +19,8 @@ import java.io.File;
 
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import model.Card;
+import model.Deposit;
 import model.User;
 import service.findInformation;
 
@@ -313,6 +317,24 @@ public class EmployeeController {
     @FXML
     private ComboBox<String> gender;
 
+    @FXML
+    private TextField nationalCodeTextfield1;
+
+    @FXML
+    private TextField NameAndFamilyTextfield;
+
+    @FXML
+    private TextField NameAndFamilyTextfield1;
+
+    @FXML
+    private GridPane grid1;
+
+    @FXML
+    private GridPane grid2;
+
+    @FXML
+    private TextField nationalCodeTextfield;
+
 
     private final SecureRandom random = new SecureRandom(); // برای تولید اعداد تصادفی امن‌تر
 
@@ -429,6 +451,8 @@ public class EmployeeController {
 
 
         LoadUser();
+        LoadUser1();
+        LoadUser3();
         downloadButton.setOnAction(event -> takeScreenshot());
         Download1.setOnAction(event -> takeScreenshot1());
         Download2.setOnAction(event -> takeScreenshot2());
@@ -504,9 +528,11 @@ public class EmployeeController {
                 info[i] = extractValue(scanner.nextLine());
             }
             if (NationalCode.getText().equals(info[3])) {
+                System.out.println(info[3]);
+                System.out.println(NationalCode.getText());
                 hasAccount = true;
                 id = info[0];
-
+                break;
             }
         }
         reader.close();
@@ -521,9 +547,16 @@ public class EmployeeController {
         LocalDate today = LocalDate.now();
         int age = Period.between(birthDate, today).getYears();
 
-        if(age>=18){
-            if(hasAccount == true) {
-                if(USFName.getText().equals(info[1]) && USLname.getText().equals(info[2]) &&
+        if (age >= 18) {
+            if (hasAccount == true) {
+                System.out.println(info[0]);
+                System.out.println(info[1]);
+                System.out.println(info[2]);
+                System.out.println(info[3]);
+                System.out.println(info[4]);
+                System.out.println(info[5]);
+                System.out.println(info[6]);
+                if (USFName.getText().equals(info[1]) && USLname.getText().equals(info[2]) &&
                         gender.getValue().equals(info[5])) {
                     if (AccType.getValue() == null) {
                         showAlert("خطا", "لطفا تمام فیلد ها را پر کنید!", Alert.AlertType.ERROR);
@@ -553,7 +586,7 @@ public class EmployeeController {
                             CardNum3.setText(generateRandomNumber(4));
                             CardNum4.setText(generateRandomNumber(4));
 
-                            Year.setText("1403");
+                            Year.setText("1409");
                             Month.setText("01");
 
                             // تولید CVV2 سه رقمی
@@ -571,10 +604,10 @@ public class EmployeeController {
                             }
                         }
                     }
-                }else {
-                    showAlert("خطا!","اطلاعات وارد شده با اطلاعات قبلی یکسان نیست!",Alert.AlertType.ERROR);
+                } else {
+                    showAlert("خطا!", "اطلاعات وارد شده با اطلاعات قبلی یکسان نیست!", Alert.AlertType.ERROR);
                 }
-            }else {
+            } else {
                 if (AccType.getValue() == null) {
                     showAlert("خطا", "لطفا تمام فیلد ها را پر کنید!", Alert.AlertType.ERROR);
                 } else {
@@ -622,7 +655,7 @@ public class EmployeeController {
                     }
                 }
             }
-        }else{
+        } else {
             showAlert("خطا", "شما هنوز به ۱۸ سالگی نرسیده‌اید!", Alert.AlertType.ERROR);
         }
     }
@@ -1064,8 +1097,6 @@ public class EmployeeController {
     }
 
 
-
-
     @FXML
     void next3(ActionEvent event) throws IOException {
         findInformation findInformation = new findInformation();
@@ -1087,7 +1118,7 @@ public class EmployeeController {
                 // اپدیت موجودی مقصد
                 Double remainingAmount1 = inventoryStr1 + transferAmount1;
                 BigDecimal bigDecimal = new BigDecimal(remainingAmount1);
-                updateInventoryByCardNumber(transferArray[2].toString(),bigDecimal);
+                updateInventoryByCardNumber(transferArray[2].toString(), bigDecimal);
             } else if (transferArray[1].toString().equals("سپرده")) {
 
                 Double inventoryStr1 = searchUserinventoryByAccountNumber(transferArray[2].toString());
@@ -1112,7 +1143,7 @@ public class EmployeeController {
 
                 Double remainingAmount1 = inventoryStr1 + transferAmount1;
                 BigDecimal bigDecimal = new BigDecimal(remainingAmount1);
-                updateInventoryByShabaNumber(transferArray[2].toString(),bigDecimal);
+                updateInventoryByShabaNumber(transferArray[2].toString(), bigDecimal);
             }
 
             // گرفتن مقدار خانه اول آرایه و تبدیل به عدد
@@ -1524,7 +1555,6 @@ public class EmployeeController {
     }
 
 
-
     @FXML
     void next12(ActionEvent event) throws IOException {
         // بررسی مقدار ذخیره‌شده در خانه اول (مبلغ انتقالی)
@@ -1577,7 +1607,7 @@ public class EmployeeController {
 
                 Double remainingAmount1 = inventoryStr1 + transferAmount1;
                 BigDecimal bigDecimal = new BigDecimal(remainingAmount1);
-                updateInventoryByAccountNumber(transferArray1[1].toString(),bigDecimal);
+                updateInventoryByAccountNumber(transferArray1[1].toString(), bigDecimal);
 
                 String track = generateRandomNumber(9);
                 transferArray1[3] = track;
@@ -1628,7 +1658,7 @@ public class EmployeeController {
                 fw.write("\n");
                 fw.write("Time :" + transferArray1[5].toString().trim());
                 fw.write("\n");
-                fw.write("-------------"+"\n");
+                fw.write("-------------" + "\n");
 
                 fw.close();
 
@@ -1800,7 +1830,7 @@ public class EmployeeController {
                     if (inventoryStr >= transferAmount1) {
                         Double remainingAmount = inventoryStr - transferAmount1;
                         BigDecimal bigDecimal = new BigDecimal(remainingAmount);
-                        updateInventoryByAccountNumber(transferArray2[1].toString(),bigDecimal);
+                        updateInventoryByAccountNumber(transferArray2[1].toString(), bigDecimal);
 
                         String track = generateRandomNumber(9);
                         transferArray2[3] = track;
@@ -1934,4 +1964,410 @@ public class EmployeeController {
         Two2.setVisible(true);
         Two2.setManaged(true);
     }
+
+    private List<Card> cards = new ArrayList<>();
+
+    public List<Card> getData1() {
+        List<Card> cards = new ArrayList<>();
+        try {
+            File cartFile = new File("userID.txt");
+            Scanner reader = new Scanner(cartFile);
+            while (reader.hasNextLine()) {
+                Card card = new Card();
+                reader.nextLine();
+                card.setDepositNum(extractValue(reader.nextLine()));
+                card.setShebaNum(extractValue(reader.nextLine()));
+                card.setCardNum(extractValue(reader.nextLine()));
+                if (card.getCardNum().isEmpty()) {
+                    break;
+                } else if (card.getCardNum().startsWith("#")) {
+                    card.setCardNum("کارت مسدود شده است !");
+                }
+                reader.nextLine();
+                // خواندن تاریخ انقضا
+                String expirationDate = extractValue(reader.nextLine()); // "08-06"
+                String[] parts = expirationDate.split("/");
+                if (parts.length == 2) {
+                    card.setMonth(parts[1]);  // مقدار ماه (08)
+                    card.setyear(parts[0]);   // مقدار سال (06)
+                }
+                reader.nextLine();
+                reader.nextLine();
+                card.setInventory(extractValue(reader.nextLine()));
+                reader.nextLine();
+                reader.nextLine();
+                cards.add(card);
+            }
+
+            reader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return cards;
+    }
+
+
+    public void LoadUser1() {
+        Platform.runLater(() -> {
+            grid1.getChildren().clear();
+            cards.clear();
+            cards.addAll(getData1());
+
+            int column = 0;
+            int row = 1;
+            try {
+                for (Card card : cards) {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("../views/EmployeeCardItem.fxml"));
+                    VBox anchorPane = fxmlLoader.load();
+                    EmployeeCardItemController cartItemController = fxmlLoader.getController();
+                    cartItemController.setData(card);
+
+                    if (column == 1) {
+                        column = 0;
+                        row++;
+                    }
+
+                    grid1.add(anchorPane, column++, row);
+                    grid1.setMinWidth(Region.USE_COMPUTED_SIZE);
+                    grid1.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                    grid1.setMaxWidth(Region.USE_PREF_SIZE);
+
+                    grid1.setMinHeight(Region.USE_COMPUTED_SIZE);
+                    grid1.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                    grid1.setMaxHeight(Region.USE_PREF_SIZE);
+
+                    GridPane.setMargin(anchorPane, new Insets(10));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+
+    @FXML
+    void searchbtn(ActionEvent event) throws FileNotFoundException {
+        boolean found = false;
+        String Name = NameAndFamilyTextfield.getText();
+        String Code = nationalCodeTextfield.getText();
+
+        if (Name == null || Name.isEmpty()) {
+            showAlert("خطا", "نام و نام خانوادگی نمی‌تواند خالی باشد.", Alert.AlertType.ERROR);
+            return;
+        }
+
+        if (Code == null || Code.isEmpty()) {
+            showAlert("خطا", "کد ملی نمی‌تواند خالی باشد.", Alert.AlertType.ERROR);
+            return;
+        }
+
+            FileReader reader = new FileReader("user.txt");
+            Scanner scanner = new Scanner(reader);
+            while (scanner.hasNextLine()) {
+                String id = extractValue(scanner.nextLine());
+                String name = extractValue(scanner.nextLine());
+                String family = extractValue(scanner.nextLine());
+                String nationalCode = extractValue(scanner.nextLine());
+                scanner.nextLine();
+                scanner.nextLine();
+                scanner.nextLine();
+                if (Name.equals(name +" "+ family) && Code.equals(nationalCode)) {
+                    found = true;
+                    getData2(id);
+                    LoadUser2(id);
+
+                }
+            }
+            if (found == false ) {
+                showAlert("خطا", "حساب مورد نظر یافت نشد!", Alert.AlertType.ERROR);
+            }
+
+
+    }
+
+    private List<Card> cards1 = new ArrayList<>();
+
+    public List<Card> getData2(String id) {
+        List<Card> cards = new ArrayList<>();
+        try {
+            File cartFile = new File("userID.txt");
+            Scanner reader = new Scanner(cartFile);
+            while (reader.hasNextLine()) {
+                Card card = new Card();
+                if(id.equals(extractValue(reader.nextLine()))){
+                    card.setDepositNum(extractValue(reader.nextLine()));
+                    card.setShebaNum(extractValue(reader.nextLine()));
+                    card.setCardNum(extractValue(reader.nextLine()));
+                    if (card.getCardNum().isEmpty()) {
+                        break;
+                    } else if (card.getCardNum().startsWith("#")) {
+                        card.setCardNum("کارت مسدود شده است !");
+                    }
+                    reader.nextLine();
+                    // خواندن تاریخ انقضا
+                    String expirationDate = extractValue(reader.nextLine()); // "08-06"
+                    String[] parts = expirationDate.split("/");
+                    if (parts.length == 2) {
+                        card.setMonth(parts[1]);  // مقدار ماه (08)
+                        card.setyear(parts[0]);   // مقدار سال (06)
+                    }
+                    reader.nextLine();
+                    reader.nextLine();
+                    card.setInventory(extractValue(reader.nextLine()));
+                    reader.nextLine();
+                    reader.nextLine();
+                    cards.add(card);
+                }
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return cards;
+    }
+
+    public void LoadUser2(String id) {
+        Platform.runLater(() -> {
+            grid1.getChildren().clear();
+            cards1.clear();
+            cards1.addAll(getData2(id));
+
+            int column = 0;
+            int row = 1;
+            try {
+                for (Card card : cards1) {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("../views/EmployeeCardItem.fxml"));
+                    VBox anchorPane = fxmlLoader.load();
+                    EmployeeCardItemController cartItemController = fxmlLoader.getController();
+                    cartItemController.setData(card);
+
+                    if (column == 1) {
+                        column = 0;
+                        row++;
+                    }
+
+                    grid1.add(anchorPane, column++, row);
+                    grid1.setMinWidth(Region.USE_COMPUTED_SIZE);
+                    grid1.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                    grid1.setMaxWidth(Region.USE_PREF_SIZE);
+
+                    grid1.setMinHeight(Region.USE_COMPUTED_SIZE);
+                    grid1.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                    grid1.setMaxHeight(Region.USE_PREF_SIZE);
+
+                    GridPane.setMargin(anchorPane, new Insets(10));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    @FXML
+    void searchbtn1(ActionEvent event) throws FileNotFoundException {
+        boolean found = false;
+        String Name = NameAndFamilyTextfield1.getText();
+        String Code = nationalCodeTextfield1.getText();
+
+        if (Name == null || Name.isEmpty()) {
+            showAlert("خطا", "نام و نام خانوادگی نمی‌تواند خالی باشد.", Alert.AlertType.ERROR);
+            return;
+        }
+
+        if (Code == null || Code.isEmpty()) {
+            showAlert("خطا", "کد ملی نمی‌تواند خالی باشد.", Alert.AlertType.ERROR);
+            return;
+        }
+
+        FileReader reader = new FileReader("user.txt");
+        Scanner scanner = new Scanner(reader);
+        while (scanner.hasNextLine()) {
+            String id = extractValue(scanner.nextLine());
+            String name = extractValue(scanner.nextLine());
+            String family = extractValue(scanner.nextLine());
+            String nationalCode = extractValue(scanner.nextLine());
+            scanner.nextLine();
+            scanner.nextLine();
+            scanner.nextLine();
+            if (Name.equals(name +" "+ family) && Code.equals(nationalCode)) {
+                found = true;
+                getData31(id);
+                LoadUser31(id);
+
+            }
+        }
+        if (found == false ) {
+            showAlert("خطا", "حساب مورد نظر یافت نشد!", Alert.AlertType.ERROR);
+        }
+    }
+
+    private List<Deposit> deposits = new ArrayList<>();
+
+    private List<Deposit> getData3() {
+        List<Deposit> deposits = new ArrayList<>();
+        try {
+
+            File depositFile = new File("userID.txt");
+            Scanner reader1 = new Scanner(depositFile);
+            while (reader1.hasNextLine()) {
+                    Deposit deposit = new Deposit();
+                    reader1.nextLine();
+                    deposit.setdepostNumber(extractValue(reader1.nextLine()));
+                    deposit.setShebaNumer(extractValue(reader1.nextLine()));
+                    reader1.nextLine();
+                    reader1.nextLine();
+                    reader1.nextLine();
+                    reader1.nextLine();
+                    String Type = extractValue(reader1.nextLine());
+                    deposit.setDepositName(Type);
+                    deposit.setDepositType(FindType(Type));
+                    deposit.setInventory(extractValue(reader1.nextLine()));
+                    deposit.setDepositDate(extractValue(reader1.nextLine()));
+                    reader1.nextLine();
+                    deposits.add(deposit);
+
+            }
+            reader1.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return deposits;
+    }
+
+    private String FindType(String depositName) {
+        if (depositName.equals("سپرده سرمایه گذاری بلند مدت")) {
+            return "یک ساله";
+        } else if (depositName.equals("سپرده سرمایه گذاری کوتاه مدت")) {
+            return "یک ساله";
+        } else if (depositName.equals("سپرده قرض الحسنه جاری")) {
+            ;
+            return "یک ساله";
+        } else if (depositName.equals("سچرده قرض الحسنه بلند مدت")) {
+            return "یک ساله";
+        }
+        System.out.println("2");
+        return null;
+    }
+
+    private void LoadUser3() {
+        grid2.getChildren().clear();
+        deposits.clear();
+        deposits.addAll(getData3());
+
+        int column = 0;
+        int row = 1;
+        try {
+            for (Deposit deposit : deposits) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("../views/EmployeeDepositItem.fxml"));
+                VBox anchorPane = fxmlLoader.load();
+                EmployeeDepositItemController cartItemController = fxmlLoader.getController();
+                cartItemController.setData(deposit,this);
+                cartItemController.setItemNode(anchorPane);
+
+                if (column == 1) {
+                    column = 0;
+                    row++;
+                }
+
+                grid2.add(anchorPane, column++, row);
+                grid2.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid2.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid2.setMaxWidth(Region.USE_PREF_SIZE);
+
+                grid2.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid2.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid2.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void removeItemFromGrid(EmployeeDepositItemController itemController) {
+        // گرفتن نود مربوط به آیتم از کنترلر
+        Node itemNode = itemController.getItemNode(); // فرض بر این است که متدی به نام getItemNode در Item1Controller دارید که نود را باز می‌گرداند
+
+        // حذف نود از grid
+        grid2.getChildren().remove(itemNode);
+    }
+
+    private List<Deposit> deposits1 = new ArrayList<>();
+
+    private List<Deposit> getData31(String id) {
+        List<Deposit> deposits = new ArrayList<>();
+        try {
+
+            File depositFile = new File("userID.txt");
+            Scanner reader1 = new Scanner(depositFile);
+            while (reader1.hasNextLine()) {
+                Deposit deposit = new Deposit();
+                if(id.equals(extractValue(reader1.nextLine()))){
+                    deposit.setdepostNumber(extractValue(reader1.nextLine()));
+                    deposit.setShebaNumer(extractValue(reader1.nextLine()));
+                    reader1.nextLine();
+                    reader1.nextLine();
+                    reader1.nextLine();
+                    reader1.nextLine();
+                    String Type = extractValue(reader1.nextLine());
+                    deposit.setDepositName(Type);
+                    deposit.setDepositType(FindType(Type));
+                    deposit.setInventory(extractValue(reader1.nextLine()));
+                    deposit.setDepositDate(extractValue(reader1.nextLine()));
+                    reader1.nextLine();
+                    deposits.add(deposit);
+                }
+            }
+            reader1.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return deposits;
+    }
+
+    private void LoadUser31(String id) {
+        grid2.getChildren().clear();
+        deposits1.clear();
+        deposits1.addAll(getData31(id));
+
+        int column = 0;
+        int row = 1;
+        try {
+            for (Deposit deposit : deposits1) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("../views/EmployeeDepositItem.fxml"));
+                VBox anchorPane = fxmlLoader.load();
+                EmployeeDepositItemController cartItemController = fxmlLoader.getController();
+                cartItemController.setData(deposit,this);
+                cartItemController.setItemNode(anchorPane);
+
+                if (column == 1) {
+                    column = 0;
+                    row++;
+                }
+
+                grid2.add(anchorPane, column++, row);
+                grid2.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid2.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid2.setMaxWidth(Region.USE_PREF_SIZE);
+
+                grid2.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid2.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid2.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

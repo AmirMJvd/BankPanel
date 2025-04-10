@@ -2355,7 +2355,7 @@
                                                       <Insets left="15.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <TextField alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="37.0" prefWidth="158.0" style="-fx-background-color: transparent;">
+                                                <TextField fx:id="CodeRahgery" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="37.0" prefWidth="158.0" style="-fx-background-color: transparent;">
                                                    <HBox.margin>
                                                       <Insets bottom="5.0" left="5.0" top="5.0" />
                                                    </HBox.margin>
@@ -2369,7 +2369,7 @@
                                                 <String fx:value="shadow" />
                                              </styleClass>
                                              <children>
-                                                <DatePicker nodeOrientation="RIGHT_TO_LEFT" prefHeight="48.0" prefWidth="299.0" promptText="تا تاریخ" style="-fx-background-color: transparent;">
+                                                <DatePicker fx:id="TDate" nodeOrientation="RIGHT_TO_LEFT" prefHeight="48.0" prefWidth="299.0" promptText="تا تاریخ" style="-fx-background-color: transparent;">
                                                    <HBox.margin>
                                                       <Insets />
                                                    </HBox.margin>
@@ -2383,7 +2383,7 @@
                                                 <String fx:value="shadow" />
                                              </styleClass>
                                              <children>
-                                                <DatePicker nodeOrientation="RIGHT_TO_LEFT" prefHeight="48.0" prefWidth="299.0" promptText="از تاریخ" style="-fx-background-color: transparent;">
+                                                <DatePicker fx:id="ADate" nodeOrientation="RIGHT_TO_LEFT" prefHeight="48.0" prefWidth="299.0" promptText="از تاریخ" style="-fx-background-color: transparent;">
                                                    <HBox.margin>
                                                       <Insets />
                                                    </HBox.margin>
@@ -2397,7 +2397,7 @@
                                                 <String fx:value="shadow" />
                                              </styleClass>
                                              <children>
-                                                <ComboBox fx:id="chargPrice231" nodeOrientation="RIGHT_TO_LEFT" prefHeight="42.0" prefWidth="150.0" styleClass="transparent" />
+                                                <ComboBox fx:id="transferType" nodeOrientation="RIGHT_TO_LEFT" prefHeight="42.0" prefWidth="150.0" styleClass="transparent" />
                                                 <Label alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="142.0" text="عملیات">
                                                    <font>
                                                       <Font name="B Roya" size="20.0" />
@@ -2413,7 +2413,7 @@
                                     </HBox>
                                     <HBox alignment="CENTER" prefHeight="76.0" prefWidth="1301.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="130.0" styleClass="free-delivery-card2" stylesheets="@../values/style.css" text="جست و جو" textFill="WHITE">
+                                          <Button mnemonicParsing="false" onAction="#SearchTransfer" prefHeight="54.0" prefWidth="130.0" styleClass="free-delivery-card2" stylesheets="@../values/style.css" text="جست و جو" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold Italic" size="18.0" />
                                              </font>

@@ -47,7 +47,19 @@ public class UserPageController {
     private TextField CVV2;
 
     @FXML
+    private DatePicker ADate;
+
+    @FXML
+    private DatePicker TDate;
+
+    @FXML
+    private ComboBox<String> transferType;
+
+    @FXML
     private TextField BillCVV2;
+
+    @FXML
+    private TextField CodeRahgery;
 
     @FXML
     private TextField CardNumber;
@@ -366,12 +378,14 @@ public class UserPageController {
 //        Download2.setOnAction(event -> takeScreenshot2());
 
         chargPrice.getItems().addAll("50,000 ریال", "100,000 ریال", "200,000 ریال", "500,000 ریال");
+        transferType.getItems().addAll("پرداخت قبض" , "شارژ تلفن همراه" , "برداشت از کارت" , "واریز به کارت","واریز به سپرده" , "واریز به شبا");
 
 
         Platform.runLater(() -> {
             LoadUser1();
             LoadUser();
             LoadUserBillTransfer();
+
 
 
         });
@@ -2150,4 +2164,422 @@ public class UserPageController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    void SearchTransfer(ActionEvent event) throws FileNotFoundException {
+        String Type  = transferType.getSelectionModel().getSelectedItem();
+        LocalDate aDate = ADate.getValue();
+        LocalDate tDate = TDate.getValue();
+        String code = CodeRahgery.getText();
+        if (Type == null || Type.isEmpty() ||
+                aDate == null ||
+                tDate == null ||
+                code == null || code.trim().isEmpty()) {
+
+            // ساختن پیام هشدار
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("خطا");
+            alert.setHeaderText(null);
+            alert.setContentText("لطفاً همه‌ی فیلدها را کامل کنید.");
+            alert.showAndWait();
+            return; // ادامه نده
+        }else{
+            switch (Type.trim()) {
+                case "پرداخت قبض":
+                    LoadBillTransfer();
+                    break;
+                case "شارژ تلفن همراه":
+                    loadPhoneTransfers();
+                    break;
+                case "برداشت از کارت":
+                    loadBardashtTransfers();
+                    break;
+                case "واریز به کارت":
+                    loadVarizTransfers();
+                    break;
+                case "واریز به سپرده":
+                    loadVarizTransfers();
+                    break;
+                case "واریز به شبا":
+                    loadVarizTransfers();
+                    break;
+                default:
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("نوع انتقال نامعتبر");
+                    alert.setContentText("نوع انتقال شناخته نشد.");
+                    alert.showAndWait();
+                    break;
+            }
+        }
+    }
+
+    List<Transfer> Filter = new ArrayList<>();
+
+    private List<Transfer> GetBillTransfer() {
+        String code = CodeRahgery.getText();
+        LocalDate aDate = ADate.getValue();
+        LocalDate tDate = TDate.getValue();
+        List<Transfer> transfers = new ArrayList<>();
+        try {
+            String userName = username12.getText();
+            String userID = findUserID(userName);
+            File BillFile = new File("Bill.txt");
+            Scanner reader = new Scanner(BillFile);
+            while (reader.hasNextLine()) {
+                String Type = " پرداخت قبض " + extractValue(reader.nextLine());
+                reader.nextLine();
+                reader.nextLine();
+                reader.nextLine();
+                String amount = extractValue(reader.nextLine());
+                reader.nextLine();
+                reader.nextLine();
+                reader.nextLine();
+                String cardNumber = extractValue(reader.nextLine());
+                String codeRahgery = extractValue(reader.nextLine());
+                String dateStr  = extractValue(reader.nextLine());
+                String Time = extractValue(reader.nextLine());
+                reader.nextLine();
+                LocalDate transferDate;
+                try {
+                    transferDate = LocalDate.parse(dateStr); // فرض بر اینکه تاریخ در فرمت yyyy-MM-dd باشه
+                } catch (Exception e) {
+                    continue; // اگر تاریخ قابل تبدیل نبود، بی‌خیال اون ردیف می‌شیم
+                }
+                String userid = searchUserIDByCardNumber(cardNumber);
+                String userid1 = searchUserIDByCardNumber( '#' + cardNumber);
+
+
+                boolean isUserMatch = (userid != null && userid.equals(userID)) ||
+                        (userid1 != null && userid1.equals(userID));
+                boolean isCodeMatch = codeRahgery.equals(code);
+                boolean isDateInRange = (transferDate != null && !transferDate.isBefore(aDate) && !transferDate.isAfter(tDate));
+
+                if (isUserMatch && isCodeMatch && isDateInRange) {
+                    Transfer transfer = new Transfer();
+                    transfer.setAmount(amount);
+                    transfer.setType(Type);
+                    transfer.setDate(dateStr);
+                    transfer.setTime(Time);
+                    transfers.add(transfer);
+                }
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return transfers;
+    }
+
+    private List<Transfer> GetPhoneTransfers() {
+        String code = CodeRahgery.getText();
+        LocalDate aDate = ADate.getValue();
+        LocalDate tDate = TDate.getValue();
+        List<Transfer> transfers = new ArrayList<>();
+        try {
+            String userName = username12.getText();
+            String userID = findUserID(userName);
+            File PhoneChargeFile = new File("PhoneCharge.txt");
+            Scanner reader = new Scanner(PhoneChargeFile);
+            while (reader.hasNextLine()) {
+                reader.nextLine();
+                String amount = extractValue(reader.nextLine());
+                String Type = " شارژ تلفن همراه " + extractValue(reader.nextLine());
+                reader.nextLine();
+                String cardNumber = extractValue(reader.nextLine());
+                reader.nextLine();
+                String codeRahgery = extractValue(reader.nextLine());
+                String dateStr = extractValue(reader.nextLine());
+                String Time = extractValue(reader.nextLine());
+
+                reader.nextLine();
+                LocalDate transferDate;
+                try {
+                    transferDate = LocalDate.parse(dateStr); // فرض بر اینکه تاریخ در فرمت yyyy-MM-dd باشه
+                } catch (Exception e) {
+                    continue; // اگر تاریخ قابل تبدیل نبود، بی‌خیال اون ردیف می‌شیم
+                }
+                String userid = searchUserIDByCardNumber(cardNumber);
+                String userid1 = searchUserIDByCardNumber('#'+cardNumber);
+                boolean isUserMatch = (userid != null && userid.equals(userID)) ||
+                        (userid1 != null && userid1.equals(userID));
+                boolean isCodeMatch = codeRahgery.equals(code);
+                boolean isDateInRange = (transferDate != null && !transferDate.isBefore(aDate) && !transferDate.isAfter(tDate));
+
+                if (isUserMatch && isCodeMatch && isDateInRange) {
+                    Transfer transfer = new Transfer();
+                    transfer.setAmount(amount);
+                    transfer.setType(Type);
+                    transfer.setDate(dateStr);
+                    transfer.setTime(Time);
+                    transfers.add(transfer);
+                }
+
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return transfers;
+    }
+
+    private List<Transfer> GetBardashtTransfers() {
+        String code = CodeRahgery.getText();
+        LocalDate aDate = ADate.getValue();
+        LocalDate tDate = TDate.getValue();
+        List<Transfer> transfers = new ArrayList<>();
+        try {
+            String userName = username12.getText();
+            String userID = findUserID(userName);
+            File userIDFile = new File("userID.txt");
+            File TransfersFile = new File("Transfers.txt");
+            Scanner reader = new Scanner(TransfersFile);
+            while (reader.hasNextLine()) {
+                String amount = extractValue(reader.nextLine());
+                String Type = "برداشت از کارت ";
+                reader.nextLine();
+                reader.nextLine();
+                reader.nextLine();
+                String cardNumber = extractValue(reader.nextLine());
+                reader.nextLine();
+                String codeRahgery = extractValue(reader.nextLine());
+                String dateStr = extractValue(reader.nextLine());
+                String Time = extractValue(reader.nextLine());
+                reader.nextLine();
+                LocalDate transferDate;
+                try {
+                    transferDate = LocalDate.parse(dateStr); // فرض بر اینکه تاریخ در فرمت yyyy-MM-dd باشه
+                } catch (Exception e) {
+                    continue; // اگر تاریخ قابل تبدیل نبود، بی‌خیال اون ردیف می‌شیم
+                }
+                String userid = searchUserIDByCardNumber(cardNumber);
+                String userid1 = searchUserIDByCardNumber('#'+ cardNumber);
+                boolean isUserMatch = (userid != null && userid.equals(userID)) ||
+                        (userid1 != null && userid1.equals(userID));
+                boolean isCodeMatch = codeRahgery.equals(code);
+                boolean isDateInRange = (transferDate != null && !transferDate.isBefore(aDate) && !transferDate.isAfter(tDate));
+
+                if (isUserMatch && isCodeMatch && isDateInRange) {
+                    Transfer transfer = new Transfer();
+                    transfer.setAmount(amount);
+                    transfer.setType(Type);
+                    transfer.setDate(dateStr);
+                    transfer.setTime(Time);
+                    transfers.add(transfer);
+                }
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return transfers;
+    }
+
+    private List<Transfer> GetVarizTransfers() {
+        String code = CodeRahgery.getText();
+        LocalDate aDate = ADate.getValue();
+        LocalDate tDate = TDate.getValue();
+        List<Transfer> transfers = new ArrayList<>();
+        try {
+            String userName = username12.getText();
+            String userID = findUserID(userName);
+            File TransfersFile = new File("Transfers.txt");
+            Scanner reader = new Scanner(TransfersFile);
+            while (reader.hasNextLine()) {
+                String amount = extractValue(reader.nextLine());
+                String Type1 = extractValue(reader.nextLine());
+                String Type ="واریز به " + Type1;
+                String cardNumber = extractValue(reader.nextLine());
+                reader.nextLine();
+                reader.nextLine();
+                reader.nextLine();
+                String codeRahgery = extractValue(reader.nextLine());
+                String dateStr = extractValue(reader.nextLine());
+                String Time = extractValue(reader.nextLine());
+                reader.nextLine();
+                LocalDate transferDate;
+                try {
+                    transferDate = LocalDate.parse(dateStr); // فرض بر اینکه تاریخ در فرمت yyyy-MM-dd باشه
+                } catch (Exception e) {
+                    continue; // اگر تاریخ قابل تبدیل نبود، بی‌خیال اون ردیف می‌شیم
+                }
+                String userid = null;
+                String userid1 = searchUserIDByCardNumber('#'+ cardNumber);
+                if (Type1.equals("کارت")){
+                    userid = searchUserIDByCardNumber(cardNumber);
+                }else if(Type1.equals("سپرده")){
+                    userid = searchUserIDByAccountNumber(cardNumber);
+                }else if(Type1.equals("شبا")){
+                    userid = searchUserIDByShabaNumber(cardNumber);
+                }
+                boolean isUserMatch = (userid != null && userid.equals(userID)) ||
+                        (userid1 != null && userid1.equals(userID));
+                boolean isCodeMatch = codeRahgery.equals(code);
+                boolean isDateInRange = (transferDate != null && !transferDate.isBefore(aDate) && !transferDate.isAfter(tDate));
+
+                if (isUserMatch && isCodeMatch && isDateInRange) {
+                    Transfer transfer = new Transfer();
+                    transfer.setAmount(amount);
+                    transfer.setType(Type);
+                    transfer.setDate(dateStr);
+                    transfer.setTime(Time);
+                    transfers.add(transfer);
+                }
+
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return transfers;
+    }
+
+
+    public void LoadBillTransfer() {
+
+        grid3.getChildren().clear();
+        Filter.clear();
+        Filter.addAll(GetBillTransfer());
+
+        int column = 0;
+        int row = 1;
+        try {
+            for (Transfer transfer : Filter) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("../views/transferItem.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                transferItemController cartItemController = fxmlLoader.getController();
+                cartItemController.setData(transfer);
+
+                if (column == 6) {
+                    column = 0;
+                    row++;
+                }
+
+                grid3.add(anchorPane, column++, row);
+                grid3.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid3.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid3.setMaxWidth(Region.USE_PREF_SIZE);
+
+                grid3.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid3.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid3.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadPhoneTransfers() {
+
+        grid3.getChildren().clear();
+        Filter.clear();
+        Filter.addAll(GetPhoneTransfers());
+
+        int column = 0;
+        int row = 1;
+        try {
+            for (Transfer transfer : Filter) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("../views/transferItem.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                transferItemController cartItemController = fxmlLoader.getController();
+                cartItemController.setData(transfer);
+
+                if (column == 6) {
+                    column = 0;
+                    row++;
+                }
+
+                grid3.add(anchorPane, column++, row);
+                grid3.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid3.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid3.setMaxWidth(Region.USE_PREF_SIZE);
+
+                grid3.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid3.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid3.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadBardashtTransfers() {
+
+        grid3.getChildren().clear();
+        Filter.clear();
+        Filter.addAll(GetBardashtTransfers());
+
+        int column = 0;
+        int row = 1;
+        try {
+            for (Transfer transfer : Filter) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("../views/transferItem.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                transferItemController cartItemController = fxmlLoader.getController();
+                cartItemController.setData(transfer);
+
+                if (column == 6) {
+                    column = 0;
+                    row++;
+                }
+
+                grid3.add(anchorPane, column++, row);
+                grid3.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid3.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid3.setMaxWidth(Region.USE_PREF_SIZE);
+
+                grid3.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid3.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid3.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadVarizTransfers() {
+
+        grid3.getChildren().clear();
+        Filter.clear();
+        Filter.addAll(GetVarizTransfers());
+
+        int column = 0;
+        int row = 1;
+        try {
+            for (Transfer transfer : Filter) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("../views/transferItem.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                transferItemController cartItemController = fxmlLoader.getController();
+                cartItemController.setData(transfer);
+
+                if (column == 6) {
+                    column = 0;
+                    row++;
+                }
+
+                grid3.add(anchorPane, column++, row);
+                grid3.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid3.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid3.setMaxWidth(Region.USE_PREF_SIZE);
+
+                grid3.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid3.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid3.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

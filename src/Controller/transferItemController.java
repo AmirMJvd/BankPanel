@@ -67,7 +67,22 @@ public class transferItemController {
             // نمایش پنجره
             stage.show();
         }else {
-            System.out.println("1111111111");
+            // بارگذاری فایل FXML صفحه جدید
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/TranslationMoreInformation.fxml"));
+            AnchorPane pane = loader.load();
+
+            // ساخت یک صحنه جدید با ابعاد دلخواه
+            Scene scene = new Scene(pane, 535, 300);  // ابعاد دلخواه
+
+
+            // ساخت یک Stage جدید
+            Stage stage = new Stage();
+            stage.setTitle("جزئیات");
+            stage.setScene(scene);
+
+
+            // نمایش پنجره
+            stage.show();
         }
 
 

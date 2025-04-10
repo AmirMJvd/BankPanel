@@ -5,7 +5,7 @@ destination name :پیام اسدی
 Origin number :6104338767725130
 Origin name :امیر جوادزاده
 tracking code :903123758
-Date :2025/2/27
+Date :2025-02-27
 Time :1:21:54
 -------------
 Amount transferred :100000
@@ -15,7 +15,7 @@ destination name :پیام اسدی
 Origin number :6104338767725130
 Origin name :امیر جوادزاده
 tracking code :373473853
-Date :2025/2/27
+Date :2025-02-27
 Time :1:27:36
 -------------
 Amount transferred :100000
@@ -25,7 +25,7 @@ destination name :پیام اسدی
 Origin number :6104338767725130
 Origin name :امیر جوادزاده
 tracking code :001012625
-Date :2025/2/27
+Date :2025-02-27
 Time :1:38:37
 -------------
 Amount transferred :500000
@@ -35,7 +35,7 @@ destination name :امیر جوادزاده
 Origin number :6104338767725126
 Origin name :پیام اسدی
 tracking code :549075821
-Date :2025/2/27
+Date :2025-02-27
 Time :1:50:37
 -------------
 Amount transferred :500000
@@ -45,7 +45,7 @@ destination name :امیر جوادزاده
 Origin number :6104338767725126
 Origin name :پیام اسدی
 tracking code :712852757
-Date :2025/2/27
+Date :2025-02-27
 Time :2:0:2
 -------------
 Amount transferred :100000
@@ -55,7 +55,7 @@ destination name :امیر جوادزاده
 Origin number :6104338767725126
 Origin name :پیام اسدی
 tracking code :859816855
-Date :2025/2/27
+Date :2025-02-27
 Time :2:3:34
 -------------
 Amount transferred :3200000
@@ -65,7 +65,7 @@ destination name :امیر جوادی
 Origin number :6104338767725130
 Origin name :امیر جوادزاده
 tracking code :387960427
-Date :2025/3/25
+Date :2025-03-25
 Time :23:15:4
 -------------
 Amount transferred :50000000
@@ -75,7 +75,7 @@ destination name :امیر جوادی
 Origin number :6104338767725130
 Origin name :امیر جوادزاده
 tracking code :978929139
-Date :2025/3/25
+Date :2025-03-25
 Time :23:31:54
 -------------
 Amount transferred :50000000
@@ -85,7 +85,7 @@ destination name :امیر جوادزاده
 Origin number :6393461016887062
 Origin name :امیر جوادی
 tracking code :966533767
-Date :2025/3/25
+Date :2025-03-25
 Time :23:49:13
 -------------
 Amount transferred :500000
@@ -95,7 +95,7 @@ destination name :پیام اسدی
 Origin number :6393461016887062
 Origin name :امیر جوادی
 tracking code :521942017
-Date :2025/3/28
+Date :2025-03-28
 Time :20:35:51
 -------------
 Amount transferred :4000000
@@ -105,7 +105,7 @@ destination name :پیام اسدی
 Origin number :6393461016887062
 Origin name :امیر جوادی
 tracking code :949788827
-Date :2025/3/28
+Date :2025-03-28
 Time :20:45:21
 -------------
 Amount transferred :1000000
@@ -115,6 +115,6 @@ destination name :امیر جوادی
 Origin number :6393461055438888
 Origin name :امیر جوادزاده
 tracking code :790912192
-Date :2025/3/29
+Date :2025-03-29
 Time :0:44:53
 -------------
