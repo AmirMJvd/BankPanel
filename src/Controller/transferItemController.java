@@ -49,7 +49,7 @@ public class transferItemController {
         System.out.println(Type123);
 
         if(Type123.startsWith(" پرداخت قبض ")||Type123.startsWith(" شارژ تلفن همراه ")||Type123.startsWith("برداشت وجه")||
-                Type123.startsWith("واریز وجه")){
+                Type123.startsWith("واریز وجه")||Type123.startsWith("واریز سود")){
             // بارگذاری فایل FXML صفحه جدید
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/moreInformation.fxml"));
             AnchorPane pane = loader.load();

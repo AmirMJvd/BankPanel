@@ -3,7 +3,7 @@ Transfer type :برداشت وجه
 destination number :61228886408112
 destination name : امیر جوادزاده
 tracking code :795817470
-Date :2025/2/25
+Date :2025-02-25
 Time :18:2:33
 -------------
 Amount transferred : 100000
@@ -11,7 +11,7 @@ Transfer type : برداشت وجه
 destination number : 61228886408115
 destination name : پیام اسدی
 tracking code : 942211418
-Date : 2025/2/25
+Date :2025-02-25
 Time : 18:16:25
 -------------
 Amount transferred :100000
@@ -19,7 +19,7 @@ Transfer type :واریز وجه
 destination number :61228886408115
 destination name : پیام اسدی
 tracking code :480359507
-Date :2025/2/25
+Date :2025-02-25
 Time : 18:16:25
 -------------
 Amount transferred :100000
@@ -27,7 +27,7 @@ Transfer type :واریز وجه
 destination number :61228886408115
 destination name : پیام اسدی
 tracking code :890970389
-Date :2025/2/25
+Date :2025-02-25
 Time : 18:16:25
 -------------
 Amount transferred :500000
@@ -35,7 +35,7 @@ Transfer type :واریز وجه
 destination number :71977481652020
 destination name : امیر جوادی
 tracking code :620381808
-Date :2025/3/25
+Date :2025-02-25
 Time : 18:16:25
 -------------
 Amount transferred :300000
@@ -43,7 +43,7 @@ Transfer type :واریز وجه
 destination number :71977481652020
 destination name : امیر جوادی
 tracking code :886520062
-Date :2025/3/25
+Date :2025-02-25
 Time : 18:16:25
 -------------
 Amount transferred :500000
@@ -51,7 +51,7 @@ Transfer type :واریز وجه
 destination number :71977481652020
 destination name : امیر جوادی
 tracking code :436101092
-Date :2025/3/25
+Date :2025-03-25
 Time :2:50:27
 -------------
 Amount transferred :5000000
@@ -59,7 +59,7 @@ Transfer type :واریز وجه
 destination number :71977481652020
 destination name : امیر جوادی
 tracking code :677288420
-Date :2025/3/25
+Date :2025-03-25
 Time :2:54:45
 -------------
 Amount transferred :1000000000
@@ -67,7 +67,7 @@ Transfer type :واریز وجه
 destination number :71977481652020
 destination name : امیر جوادی
 tracking code :483964845
-Date :2025/3/25
+Date :2025-03-25
 Time :2:55:5
 -------------
 Amount transferred : 5000000
@@ -75,7 +75,7 @@ Transfer type : برداشت وجه
 destination number : 71977481652020
 destination name : امیر جوادی
 tracking code : 905291003
-Date : 2025/3/25
+Date :2025-03-25
 Time : 3:14:51
 -------------
 Amount transferred :5000000
@@ -83,7 +83,7 @@ Transfer type :واریز وجه
 destination number :61228886408115
 destination name : پیام اسدی
 tracking code :416808529
-Date :2025/3/25
+Date :2025-03-25
 Time :23:10:52
 -------------
 Amount transferred : 1000000
@@ -91,7 +91,7 @@ Transfer type : برداشت وجه
 destination number : 71977481652020
 destination name : امیر جوادی
 tracking code : 995990709
-Date : 2025/3/25
+Date : 2025-03-25
 Time : 23:11:36
 -------------
 Amount transferred : 1000000
@@ -99,7 +99,7 @@ Transfer type : برداشت وجه
 destination number : 90291653017670
 destination name : امیر جوادزاده
 tracking code : 310509808
-Date : 2025/3/29
+Date : 2025-03-29
 Time : 0:37:10
 -------------
 Amount transferred :1000000
@@ -107,7 +107,7 @@ Transfer type :واریز وجه
 destination number :90291653017670
 destination name : امیر جوادزاده
 tracking code :940374976
-Date :2025/3/29
+Date :2025-03-29
 Time :0:37:40
 -------------
 Amount transferred :1000000
@@ -115,7 +115,7 @@ Transfer type :واریز وجه
 destination number :90291653017670
 destination name : امیر جوادزاده
 tracking code :683280166
-Date :2025/3/29
+Date :2025-03-29
 Time :0:42:59
 -------------
 Amount transferred : 499250000
@@ -123,6 +123,70 @@ Transfer type : برداشت وجه
 destination number : 61228886408112
 destination name : امیر جوادزاده
 tracking code : 169850208
-Date : 2025/4/10
+Date : 2025-04-10
 Time : 20:37:36
+-------------
+Amount transferred : 29
+Transfer type :واریز سود
+destination number :61228886408112
+destination name : امیر جوادزاده
+tracking code : 931400279
+Date :2025-04-11
+Time : 21:40:26
+-------------
+Amount transferred : 21
+Transfer type :واریز سود
+destination number :61228886408115
+destination name : پیام اسدی
+tracking code : 376423131
+Date :2025-04-11
+Time : 21:40:26
+-------------
+Amount transferred : 192
+Transfer type :واریز سود
+destination number :71977481652020
+destination name : امیر جوادی
+tracking code : 694201826
+Date :2025-04-11
+Time : 21:40:26
+-------------
+Amount transferred : 222
+Transfer type :واریز سود
+destination number :84114691539704
+destination name : علی احمدی
+tracking code : 949407066
+Date :2025-04-11
+Time : 21:54:44
+-------------
+Amount transferred : 2
+Transfer type :واریز سود
+destination number :61228886408112
+destination name : امیر جوادزاده
+tracking code : 952342018
+Date :2025-04-12
+Time : 00:00:19
+-------------
+Amount transferred : 1.5
+Transfer type :واریز سود
+destination number :61228886408115
+destination name : پیام اسدی
+tracking code : 196876899
+Date :2025-04-12
+Time : 00:00:19
+-------------
+Amount transferred : 1.5
+Transfer type :واریز سود
+destination number :71977481652020
+destination name : امیر جوادی
+tracking code : 897432566
+Date :2025-04-12
+Time : 00:00:19
+-------------
+Amount transferred : 6.43999999999999772626324556767940521240234375
+Transfer type :واریز سود
+destination number :84114691539704
+destination name : علی احمدی
+tracking code : 423839891
+Date :2025-04-12
+Time : 00:00:19
 -------------

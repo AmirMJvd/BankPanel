@@ -16,9 +16,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import model.Account;
 import model.Card;
 import model.Deposit;
 import model.Transfer;
+import service.AccountManager;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -33,9 +35,10 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Scanner;
+
+
 
 import static service.findInformation.*;
 import static service.findInformation.searchUserinventoryByCardNumber;
@@ -304,8 +307,6 @@ public class UserPageController {
     @FXML
     private Label trackingNumber2;
 
-    @FXML
-    private Label username;
 
     public void setId(String username1) {
         username12.setText(username1);
@@ -385,7 +386,12 @@ public class UserPageController {
             LoadUser1();
             LoadUser();
             LoadUserBillTransfer();
-
+            AccountManager accountManager = new AccountManager();
+            try {
+                accountManager.ReadFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
 
         });
@@ -393,18 +399,7 @@ public class UserPageController {
 
     }
 
-    public static void continuouslyExecute() {
-        while (true) {
-            System.out.println("در حال اجرا...");
-            // اینجا می‌توانید کدهای خود را اضافه کنید
 
-            try {
-                Thread.sleep(1000);  // تاخیر یک ثانیه‌ای
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
     private void takeScreenshot1() {
         try {
@@ -2581,5 +2576,6 @@ public class UserPageController {
             e.printStackTrace();
         }
     }
+
 
 }
