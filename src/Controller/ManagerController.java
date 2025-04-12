@@ -2,17 +2,19 @@ package Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import model.CheckItem;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -171,6 +173,33 @@ public class ManagerController {
     @FXML
     private Button Download;
 
+    @FXML
+    private HBox first;
+
+    @FXML
+    private HBox checkBox;
+
+    @FXML
+    private Button showButton;
+
+    @FXML
+    private GridPane checkGrid1;
+
+    @FXML
+    private AnchorPane anch;
+
+    @FXML
+    private VBox vBox;
+
+    @FXML
+    private ScrollPane yourScrollPane;
+
+    @FXML
+    private Button toggleButton;
+
+    @FXML
+    private HBox checkhbox;
+
     private String userID;
 
     private final SecureRandom random = new SecureRandom(); // برای تولید اعداد تصادفی امن‌تر
@@ -196,6 +225,18 @@ public class ManagerController {
             // غیرفعال کردن Listener برای جلوگیری از بازگشتی شدن تغییرات
             BillAmountTextField.setText(formattedValue);
         });
+
+        toggleButton.setOnAction(event -> {
+            checkhbox.setVisible(true);
+            first.setVisible(false);
+            checkBox.setVisible(true);
+        });
+
+        // ست کردن ارتفاع HBox مثل AnchorPane
+        first.prefHeightProperty().bind(anch.heightProperty());
+        checkBox.prefHeightProperty().bind(anch.heightProperty());
+
+        loadCheckItems();
     }
 
     // متد برای افزودن کاما بعد از هر سه رقم
@@ -620,6 +661,127 @@ public class ManagerController {
         RoleCombo.getSelectionModel().clearSelection();
     }
 
+    @FXML
+    public void handleShowClick() {
+        first.setVisible(false);
+        checkBox.setVisible(true);
+        checkhbox.setVisible(true);
+    }
+
+    private void loadCheckItems() {
+        // پاک کردن قبلی‌ها
+        checkGrid1.getChildren().clear();
+        checkGrid1.getRowConstraints().clear();
+
+        // دریافت داده‌ها
+        List<CheckItem> checkItems = getCheckItemsData();
+
+        int row = 0;
+
+        try {
+            for (CheckItem checkItem : checkItems) {
+                // بارگذاری FXML
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/views/CheckItem.fxml"));
+                HBox checkItemPane = fxmlLoader.load();
+
+                // دریافت کنترلر و تنظیم داده‌ها
+                CheckItemController checkItemController = fxmlLoader.getController();
+                checkItemController.setItemData(
+                        checkItem.getName(),
+                        checkItem.getTrackingNumber(),
+                        checkItem.getAccountNumber(),
+                        checkItem.getCheckPages(),
+                        checkItem.getPostCode(),
+                        checkItem.getPhoneNumber(),
+                        checkItem.getNational(),
+                        checkItem.getAccountType()
+                );
+
+                // اضافه کردن آیتم به ردیف جدید
+                checkGrid1.add(checkItemPane, 0, row);
+
+                // تنظیم اندازه GridPane
+                checkGrid1.setMinWidth(Region.USE_COMPUTED_SIZE);
+                checkGrid1.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                checkGrid1.setMaxWidth(Region.USE_PREF_SIZE);
+
+                checkGrid1.setMinHeight(Region.USE_COMPUTED_SIZE);
+                checkGrid1.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                checkGrid1.setMaxHeight(Region.USE_PREF_SIZE);
+
+                // اضافه کردن حاشیه به آیتم‌ها
+                GridPane.setMargin(checkItemPane, new Insets(10));
+
+                // افزایش شماره ردیف برای آیتم بعدی
+                row++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<CheckItem> getCheckItemsData() {
+        List<CheckItem> checkItems = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("checkrequest.txt"))) {
+            String line;
+            String name = "", trackingNumber = "", accountNumber = "", checkPages = "";
+            String nationall = "", phonenumb = "", postnumb = "", acctype = "";
+
+            while ((line = reader.readLine()) != null) {
+                if (line.trim().isEmpty()) continue;  // اگر خط خالی بود، ادامه می‌دهیم
+
+                String[] parts = line.split(":");
+                if (parts.length < 2) continue;  // اگر خط اشتباه است، آن را نادیده می‌گیریم
+
+                String key = parts[0].trim().toLowerCase();
+                String value = parts[1].trim();
+
+                // ذخیره داده‌ها
+                switch (key) {
+                    case "name":
+                        name = value;
+                        break;
+                    case "trackingnumber":
+                        trackingNumber = value;
+                        break;
+                    case "accountnumber":
+                        accountNumber = value;
+                        break;
+                    case "checkpages":
+                        checkPages = value;
+                        break;
+                    case "accounttype":
+                        acctype = value;
+                        break;
+                    case "postcode":
+                        postnumb = value;
+                        break;
+                    case "phonenumber":
+                        phonenumb = value;
+                        break;
+                    case "nationalcpde":  // اصلاح نام متغیر به nationalcpde
+                        nationall = value;
+                        break;
+                }
+
+                // اگر تمام داده‌ها جمع‌آوری شد، یک CheckItem جدید بسازیم
+                if (!name.isEmpty() && !trackingNumber.isEmpty() && !accountNumber.isEmpty() && !checkPages.isEmpty()) {
+                    checkItems.add(new CheckItem(name, trackingNumber, accountNumber, checkPages,
+                            nationall, phonenumb, postnumb, acctype));
+                    System.out.println("Added CheckItem: " + name + ", " + trackingNumber + ", " + accountNumber + ", " + checkPages);
+                    // بازنشانی متغیرها برای آیتم بعدی
+                    name = trackingNumber = accountNumber = checkPages = nationall = phonenumb = postnumb = acctype = "";
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return checkItems;
+    }
 
 
 }

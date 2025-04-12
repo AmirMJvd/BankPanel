@@ -5,21 +5,24 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import model.Account;
-import model.Card;
-import model.Deposit;
-import model.Transfer;
+import model.*;
 import service.AccountManager;
 
 import javax.imageio.ImageIO;
@@ -307,6 +310,230 @@ public class UserPageController {
     @FXML
     private Label trackingNumber2;
 
+    @FXML
+    private Label username;
+
+    @FXML
+    private TextField IDCheck;
+
+    @FXML
+    private TextField accountNumberField;
+
+    @FXML
+    private TextField checkId;
+
+    @FXML
+    private TextField checkaccnum;
+
+    @FXML
+    private TextField checkamount;
+
+    @FXML
+    private TextField codenational;
+
+    @FXML
+    private TextField nameField;
+
+    @FXML
+    private TextField nationalID;
+
+    @FXML
+    private TextField nationalcode;
+
+    @FXML
+    private TextField phoneField;
+
+    @FXML
+    private TextField postalCodeField;
+
+    @FXML
+    private TextField serialnum;
+
+    @FXML
+    private TextField seriesnum;
+
+    @FXML
+    private ComboBox<String> accountTypeComboBox;
+
+    @FXML
+    private ComboBox<?> chargPrice231;
+
+    @FXML
+    private ComboBox<Integer> checkPagesComboBox;
+
+    @FXML
+    private VBox VboxLabel;
+
+    @FXML
+    private VBox first;
+
+    @FXML
+    private VBox second;
+
+    @FXML
+    private VBox third;
+
+    @FXML
+    private VBox vbox1;
+
+    @FXML
+    private VBox vfirst;
+
+    @FXML
+    private VBox vsecound;
+
+    @FXML
+    private VBox vthird;
+
+    @FXML
+    private HBox CheckConfirmation;
+
+    @FXML
+    private HBox CheckregistrationVbox;
+
+    @FXML
+    private HBox mainvbox;
+
+    @FXML
+    private HBox hboxmain;
+
+    @FXML
+    private HBox hbox;
+
+    @FXML
+    private ScrollPane scrollPaneId;
+
+    @FXML
+    private BorderPane rootPane;
+
+    @FXML
+    private TabPane tabpane;
+
+    @FXML
+    private AnchorPane anch1;
+
+    @FXML
+    private AnchorPane anch3;
+
+    @FXML
+    private ScrollPane scrollPane3;
+
+    @FXML
+    private StackPane anch3StackPane;
+
+    @FXML
+    private AnchorPane anch4;
+
+    @FXML
+    private Pane pane4;
+
+    @FXML
+    private AnchorPane anch7;
+
+    @FXML
+    private ScrollPane scroll3;
+
+    @FXML
+    private StackPane stack3;
+
+    @FXML
+    private Pane panee;
+
+    @FXML
+    private Pane panee1;
+
+    @FXML
+    private ImageView img1;
+
+    @FXML
+    private ImageView img2;
+
+    @FXML
+    private ImageView img3;
+
+    @FXML
+    private ImageView imgback;
+
+    @FXML
+    private Button checkBtn;
+
+    @FXML
+    private Button confirmBtn;
+
+    @FXML
+    private Button rejectionBtn;
+
+    @FXML
+    private Label CheckregistrationLabel;
+
+    @FXML
+    private Label confirmationLabel;
+
+    @FXML
+    private Label lblAmount;
+
+    @FXML
+    private Label lblCheckId;
+
+    @FXML
+    private Label lblDate;
+
+    @FXML
+    private Label lblNationalCode;
+
+    @FXML
+    private Label lblSerial;
+
+    @FXML
+    private Label lblSeries;
+
+    @FXML
+    private Label request;
+
+    @FXML
+    private Label requestCheckLabel;
+
+    @FXML
+    private Label sabt;
+
+    @FXML
+    private Label taiid;
+
+    @FXML
+    private VBox requestCheckVBox;
+
+    @FXML
+    private DatePicker date;
+
+    @FXML
+    private Circle circle1;
+
+    @FXML
+    private Circle circle2;
+
+    @FXML
+    private Circle circle3;
+
+    @FXML
+    private VBox checkgrid;
+
+    @FXML
+    private AnchorPane anch8;
+
+    @FXML
+    private GridPane grid4;
+
+    @FXML
+    private ScrollPane scroll4;
+
+    @FXML
+    private StackPane stack4;
+
+
+    @FXML
+    private TextField searchTextField;
+
+
 
     public void setId(String username1) {
         username12.setText(username1);
@@ -381,6 +608,293 @@ public class UserPageController {
         chargPrice.getItems().addAll("50,000 ریال", "100,000 ریال", "200,000 ریال", "500,000 ریال");
         transferType.getItems().addAll("پرداخت قبض" , "شارژ تلفن همراه" , "برداشت از کارت" , "واریز به کارت","واریز به سپرده" , "واریز به شبا");
 
+        // مخفی کردن VBoxها در ابتدا
+        requestCheckVBox.setVisible(false);
+        requestCheckVBox.setManaged(false);
+        CheckregistrationVbox.setVisible(false);
+        CheckregistrationVbox.setManaged(false);
+        CheckConfirmation.setVisible(false);
+        CheckConfirmation.setManaged(false);
+        mainvbox.setVisible(false);
+        mainvbox.setManaged(false);
+        img1.setVisible(false);
+        img1.setManaged(false);
+        img2.setVisible(false);
+        img2.setManaged(false);
+        img3.setVisible(false);
+        img3.setManaged(false);
+
+        // کلیک برای نمایش تایید\رد چک
+        confirmationLabel.setOnMouseClicked(event -> {
+            mainvbox.setVisible(true);
+            mainvbox.setManaged(true);
+            CheckConfirmation.setVisible(true);
+            CheckConfirmation.setManaged(true);
+            img2.setVisible(true);
+            img2.setManaged(true);
+            requestCheckVBox.setVisible(false);
+            requestCheckVBox.setManaged(false);
+            CheckregistrationVbox.setVisible(false);
+            CheckregistrationVbox.setManaged(false);
+            VboxLabel.setVisible(false);
+            VboxLabel.setManaged(false);
+            img3.setVisible(false);
+            img3.setManaged(false);
+            img1.setVisible(false);
+            img1.setManaged(false);
+            taiid.setStyle(" -fx-border-color: black; -fx-border-width: 1px; -fx-background-radius: 25px; -fx-background-color:  #FFFFFF; -fx-border-radius: 25px");
+            sabt.setStyle(" -fx-background-radius: 25px; -fx-background-color:  #FFFFFF");
+            request.setStyle("-fx-background-radius: 25px; -fx-background-color:  #FFFFFF");
+        });
+        taiid.setOnMouseClicked(event -> {
+            mainvbox.setVisible(true);
+            mainvbox.setManaged(true);
+            CheckConfirmation.setVisible(true);
+            CheckConfirmation.setManaged(true);
+            img2.setVisible(true);
+            img2.setManaged(true);
+            requestCheckVBox.setVisible(false);
+            requestCheckVBox.setManaged(false);
+            CheckregistrationVbox.setVisible(false);
+            CheckregistrationVbox.setManaged(false);
+            VboxLabel.setVisible(false);
+            VboxLabel.setManaged(false);
+            img3.setVisible(false);
+            img3.setManaged(false);
+            img1.setVisible(false);
+            img1.setManaged(false);
+            taiid.setStyle(" -fx-border-color: black; -fx-border-width: 1px;-fx-background-radius: 25px; -fx-background-color:  #FFFFFF; -fx-border-radius: 25px");
+            sabt.setStyle("-fx-background-radius: 25px; -fx-background-color:  #FFFFFF");
+            request.setStyle("-fx-background-radius: 25px; -fx-background-color:  #FFFFFF");
+        });
+
+
+        // کلیک برای نمایش درخواست دسته چک
+        requestCheckLabel.setOnMouseClicked(event -> {
+            mainvbox.setVisible(true);
+            mainvbox.setManaged(true);
+            requestCheckVBox.setVisible(true);
+            requestCheckVBox.setManaged(true);
+            img3.setVisible(true);
+            img3.setManaged(true);
+            CheckregistrationVbox.setVisible(false);
+            CheckregistrationVbox.setManaged(false);
+            CheckConfirmation.setVisible(false);
+            CheckConfirmation.setManaged(false);
+            VboxLabel.setVisible(false);
+            VboxLabel.setManaged(false);
+            img1.setVisible(false);
+            img1.setManaged(false);
+            img2.setVisible(false);
+            img2.setManaged(false);
+            request.setStyle(" -fx-border-color: black; -fx-border-width: 1px; -fx-border-radius: 25px; -fx-background-color:  #FFFFFF; -fx-background-radius: 25px");
+            taiid.setStyle("-fx-background-radius: 25px; -fx-background-color:  #FFFFFF");
+            sabt.setStyle("-fx-background-radius: 25px; -fx-background-color:  #FFFFFF");
+        });
+        request.setOnMouseClicked(event -> {
+            mainvbox.setVisible(true);
+            mainvbox.setManaged(true);
+            requestCheckVBox.setVisible(true);
+            requestCheckVBox.setManaged(true);
+            img3.setVisible(true);
+            img3.setManaged(true);
+            CheckregistrationVbox.setVisible(false);
+            CheckregistrationVbox.setManaged(false);
+            CheckConfirmation.setVisible(false);
+            CheckConfirmation.setManaged(false);
+            VboxLabel.setVisible(false);
+            VboxLabel.setManaged(false);
+            img1.setVisible(false);
+            img1.setManaged(false);
+            img2.setVisible(false);
+            img2.setManaged(false);
+            request.setStyle(" -fx-border-color: black; -fx-border-width: 1px;-fx-background-radius: 25px; -fx-background-color:  #FFFFFF; -fx-border-radius: 25px");
+            sabt.setStyle("-fx-background-radius: 25px; -fx-background-color:  #FFFFFF");
+            taiid.setStyle("-fx-background-radius: 25px; -fx-background-color:  #FFFFFF");
+        });
+
+        // کلیک برای نمایش ثبت دسته چک
+        CheckregistrationLabel.setOnMouseClicked(event -> {
+            mainvbox.setVisible(true);
+            mainvbox.setManaged(true);
+            CheckregistrationVbox.setVisible(true);
+            CheckregistrationVbox.setManaged(true);
+            img1.setVisible(true);
+            img1.setManaged(true);
+            CheckConfirmation.setVisible(false);
+            CheckConfirmation.setManaged(false);
+            requestCheckVBox.setVisible(false);
+            requestCheckVBox.setManaged(false);
+            VboxLabel.setVisible(false);
+            VboxLabel.setManaged(false);
+            img3.setVisible(false);
+            img3.setManaged(false);
+            img2.setVisible(false);
+            img2.setManaged(false);
+            sabt.setStyle(" -fx-border-color: black; -fx-border-width: 1px; -fx-background-radius: 25px; -fx-background-color:  #FFFFFF; -fx-border-radius: 25px");
+            taiid.setStyle("-fx-background-radius: 25px; -fx-background-color:  #FFFFFF");
+            request.setStyle("-fx-background-radius: 25px; -fx-background-color:  #FFFFFF");
+        });
+        sabt.setOnMouseClicked(event -> {
+            mainvbox.setVisible(true);
+            mainvbox.setManaged(true);
+            CheckregistrationVbox.setVisible(true);
+            CheckregistrationVbox.setManaged(true);
+            img1.setVisible(true);
+            img1.setManaged(true);
+            CheckConfirmation.setVisible(false);
+            CheckConfirmation.setManaged(false);
+            requestCheckVBox.setVisible(false);
+            requestCheckVBox.setManaged(false);
+            VboxLabel.setVisible(false);
+            VboxLabel.setManaged(false);
+            img3.setVisible(false);
+            img3.setManaged(false);
+            img2.setVisible(false);
+            img2.setManaged(false);
+            sabt.setStyle(" -fx-border-color: black; -fx-border-width: 1px;-fx-background-radius: 25px; -fx-background-color:  #FFFFFF; -fx-border-radius: 25px");
+            taiid.setStyle("-fx-background-radius: 25px; -fx-background-color:  #FFFFFF");
+            request.setStyle("-fx-background-radius: 25px; -fx-background-color:  #FFFFFF");
+        });
+
+        accountTypeComboBox.getItems().addAll("سپرده قرض الحسنه جاری");
+        checkPagesComboBox.getItems().addAll(25, 50, 100);
+
+
+        // تنظیم حرکت با Enter در مرحله اول
+        checkId.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                handleNextAction(); // چون فقط یک فیلد داریم
+            }
+        });
+
+        // مرحله دوم: حرکت بین فیلدها با Enter
+        checkaccnum.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) serialnum.requestFocus();
+        });
+
+        serialnum.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) seriesnum.requestFocus();
+        });
+
+        seriesnum.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) checkamount.requestFocus();
+        });
+
+        checkamount.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) date.requestFocus();
+        });
+
+        date.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) handleSecondNext(); // رفتن به بخش سوم
+        });
+
+        // مرحله سوم: کد ملی و ذخیره
+        nationalcode.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) saveCheckInfo();
+        });
+
+
+        first.setVisible(true);
+        second.setVisible(false);
+        third.setVisible(false);
+        second.managedProperty().bind(second.visibleProperty());
+        third.managedProperty().bind(third.visibleProperty());
+
+        // اضافه کردن Listener برای تغییر رنگ دایره‌ها بر اساس وضعیت VBox
+        first.visibleProperty().addListener((obs, oldVal, newVal) -> updateCircleColors());
+        second.visibleProperty().addListener((obs, oldVal, newVal) -> updateCircleColors());
+        third.visibleProperty().addListener((obs, oldVal, newVal) -> updateCircleColors());
+
+        // ریسپانسیو کردن TabPane
+        tabpane.prefWidthProperty().bind(rootPane.widthProperty());
+        tabpane.prefHeightProperty().bind(rootPane.heightProperty());
+
+        // ریسپانسیو کردن AnchorPane
+        anch1.prefWidthProperty().bind(tabpane.widthProperty());
+        anch1.prefHeightProperty().bind(tabpane.heightProperty());
+
+        // ریسپانسیو کردن HBox
+        hboxmain.prefWidthProperty().bind(anch1.widthProperty());
+        hboxmain.prefHeightProperty().bind(anch1.heightProperty());
+
+        // ریسپانسیو کردن VBoxها با تقسیم مساوی عرض HBox
+        vfirst.prefWidthProperty().bind(hboxmain.widthProperty().divide(3));
+        vsecound.prefWidthProperty().bind(hboxmain.widthProperty().divide(3));
+        vthird.prefWidthProperty().bind(hboxmain.widthProperty().divide(3));
+
+        // اگر خواستی ارتفاعشون هم با HBox یکی باشه:
+        vfirst.prefHeightProperty().bind(hboxmain.heightProperty());
+        vsecound.prefHeightProperty().bind(hboxmain.heightProperty());
+        vthird.prefHeightProperty().bind(hboxmain.heightProperty());
+
+        scrollPaneId.prefWidthProperty().bind(tabpane.widthProperty());
+        scrollPaneId.prefHeightProperty().bind(tabpane.heightProperty());
+
+        // سایز anch3 با tabpane هماهنگ
+        anch3.prefWidthProperty().bind(tabpane.widthProperty());
+        anch3.prefHeightProperty().bind(tabpane.heightProperty());
+
+        // ScrollPane هم‌ اندازه‌ی anch3
+        scrollPane3.prefWidthProperty().bind(anch3.widthProperty());
+        scrollPane3.prefHeightProperty().bind(anch3.heightProperty());
+
+        // StackPane داخل ScrollPane ریسپانسیو
+        anch3StackPane.prefWidthProperty().bind(scrollPane3.widthProperty());
+        anch3StackPane.prefHeightProperty().bind(scrollPane3.heightProperty());
+
+        // anch4 ریسپانسیو با tabpane
+        anch4.prefWidthProperty().bind(tabpane.widthProperty());
+        anch4.prefHeightProperty().bind(tabpane.heightProperty());
+
+        // pane4 هماهنگ با anch4
+        pane4.prefWidthProperty().bind(anch4.widthProperty());
+        pane4.prefHeightProperty().bind(anch4.heightProperty());
+
+        // VboxLabel هماهنگ با pane4
+        VboxLabel.prefWidthProperty().bind(pane4.widthProperty());
+        VboxLabel.prefHeightProperty().bind(pane4.heightProperty());
+
+        mainvbox.prefWidthProperty().bind(pane4.widthProperty());
+        mainvbox.prefHeightProperty().bind(pane4.heightProperty());
+
+        // هماهنگ‌سازی عرض و ارتفاع HBox با TabPane
+        hbox.prefWidthProperty().bind(tabpane.widthProperty());
+        hbox.prefHeightProperty().bind(tabpane.heightProperty());
+
+        // ScrollPane اندازه‌اش با AnchorPane برابر باشه
+        scroll3.prefWidthProperty().bind(anch7.widthProperty());
+        scroll3.prefHeightProperty().bind(anch7.heightProperty());
+
+        // ScrollPane اندازه‌اش با AnchorPane برابر باشه
+        scroll4.prefWidthProperty().bind(anch8.widthProperty());
+        scroll4.prefHeightProperty().bind(anch8.heightProperty());
+
+
+        // StackPane اندازه‌اش با ScrollPane برابر باشه
+        stack3.prefWidthProperty().bind(scroll3.widthProperty());
+        stack3.prefHeightProperty().bind(scroll3.heightProperty());
+
+        // آیتم‌ها در مرکز StackPane قرار بگیرن
+        stack3.setAlignment(grid3, Pos.CENTER);
+
+        // StackPane اندازه‌اش با ScrollPane برابر باشه
+        stack4.prefWidthProperty().bind(scroll4.widthProperty());
+        stack4.prefHeightProperty().bind(scroll4.heightProperty());
+
+        // آیتم‌ها در مرکز StackPane قرار بگیرن
+        stack4.setAlignment(grid4, Pos.CENTER);
+
+        // ست کردن ارتفاع HBox برابر با ارتفاع AnchorPane
+        CheckregistrationVbox.prefHeightProperty().bind(anch4.heightProperty());
+
+        // ست کردن عرض HBox برابر با 2/3 عرض AnchorPane
+
+        CheckregistrationVbox.prefWidthProperty().bind(anch4.widthProperty().multiply(4.0 / 5.0));
+        requestCheckVBox.prefWidthProperty().bind(anch4.widthProperty().multiply(4.0 / 5.0));
+        CheckConfirmation.prefWidthProperty().bind(anch4.widthProperty().multiply(4.0 / 5.0));
+        // مقداردهی اولیه
+        updateCircleColors();
 
         Platform.runLater(() -> {
             LoadUser1();
@@ -392,13 +906,31 @@ public class UserPageController {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
+            LoadCheckHistory();
 
         });
-
-
     }
 
+    private void updateCircleColors() {
+        if (first.isVisible()) {
+            circle1.setFill(Color.GRAY);
+            circle2.setFill(Color.web("#d3d3d3"));
+            circle3.setFill(Color.web("#d3d3d3"));
+        } else if (second.isVisible()) {
+            circle1.setFill(Color.web("#d3d3d3"));
+            circle2.setFill(Color.GRAY);
+            circle3.setFill(Color.web("#d3d3d3"));
+        } else if (third.isVisible()) {
+            circle1.setFill(Color.web("#d3d3d3"));
+            circle2.setFill(Color.web("#d3d3d3"));
+            circle3.setFill(Color.GRAY);
+        } else {
+            circle1.setFill(Color.web("#d3d3d3"));
+            circle2.setFill(Color.web("#d3d3d3"));
+            circle3.setFill(Color.web("#d3d3d3"));
+        }
+
+    }
 
 
     private void takeScreenshot1() {
@@ -2576,6 +3108,755 @@ public class UserPageController {
             e.printStackTrace();
         }
     }
+    @FXML
+    private void handleImageClick(MouseEvent event) {
+        VboxLabel.setVisible(true);
+        mainvbox.setVisible(false);
+        requestCheckVBox.setVisible(false);
+        CheckregistrationVbox.setVisible(false);
+        CheckConfirmation.setVisible(false);
+    }
+
+
+    @FXML
+    private void handleNextAction() {
+        String checkIdText = checkId.getText();
+        if (checkIdText == null) {
+            showAlert("خطا", "لطفاً شناسه چک را وارد کنید.");
+        } else if (checkIdText.length() != 16 || !checkIdText.matches("\\d+")) {
+            showAlert("خطا", "شناسه چک باید 16 رقمی و فقط عدد باشد.");
+        } else {
+            first.setVisible(false);
+            second.setVisible(true);
+        }
+    }
+
+    @FXML
+    private void handleSecondNext() {
+        String accNum = checkaccnum.getText();
+        String serial = serialnum.getText();
+        String series = seriesnum.getText();
+        String amount = checkamount.getText();
+        LocalDate checkDate = date.getValue();
+
+        if (accNum == null || serial == null || series == null
+                || amount == null || checkDate == null) {
+            showAlert("خطا", "لطفاً تمامی اطلاعات را وارد کنید.");
+            return;
+        }
+
+        if (accNum.length() != 14 || !accNum.matches("\\d+")) {
+            showAlert("خطا", "شماره حساب باید 14 رقمی باشد.");
+            return;
+        }
+        if (serial.length() != 6 || !serial.matches("\\d+")) {
+            showAlert("خطا", "سریال باید 6 رقمی باشد.");
+            return;
+        }
+        if (series.length() != 4 || !series.matches("\\d+")) {
+            showAlert("خطا", "سری باید 4 رقمی باشد.");
+            return;
+        }
+
+        second.setVisible(false);
+        third.setVisible(true);
+    }
+
+    @FXML
+    private void handleBackToFirst() {
+        second.setVisible(false);
+        first.setVisible(true);
+    }
+
+    @FXML
+    private void handleBackToSecond() {
+        third.setVisible(false);
+        second.setVisible(true);
+    }
+
+    @FXML
+    private void saveCheckInfo() {
+        String checkIdText = checkId.getText();
+        String accNum = checkaccnum.getText();
+        String serial = serialnum.getText();
+        String series = seriesnum.getText();
+        String amount = checkamount.getText();
+        LocalDate checkDate = date.getValue();
+        String nCode = nationalcode.getText();
+
+
+        if (checkIdText == null || checkIdText.isEmpty() ||
+                accNum == null || accNum.isEmpty() ||
+                serial == null || serial.isEmpty() ||
+                series == null || series.isEmpty() ||
+                amount == null || amount.isEmpty() ||
+                checkDate == null ||
+                nCode == null || nCode.isEmpty()) {
+
+            showAlert("خطا", "لطفاً تمامی اطلاعات را وارد کنید.");
+            return;
+        }
+
+        saveCheckInfoToFile(checkIdText, accNum, serial, series, amount, checkDate.toString(), nCode);
+
+        checkId.clear();
+        checkaccnum.clear();
+        serialnum.clear();
+        seriesnum.clear();
+        checkamount.clear();
+        nationalcode.clear();
+        date.setValue(null);
+
+        third.setVisible(false);
+        first.setVisible(true);
+
+        showAlert("موفقیت", "اطلاعات چک با موفقیت ذخیره شد.");
+    }
+
+
+    private void saveCheckInfoToFile(String checkId, String accountNumber, String serial, String series, String amount, String date, String nationalCode) {
+        String filePath = "checkinfo.txt";
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+            writer.write("Type: ثبت چک"); // مقداردهی به Type
+            writer.newLine();
+            writer.write("checkId: " + checkId);
+            writer.newLine();
+            writer.write("accountNumber: " + accountNumber);
+            writer.newLine();
+            writer.write("serial: " + serial);
+            writer.newLine();
+            writer.write("seri: " + series);
+            writer.newLine();
+            writer.write("amount: " + amount);
+            writer.newLine();
+            writer.write("due date: " + date);
+            writer.newLine();
+            writer.write("nationalCode: " + nationalCode);
+            writer.newLine();
+
+            // تاریخ و ساعت فعلی سیستم
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+
+            writer.write("Date: " + now.format(dateFormatter)); // ذخیره تاریخ
+            writer.newLine();
+            writer.write("Time: " + now.format(timeFormatter)); // ذخیره ساعت و دقیقه
+            writer.newLine();
+            writer.write("----------------------------------");
+            writer.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("خطا", "خطا در ذخیره اطلاعات در فایل!");
+        }
+    }
+
+
+    @FXML
+    private void checkCheckInfo() {
+        String checkId = IDCheck.getText().trim();
+        String nationalCode = codenational.getText().trim();
+
+        if (checkId.isEmpty() || nationalCode.isEmpty()) {
+            showAlert("خطا", "لطفاً تمامی فیلدها را پر کنید.");
+            return;
+        }
+
+        // بررسی اینکه کاربر لاگین‌شده همان کسی است که کد ملی واردشده متعلق به اوست
+        String currentUserId = getCurrentUserID(); // از userID.txt
+        String userIdFromNationalCode = getUserIdByNationalCode(nationalCode); // از users.txt
+
+        if (userIdFromNationalCode == null || !userIdFromNationalCode.equals(currentUserId)) {
+            showAlert("خطا", "اطلاعات نامعتبر است.");
+            return;
+        }
+
+        // بررسی اینکه چک قبلاً تایید یا رد نشده باشد
+        if (isCheckProcessed(checkId)) {
+            showAlert("خطا", "اطلاعات مورد نظر یافت نشد.");
+            return;
+        }
+
+        IDCheck.clear();
+        codenational.clear();
+
+        if (loadCheckInfoFromFile(checkId, nationalCode)) {
+            lblCheckId.setText(checkId);
+            lblNationalCode.setText(nationalCode);
+
+            vbox1.setVisible(false);
+            checkgrid.setVisible(true);
+        } else {
+            showAlert("خطا", "اطلاعات موردنظر یافت نشد.");
+        }
+    }
+
+    private String getCurrentUserID() {
+        File file = new File("userID.txt");
+        if (!file.exists()) return null;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            return reader.readLine(); // فرض بر اینکه فقط یک خط داره و همون آیدی کاربر فعلیه
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private String getUserIdByNationalCode(String nationalCode) {
+        File file = new File("users.txt");
+        if (!file.exists()) return null;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 3) {
+                    String userNationalCode = parts[0].trim(); // فرض: کد ملی در ستون اول
+                    String userId = parts[2].trim(); // فرض: آیدی کاربر در ستون سوم
+                    if (userNationalCode.equals(nationalCode)) {
+                        return userId;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    //متذ یررسی اینکه قبلا تایید یا رد شده یا نه
+    private boolean isCheckProcessed(String checkId) {
+        return isCheckInFile("checkconfirm.txt", checkId) || isCheckInFile("checkrejection.txt", checkId);
+    }
+
+    private boolean isCheckInFile(String fileName, String checkId) {
+        File file = new File(fileName);
+
+        if (!file.exists()) {
+            return false; // اگر فایل وجود ندارد، نیازی به بررسی نیست
+        }
+
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                if (line.contains("checkId: " + checkId)) { // بررسی وجود checkId در فایل
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            showAlert("خطا", "خطا در خواندن فایل: " + fileName);
+        }
+
+        return false;
+    }
+
+    private boolean loadCheckInfoFromFile(String checkId, String nationalCode) {
+        String filePath = "checkinfo.txt";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            String checkIdFromFile = null;
+            String serial = null;
+            String series = null;
+            String amount = null;
+            String date = null;
+            String nationalCodeFromFile = null;
+
+            while ((line = reader.readLine()) != null) {
+                // بررسی هر خط از فایل
+                if (line.startsWith("checkId:") && line.substring(8).trim().equals(checkId)) {
+                    checkIdFromFile = line.substring(8).trim();
+                } else if (line.startsWith("serial:")) {
+                    serial = line.substring(7).trim();
+                } else if (line.startsWith("seri:")) {
+                    series = line.substring(5).trim();
+                } else if (line.startsWith("amount:")) {
+                    amount = line.substring(7).trim();
+                } else if (line.startsWith("date:")) {
+                    date = line.substring(5).trim();
+                } else if (line.startsWith("nationalCode:") && line.substring(13).trim().equals(nationalCode)) {
+                    nationalCodeFromFile = line.substring(13).trim();
+                }
+
+                if (checkIdFromFile != null && nationalCodeFromFile != null) {
+                    lblCheckId.setText(checkIdFromFile);
+                    lblSerial.setText(serial);
+                    lblSeries.setText(series);
+                    lblAmount.setText(amount);
+                    lblDate.setText(date);
+                    lblNationalCode.setText(nationalCodeFromFile);
+
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @FXML
+    private void handleConfirmButtonClick() {
+        String checkId = lblCheckId.getText();
+        String serial = lblSerial.getText();
+        String series = lblSeries.getText();
+        String amount = lblAmount.getText();
+        String date = lblDate.getText();
+        String nationalCode = lblNationalCode.getText();
+
+        File file = new File("checkconfirm.txt");
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+            writer.write("Type: تایید چک"); // مقداردهی به Type
+            writer.newLine();
+            writer.write("checkId: " + checkId + "\n");
+            writer.write("serial: " + serial + "\n");
+            writer.write("series: " + series + "\n");
+            writer.write("amount: " + amount + "\n");
+            writer.write("due date: " + date + "\n");
+            writer.write("nationalCode: " + nationalCode + "\n");
+
+            // تاریخ و ساعت فعلی سیستم
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+
+            writer.write("Date: " + now.format(dateFormatter)); // ذخیره تاریخ
+            writer.newLine();
+            writer.write("Time: " + now.format(timeFormatter)); // ذخیره ساعت و دقیقه
+            writer.newLine();
+            writer.write("----------------------------------\n");
+
+            showAlert("Success", "چک با موفقیت ثبت شد!");
+        } catch (IOException e) {
+            showAlert("Error", "خطا در ذخیره اطلاعات در فایل!");
+        }
+        IDCheck.clear();
+        codenational.clear();
+        vbox1.setVisible(true);
+
+        lblCheckId.setText("");
+        lblSerial.setText("");
+        lblSeries.setText("");
+        lblAmount.setText("");
+        lblDate.setText("");
+        lblNationalCode.setText("");
+        checkgrid.setVisible(false);
+
+    }
+
+    @FXML
+    private void handleRejectionButtonClick() {
+        String checkId = lblCheckId.getText();
+        String serial = lblSerial.getText();
+        String series = lblSeries.getText();
+        String amount = lblAmount.getText();
+        String date = lblDate.getText();
+        String nationalCode = lblNationalCode.getText();
+
+        File file = new File("checkrejection.txt");
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+            writer.write("Type: رد چک"); // مقداردهی به Type
+            writer.newLine();
+            writer.write("checkId: " + checkId + "\n");
+            writer.write("serial: " + serial + "\n");
+            writer.write("series: " + series + "\n");
+            writer.write("amount: " + amount + "\n");
+            writer.write("due date: " + date + "\n");
+            writer.write("nationalCode: " + nationalCode + "\n");
+
+            // تاریخ و ساعت فعلی سیستم
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+
+            writer.write("Date: " + now.format(dateFormatter)); // ذخیره تاریخ
+            writer.newLine();
+            writer.write("Time: " + now.format(timeFormatter)); // ذخیره ساعت و دقیقه
+            writer.newLine();
+            writer.write("----------------------------------\n");
+
+            showAlert("Success", "چک با موفقیت رد شد!");
+        } catch (IOException e) {
+            showAlert("Error", "خطا در ذخیره اطلاعات در فایل!");
+        }
+        IDCheck.clear();
+        codenational.clear();
+        vbox1.setVisible(true);
+
+        lblCheckId.setText("");
+        lblSerial.setText("");
+        lblSeries.setText("");
+        lblAmount.setText("");
+        lblDate.setText("");
+        lblNationalCode.setText("");
+        checkgrid.setVisible(false);
+
+
+    }
+
+    @FXML
+    private void saveCheckRequest() {
+        String name = nameField.getText();
+        String accountNumber = accountNumberField.getText();
+        String accountType = accountTypeComboBox.getValue();
+        Integer checkPages = checkPagesComboBox.getValue();
+        String postalCode = postalCodeField.getText();
+        String phone = phoneField.getText();
+        String ID = nationalID.getText();
+
+
+        if (name.isEmpty() || accountNumber.isEmpty() || accountType == null || checkPages == null ||
+                postalCode.isEmpty() || phone == null || ID.isEmpty()) {
+            showAlert("لطفاً تمامی اطلاعات را پر کنید!");
+            return;
+        }
+
+        if (!isAccountDataValid(accountNumber, accountType)) {
+            showAlert("اطلاعات نامعتبر!");
+            return;
+        }
+
+
+        if (!accountNumber.matches("\\d{14}")) {
+            showAlert("شماره حساب باید ۱۴ رقم باشد!");
+            return;
+        }
+
+
+        if (!postalCode.matches("\\d{10}")) {
+            showAlert("کد پستی باید ۱۰ رقم باشد!");
+            return;
+        }
+
+
+        if (!phone.matches("09\\d{9}")) {
+            showAlert("شماره موبایل باید ۱۱ رقم باشد و با 09 شروع شود!");
+            return;
+        }
+
+        // تولید شماره پیگیری ۴ رقمی
+        String trackingNumber = generateTrackingNumber();
+
+        saveToFile(name, accountNumber, accountType, checkPages, postalCode, phone, ID, trackingNumber);
+
+
+        showAlert("درخواست شما با موفقیت ثبت شد!\nشماره پیگیری: " + trackingNumber);
+        clearFields();
+
+        requestCheckVBox.setVisible(false);
+        mainvbox.setVisible(false);
+        VboxLabel.setVisible(true);
+    }
+
+    private boolean isAccountDataValid(String accNumber, String accType) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("userID.txt"))) {
+            String line;
+            List<String> blockLines = new ArrayList<>();
+
+            while ((line = reader.readLine()) != null) {
+                if (line.trim().equals("---------------")) {
+                    // بررسی یک بلاک کامل
+                    if (blockLines.size() >= 8) {
+                        String line2 = blockLines.get(1).trim(); // Account Number
+                        String line8 = blockLines.get(7).trim(); // Account Type
+
+                        String accNumFromFile = line2.split(":")[1].trim();
+                        String accTypeFromFile = line8.split(":")[1].trim();
+
+                        if (accNumber.equals(accNumFromFile) && accType.equals(accTypeFromFile)) {
+                            return true; // پیدا شد
+                        }
+                    }
+                    blockLines.clear(); // شروع بلاک جدید
+                } else {
+                    blockLines.add(line);
+                }
+            }
+
+            // بررسی آخرین بلاک (در صورت نبودن --------------- در انتها)
+            if (blockLines.size() >= 8) {
+                String line2 = blockLines.get(1).trim();
+                String line8 = blockLines.get(7).trim();
+
+                String accNumFromFile = line2.split(":")[1].trim();
+                String accTypeFromFile = line8.split(":")[1].trim();
+
+                if (accNumber.equals(accNumFromFile) && accType.equals(accTypeFromFile)) {
+                    return true;
+                }
+            }
+
+        } catch (IOException | ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+
+
+    private void clearFields() {
+        nameField.clear();
+        accountNumberField.clear();
+        accountTypeComboBox.setValue(null);
+        checkPagesComboBox.setValue(null);
+        postalCodeField.clear();
+        phoneField.clear();
+        nationalID.clear();
+    }
+
+
+    private void saveToFile(String name, String accountNumber, String accountType, Integer checkPages, String postalCode, String phone, String nationalID, String trackingNumber) {
+        String filePath = "checkrequest.txt";
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+            writer.write("Type: " + "درخواست دسته چک");
+            writer.newLine();
+            writer.write("name: " + name);
+            writer.newLine();
+            writer.write("accountnumber: " + accountNumber);
+            writer.newLine();
+            writer.write("accounttype: " + accountType);
+            writer.newLine();
+            writer.write("checkpages: " + checkPages);
+            writer.newLine();
+            writer.write("postcode: " + postalCode);
+            writer.newLine();
+            writer.write("phonenumber: " + phone);
+            writer.newLine();
+            writer.write("nationalcpde: " + nationalID);
+            writer.newLine();
+
+            // ثبت تاریخ و زمان
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+            writer.write("Date: " + now.format(dateFormatter));
+            writer.newLine();
+            writer.write("Time: " + now.format(timeFormatter));
+            writer.newLine();
+            writer.write("trackingnumber: " + trackingNumber);
+            writer.newLine();
+            writer.write("status: " + "");
+            writer.newLine();
+            writer.write("----------------------------------\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("خطا در ذخیره اطلاعات در فایل!");
+        }
+    }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("پیام");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+
+    private String generateTrackingNumber() {
+        Random random = new Random();
+        int trackingNumber = 1000 + random.nextInt(9000); // عدد تصادفی ۴ رقمی بین 1000 تا 9999
+        return String.valueOf(trackingNumber);
+    }
+
+    private String getField(List<String> block, String fieldName) {
+        for (String line : block) {
+            if (line.startsWith(fieldName + ":")) {
+                return line.substring(line.indexOf(":") + 1).trim();
+            }
+        }
+        return "";
+    }
+
+    private String getCurrentUserId() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("users.txt"))) {
+            reader.readLine(); // username
+            reader.readLine(); // password
+            return reader.readLine().trim(); // user ID
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private String getAccountNumberByUserId(String userId) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("userID.txt"))) {
+            String line;
+            List<String> block = new ArrayList<>();
+            while ((line = reader.readLine()) != null) {
+                if (line.equals("---------------")) {
+                    String id = getField(block, "User ID");
+                    if (userId.equals(id)) {
+                        return getField(block, "Account Number");
+                    }
+                    block.clear();
+                } else {
+                    block.add(line);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    List<CheckHistoryItem> Checks = new ArrayList<>();
+    private List<CheckHistoryItem> GetDataCheckHistory() {
+
+        List<CheckHistoryItem> Checks = new ArrayList<>();
+        try {
+            String userName = username12.getText();
+            String userID = findUserID(userName);
+
+            File BillFile = new File("checkrequest.txt");
+            Scanner reader = new Scanner(BillFile);
+            while (reader.hasNextLine()) {
+                CheckHistoryItem Check = new CheckHistoryItem();
+                Check.setType(extractValue(reader.nextLine()));
+                reader.nextLine();
+                String AccountNumber = extractValue(reader.nextLine());
+                String userIDUser = searchUserIDByAccountNumber(AccountNumber);
+                if(userID.equals(userIDUser)) {
+                    for(int i = 0 ; i<5;i++){
+                        reader.nextLine();
+                    }
+                    Check.setDate(extractValue(reader.nextLine()));
+                    Check.setTime(extractValue(reader.nextLine()));
+                    Check.setCode(extractValue(reader.nextLine()));
+                    Check.setStatus(extractValue(reader.nextLine()));
+                    reader.nextLine();
+                    Checks.add(Check);
+
+                }else {
+                    for(int i = 0 ; i<10;i++){
+                        reader.nextLine();
+                    }
+                }
+
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return Checks;
+    }
+
+    public void LoadCheckHistory() {
+
+        grid4.getChildren().clear();
+        Checks.clear();
+        Checks.addAll(GetDataCheckHistory());
+
+        int column = 0;
+        int row = 1;
+        try {
+            for (CheckHistoryItem transfer : Checks) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("../views/CheckhistoryItem.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                CheckhistoryItemController cartItemController = fxmlLoader.getController();
+                cartItemController.setData(transfer);
+
+                if (column == 6) {
+                    column = 0;
+                    row++;
+                }
+
+                grid4.add(anchorPane, column++, row);
+                grid4.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid4.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid4.setMaxWidth(Region.USE_PREF_SIZE);
+
+                grid4.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid4.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid4.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleSearch() {
+        String searchCode = searchTextField.getText().trim(); // دریافت کد رهگیری از تکست فیلد
+
+        if (searchCode.isEmpty()) {
+            showAlert("لطفاً کد رهگیری را وارد کنید!"); // هشدار اگر فیلد خالی باشد
+            return;
+        }
+
+        // دریافت داده‌های چک‌ها از فایل
+        List<CheckHistoryItem> filteredChecks = new ArrayList<>();
+        boolean found = false; // یک متغیر برای بررسی پیدا شدن یا نشدن کد
+
+        for (CheckHistoryItem check : Checks) {
+            if (check.getCode().equals(searchCode)) {
+                filteredChecks.add(check); // فقط آیتم‌هایی که کد رهگیری مشابه دارند
+                found = true; // اگر کد پیدا شد، آن را ثبت می‌کنیم
+            }
+        }
+
+        // اگر کد پیدا نشد، نمایش پیام خطا
+        if (!found) {
+            showAlert("کد رهگیری وارد شده پیدا نشد!"); // نمایش خطا به کاربر
+        }
+
+        // نمایش آیتم‌های جستجو شده در GridPane
+        displayChecksInGrid(filteredChecks);
+    }
+
+
+
+    // متد برای نمایش چک‌ها در گریدپین
+    private void displayChecksInGrid(List<CheckHistoryItem> checks) {
+        grid4.getChildren().clear(); // پاک کردن گریدپین از آیتم‌های قبلی
+
+        int column = 0;
+        int row = 1;
+
+        for (CheckHistoryItem check : checks) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("../views/CheckhistoryItem.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load(); // بارگذاری FXML
+
+                CheckhistoryItemController cartItemController = fxmlLoader.getController();
+                cartItemController.setData(check); // ارسال داده به کنترلر آیتم
+
+                if (column == 6) {
+                    column = 0;
+                    row++; // اگر به 6 ستون رسیدیم، به ردیف بعدی می‌ریم
+                }
+
+                grid4.add(anchorPane, column++, row); // اضافه کردن آیتم به گریدپین
+                GridPane.setMargin(anchorPane, new Insets(10)); // تنظیم حاشیه
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // متد برای بازنشانی فیلد جستجو و بازگشت به حالت اولیه
+    @FXML
+    private void resetSearch(MouseEvent event) {
+        searchTextField.clear(); // پاک کردن تکست فیلد
+        grid4.getChildren().clear(); // پاک کردن گریدپین
+
+        // بارگذاری همه آیتم‌ها (اگر نیاز دارید دوباره همه آیتم‌ها را نمایش دهید)
+        displayChecksInGrid(Checks);
+    }
+
 
 
 }

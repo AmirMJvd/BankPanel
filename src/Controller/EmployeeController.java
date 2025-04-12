@@ -335,6 +335,22 @@ public class EmployeeController {
     @FXML
     private TextField nationalCodeTextfield;
 
+    @FXML
+    private AnchorPane anchorPane;
+
+    @FXML
+    private HBox hbox;
+
+    @FXML
+    private ScrollPane scrollPane;
+
+    @FXML
+    private StackPane stackPane;
+
+    @FXML
+    private VBox vbox;
+
+
 
     private final SecureRandom random = new SecureRandom(); // برای تولید اعداد تصادفی امن‌تر
 
@@ -449,6 +465,21 @@ public class EmployeeController {
             inventory.setText(formattedValue);
         });
 
+        // برقراری ارتباط اندازه‌ها
+        hbox.prefWidthProperty().bind(anchorPane.widthProperty());
+        hbox.prefHeightProperty().bind(anchorPane.heightProperty());
+
+        // هماهنگ کردن اندازه‌ها
+        scrollPane.prefWidthProperty().bind(hbox.widthProperty());
+        scrollPane.prefHeightProperty().bind(hbox.heightProperty());
+
+        stackPane.prefWidthProperty().bind(scrollPane.widthProperty());
+        stackPane.prefHeightProperty().bind(scrollPane.heightProperty());
+
+        // تنظیم ارتفاع VBox به اندازه HBox
+        vbox.prefHeightProperty().bind(hbox.heightProperty());
+        // وقتی عرض ScrollPane تغییر کنه، عرض VBox نصف اون بشه
+        vbox.prefWidthProperty().bind(scrollPane.widthProperty().divide(1.5));
 
         LoadUser();
         LoadUser1();

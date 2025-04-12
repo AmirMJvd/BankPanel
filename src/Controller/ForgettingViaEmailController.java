@@ -6,7 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -29,6 +32,15 @@ public class ForgettingViaEmailController {
 
     @FXML
     private AnchorPane rootPane;
+
+    @FXML
+    private ImageView closeIcon;
+
+    @FXML
+    void closeApp(MouseEvent event) {
+        Stage stage = (Stage) closeIcon.getScene().getWindow();
+        stage.close();
+    }
 
     private static final String USER_FILE = "users.txt";
 
@@ -127,4 +139,11 @@ public class ForgettingViaEmailController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    @FXML
+    void LodRegister(MouseEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/RegistrationCode.fxml"));
+        rootPane.getChildren().setAll(pane);
+    }
+
 }

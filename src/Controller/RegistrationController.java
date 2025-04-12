@@ -7,8 +7,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -40,6 +42,15 @@ public class RegistrationController {
     private TextField userName;
 
     private String userID;
+
+    @FXML
+    private ImageView closeIcon;
+
+    @FXML
+    void closeApp(MouseEvent event) {
+        Stage stage = (Stage) closeIcon.getScene().getWindow();
+        stage.close();
+    }
 
     // این متد برای دریافت userID از LoginController است
     public void setUserID(String userID) {
@@ -137,6 +148,12 @@ public class RegistrationController {
         bDay.clear();
         password.clear();
         PasswordRepet.clear();
+    }
+
+    @FXML
+    void Reset(MouseEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/forgetfulness.fxml"));
+        rootPane.getChildren().setAll(pane);
     }
 
 }

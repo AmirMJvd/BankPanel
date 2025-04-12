@@ -13,8 +13,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -31,7 +33,7 @@
                         <HBox alignment="CENTER" prefHeight="483.0" prefWidth="1298.0">
                            <children>
                               <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                              <VBox alignment="CENTER" prefHeight="462.0" prefWidth="400.0" style="-fx-background-color: #81cae3; -fx-background-radius: 15;">
+                              <VBox alignment="CENTER" prefHeight="462.0" prefWidth="400.0" style="-fx-background-color: #d1cdcd; -fx-background-radius: 20;" styleClass="border-style" stylesheets="@../values/style-g.css">
                                  <children>
                                     <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="206.0">
                                        <children>
@@ -166,11 +168,14 @@
                                                 <Insets left="25.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <ComboBox fx:id="RoleCombo" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
+                                          <ComboBox fx:id="RoleCombo" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
                                              <styleClass>
                                                 <String fx:value="button" />
                                                 <String fx:value="shadow" />
                                              </styleClass>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
                                           </ComboBox>
                                        </children>
                                     </HBox>
@@ -184,7 +189,7 @@
                                                 <Insets left="25.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <ComboBox fx:id="branch" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
+                                          <ComboBox fx:id="branch" prefHeight="15.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
                                              <styleClass>
                                                 <String fx:value="button" />
                                                 <String fx:value="shadow" />
@@ -203,9 +208,9 @@
                               <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#RegistrationAdmin" prefHeight="37.0" prefWidth="111.0" style="-fx-background-color: no color; -fx-border-color: #4e52cc;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css" text="ثبت اطلاعات" textFill="#4e52cc">
+                              <Button mnemonicParsing="false" onAction="#RegistrationAdmin" prefHeight="40.0" prefWidth="111.0" style="-fx-background-radius: 20;" styleClass="button-style" stylesheets="@../values/style_U.css" text="ثبت اطلاعات" textFill="WHITE">
                                  <font>
                                     <Font name="B Mehr Bold" size="16.0" />
                                  </font>
@@ -222,731 +227,845 @@
             </Tab>
             <Tab text="درخواست ها">
                <content>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                    </content>
-                     <styleClass>
-                        <String fx:value="custom-scroll-pane" />
-                        <String fx:value="scroll-bar" />
-                        <String fx:value="viewport" />
-                     </styleClass>
-                  </ScrollPane>
+                  <AnchorPane fx:id="anch" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <HBox fx:id="first" alignment="CENTER" prefHeight="636.0" prefWidth="1300.0" AnchorPane.topAnchor="10.0">
+                           <children>
+                              <Pane prefHeight="638.0" prefWidth="124.0" HBox.hgrow="ALWAYS" />
+                              <VBox alignment="CENTER" prefHeight="480.0" prefWidth="350.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 30;">
+                                 <children>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/cheque.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label prefHeight="80.0" text="درخواست دسته چک">
+                                       <font>
+                                          <Font name="B Yekan" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <Pane prefHeight="86.0" prefWidth="350.0" />
+                                    <Button fx:id="showButton" mnemonicParsing="false" onAction="#handleShowClick" prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" stylesheets="@../../../../mabani/BankPanel-main/src/values/style.css" text="مشاهده">
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="button" />
+                                       </styleClass>
+                                    </Button>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="85.0" top="85.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <Pane prefHeight="636.0" prefWidth="32.0" HBox.hgrow="ALWAYS" />
+                              <VBox alignment="CENTER" prefHeight="480.0" prefWidth="350.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 30;">
+                                 <children>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label prefHeight="80.0" text="تسهیلات">
+                                       <font>
+                                          <Font name="B Yekan" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <Pane prefHeight="86.0" prefWidth="350.0" />
+                                    <Label alignment="CENTER" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" stylesheets="@../../../../mabani/Bank%20Panel/src/values/style_U.css" text="بیشتر">
+                                       <font>
+                                          <Font name="B Mitra" size="25.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="button" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </Label>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="85.0" top="85.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <Pane prefHeight="638.0" prefWidth="124.0" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                        <HBox fx:id="checkBox" layoutX="1.0" prefHeight="634.0" prefWidth="1303.0" visible="false">
+                           <children>
+                              <VBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="634.0" prefWidth="247.0" spacing="100.0" style="-fx-background-color: #d3d3d3;">
+                                 <children>
+                                    <Button fx:id="toggleButton" mnemonicParsing="false" prefHeight="105.0" prefWidth="165.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" stylesheets="@../values/style.css" text="درخواست چک">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="button" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="105.0" prefWidth="165.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" stylesheets="@../values/style.css" text="تسهیلات">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="button" />
+                                       </styleClass>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="checkhbox" layoutX="248.0" prefHeight="638.0" prefWidth="1057.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <ScrollPane fx:id="yourScrollPane" prefHeight="638.0" prefWidth="1055.0" HBox.hgrow="ALWAYS">
+                                 <content>
+                                    <StackPane alignment="TOP_CENTER" prefHeight="634.0" prefWidth="1053.0">
+                                       <children>
+                                          <GridPane fx:id="checkGrid1" alignment="TOP_CENTER" nodeOrientation="RIGHT_TO_LEFT" prefWidth="5.0">
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                       </children>
+                                    </StackPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
                </content>
             </Tab>
             <Tab text="ثبت قبض">
               <content>
                 <AnchorPane layoutY="74.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <VBox fx:id="Three" layoutX="220.0" layoutY="74.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="480.0" prefWidth="350.0" styleClass="free-delivery-card" stylesheets="@../values/style.css">
+                        <HBox alignment="CENTER" layoutX="-25.0" layoutY="197.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
                            <children>
-                              <HBox prefHeight="25.0" prefWidth="350.0" spacing="3.0">
+                              <Pane prefHeight="638.0" prefWidth="124.0" HBox.hgrow="ALWAYS" />
+                              <VBox prefHeight="480.0" prefWidth="350.0">
                                  <children>
-                                    <ImageView fitHeight="43.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../img/check.png" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets left="16.0" top="10.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                    <Label prefHeight="36.0" prefWidth="105.0" text="صدور قبض">
-                                       <font>
-                                          <Font size="17.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets left="145.0" top="10.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <ImageView fitHeight="80.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../img/payment.png" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets right="2.0" top="5.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                              <VBox alignment="CENTER" prefHeight="349.0" prefWidth="350.0" styleClass="free-delivery-card4" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
-                                 <children>
-                                    <HBox alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="350.0">
+                                    <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <Label text="ربال">
-                                             <HBox.margin>
-                                                <Insets right="5.0" top="25.0" />
-                                             </HBox.margin>
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="amount" prefHeight="51.0" prefWidth="223.0" text="1,000,000,000">
-                                             <font>
-                                                <Font size="33.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" prefHeight="8.0" prefWidth="350.0">
-                                       <children>
-                                          <Pane prefHeight="17.0" prefWidth="67.0" />
-                                          <Label fx:id="BillTypeLab" prefHeight="17.0" prefWidth="105.0" text="تلفن همراه">
-                                             <HBox.margin>
-                                                <Insets left="10.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Pane prefHeight="17.0" prefWidth="135.0" />
-                                          <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="78.0" text="نوع قبض :">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets right="5.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <Label prefHeight="18.0" prefWidth="266.0" text="--------------------------------">
-                                       <VBox.margin>
-                                          <Insets left="40.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <HBox alignment="TOP_RIGHT" prefHeight="29.0" prefWidth="350.0">
-                                       <children>
-                                          <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                                             <HBox.margin>
-                                                <Insets left="3.0" right="7.0" />
-                                             </HBox.margin>
-                                             <image>
-                                                <Image url="@../img/payment.png" />
-                                             </image>
-                                          </ImageView>
-                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="211.0">
+                                          <VBox fx:id="Three" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="480.0" prefWidth="350.0" styleClass="free-delivery-card" stylesheets="@../values/style.css">
                                              <children>
-                                                <Label fx:id="BillID1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="246.0" text="6104-3386-6478-1313">
-                                                   <font>
-                                                      <Font size="15.0" />
-                                                   </font>
-                                                </Label>
+                                                <HBox prefHeight="25.0" prefWidth="350.0" spacing="3.0">
+                                                   <children>
+                                                      <ImageView fitHeight="43.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/check.png" />
+                                                         </image>
+                                                         <HBox.margin>
+                                                            <Insets left="16.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </ImageView>
+                                                      <Label prefHeight="36.0" prefWidth="105.0" text="صدور قبض">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="145.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <ImageView fitHeight="80.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/payment.png" />
+                                                         </image>
+                                                         <HBox.margin>
+                                                            <Insets right="2.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </ImageView>
+                                                   </children>
+                                                </HBox>
+                                                <VBox alignment="CENTER" prefHeight="349.0" prefWidth="350.0" styleClass="free-delivery-card4" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
+                                                   <children>
+                                                      <HBox alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="350.0">
+                                                         <children>
+                                                            <Label text="ربال">
+                                                               <HBox.margin>
+                                                                  <Insets right="5.0" top="25.0" />
+                                                               </HBox.margin>
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="amount" prefHeight="51.0" prefWidth="223.0" text="1,000,000,000">
+                                                               <font>
+                                                                  <Font size="33.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" prefHeight="8.0" prefWidth="350.0">
+                                                         <children>
+                                                            <Pane prefHeight="17.0" prefWidth="67.0" />
+                                                            <Label fx:id="BillTypeLab" prefHeight="17.0" prefWidth="105.0" text="تلفن همراه">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <Pane prefHeight="17.0" prefWidth="135.0" />
+                                                            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="78.0" text="نوع قبض :">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets right="5.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <Label prefHeight="18.0" prefWidth="266.0" text="--------------------------------">
+                                                         <VBox.margin>
+                                                            <Insets left="40.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox alignment="TOP_RIGHT" prefHeight="29.0" prefWidth="350.0">
+                                                         <children>
+                                                            <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                                               <HBox.margin>
+                                                                  <Insets left="3.0" right="7.0" />
+                                                               </HBox.margin>
+                                                               <image>
+                                                                  <Image url="@../img/payment.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="211.0">
+                                                               <children>
+                                                                  <Label fx:id="BillID1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="246.0" text="6104-3386-6478-1313">
+                                                                     <font>
+                                                                        <Font size="15.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                               <HBox.margin>
+                                                                  <Insets left="3.0" />
+                                                               </HBox.margin>
+                                                            </VBox>
+                                                            <Label maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="27.0" prefWidth="82.0" text="شناسه قبض :">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets right="5.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                      <Label prefHeight="18.0" prefWidth="266.0" text="--------------------------------">
+                                                         <VBox.margin>
+                                                            <Insets left="40.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox alignment="TOP_RIGHT" prefHeight="29.0" prefWidth="350.0">
+                                                         <children>
+                                                            <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                                               <HBox.margin>
+                                                                  <Insets left="3.0" right="3.0" />
+                                                               </HBox.margin>
+                                                               <image>
+                                                                  <Image url="@../img/payment.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="195.0">
+                                                               <children>
+                                                                  <Label fx:id="PaymentID1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="246.0" text="6104-3386-6478-1313">
+                                                                     <font>
+                                                                        <Font size="15.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                               </children>
+                                                               <HBox.margin>
+                                                                  <Insets left="3.0" />
+                                                               </HBox.margin>
+                                                            </VBox>
+                                                            <Label maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="27.0" prefWidth="101.0" text="شناسه پرداخت :">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets right="5.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <Label layoutX="50.0" layoutY="112.0" prefHeight="18.0" prefWidth="266.0" text="--------------------------------">
+                                                         <VBox.margin>
+                                                            <Insets left="40.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox alignment="CENTER" prefHeight="8.0" prefWidth="350.0">
+                                                         <children>
+                                                            <Pane prefHeight="20.0" prefWidth="55.0" />
+                                                            <Label fx:id="NameLabel" prefHeight="25.0" prefWidth="151.0" text="امیر محمد جوادزاده">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <Pane prefHeight="25.0" prefWidth="74.0" />
+                                                            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="78.0" text="به نام :">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <Label prefHeight="18.0" prefWidth="266.0" text="--------------------------------" textAlignment="CENTER">
+                                                         <VBox.margin>
+                                                            <Insets left="40.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="136.0" prefHeight="48.0" prefWidth="350.0">
+                                                         <children>
+                                                            <ImageView fitHeight="34.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                                               <HBox.margin>
+                                                                  <Insets left="3.0" right="13.0" top="5.0" />
+                                                               </HBox.margin>
+                                                               <image>
+                                                                  <Image url="@../img/payment.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="217.0">
+                                                               <children>
+                                                                  <Label fx:id="DateLabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="87.0" text="1403/12/05">
+                                                                     <font>
+                                                                        <Font size="15.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label fx:id="TimeLabel" prefHeight="18.0" prefWidth="232.0" text="01:55" />
+                                                               </children>
+                                                               <HBox.margin>
+                                                                  <Insets left="3.0" />
+                                                               </HBox.margin>
+                                                            </VBox>
+                                                            <Label alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="27.0" prefWidth="61.0" text="در تاریخ :">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets right="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets top="5.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                      <Label alignment="CENTER" prefHeight="62.0" prefWidth="353.0" text="با موفقیت صادر شد ! ">
+                                                         <font>
+                                                            <Font size="25.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                                <HBox prefHeight="51.0" prefWidth="350.0">
+                                                   <children>
+                                                      <Button fx:id="Download" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card3" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="دانلود">
+                                                         <HBox.margin>
+                                                            <Insets left="58.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#reissue" prefHeight="40.0" prefWidth="111.0" styleClass="free-delivery-card2" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="صدور مجدد">
+                                                         <HBox.margin>
+                                                            <Insets left="40.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
                                              </children>
-                                             <HBox.margin>
-                                                <Insets left="3.0" />
-                                             </HBox.margin>
                                           </VBox>
-                                          <Label maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="27.0" prefWidth="82.0" text="شناسه قبض :">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets right="5.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets top="10.0" />
-                                       </VBox.margin>
-                                    </HBox>
-                                    <Label prefHeight="18.0" prefWidth="266.0" text="--------------------------------">
-                                       <VBox.margin>
-                                          <Insets left="40.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <HBox alignment="TOP_RIGHT" prefHeight="29.0" prefWidth="350.0">
-                                       <children>
-                                          <ImageView fitHeight="30.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                                             <HBox.margin>
-                                                <Insets left="3.0" right="3.0" />
-                                             </HBox.margin>
-                                             <image>
-                                                <Image url="@../img/payment.png" />
-                                             </image>
-                                          </ImageView>
-                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="195.0">
+                                          <VBox fx:id="Two" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="480.0" prefWidth="350.0" styleClass="free-delivery-card" stylesheets="@../values/style.css">
                                              <children>
-                                                <Label fx:id="PaymentID1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="246.0" text="6104-3386-6478-1313">
-                                                   <font>
-                                                      <Font size="15.0" />
-                                                   </font>
-                                                </Label>
+                                                <HBox prefHeight="25.0" prefWidth="350.0" spacing="3.0">
+                                                   <children>
+                                                      <ImageView fitHeight="20.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/check1.png" />
+                                                         </image>
+                                                         <HBox.margin>
+                                                            <Insets left="16.0" top="6.0" />
+                                                         </HBox.margin>
+                                                      </ImageView>
+                                                      <ImageView fitHeight="20.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/check1.png" />
+                                                         </image>
+                                                         <HBox.margin>
+                                                            <Insets top="6.0" />
+                                                         </HBox.margin>
+                                                      </ImageView>
+                                                      <Label prefHeight="36.0" prefWidth="85.0" text="صدور قبض">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="138.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <ImageView fitHeight="80.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/payment.png" />
+                                                         </image>
+                                                         <HBox.margin>
+                                                            <Insets right="2.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </ImageView>
+                                                   </children>
+                                                </HBox>
+                                                <StackPane prefHeight="31.0" prefWidth="350.0">
+                                                   <children>
+                                                      <HBox prefHeight="100.0" prefWidth="200.0">
+                                                         <children>
+                                                            <ImageView fitHeight="12.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../img/loupe.png" />
+                                                               </image>
+                                                               <HBox.margin>
+                                                                  <Insets left="5.0" right="5.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </ImageView>
+                                                            <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="31.0" prefWidth="310.0" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
+                                                               <styleClass>
+                                                                  <String fx:value="search-box" />
+                                                                  <String fx:value="shadow" />
+                                                               </styleClass>
+                                                               <children>
+                                                                  <TextField fx:id="NameTextField" alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="355.0" promptText="نام کاربر :" styleClass="transparent" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
+                                                                     <HBox.margin>
+                                                                        <Insets />
+                                                                     </HBox.margin>
+                                                                     <font>
+                                                                        <Font size="15.0" />
+                                                                     </font>
+                                                                  </TextField>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="28.0" />
+                                                   </VBox.margin>
+                                                </StackPane>
+                                                <VBox fx:id="Three1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="196.0" prefWidth="338.0" styleClass="free-delivery-card4" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
+                                                   <VBox.margin>
+                                                      <Insets left="6.0" top="30.0" />
+                                                   </VBox.margin>
+                                                   <children>
+                                                      <HBox prefHeight="20.0" prefWidth="338.0">
+                                                         <children>
+                                                            <Label prefHeight="25.0" prefWidth="41.0" text="ریال ">
+                                                               <HBox.margin>
+                                                                  <Insets top="8.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <Label fx:id="PriceLabel" prefHeight="20.0" prefWidth="254.0" text="10000000000000000000000">
+                                                               <HBox.margin>
+                                                                  <Insets left="2.0" top="6.0" />
+                                                               </HBox.margin>
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label prefHeight="30.0" prefWidth="47.0" text="مبلغ : ">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets top="20.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                      <Label prefHeight="18.0" prefWidth="266.0" text="--------------------------------">
+                                                         <VBox.margin>
+                                                            <Insets left="40.0" top="8.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox prefHeight="23.0" prefWidth="338.0">
+                                                         <children>
+                                                            <Label fx:id="BillID" prefHeight="20.0" prefWidth="143.0" text="1234567890123">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets left="5.0" top="4.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <Label prefHeight="25.0" prefWidth="110.0" text="شناسه قبض :">
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets left="105.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets top="8.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                      <Label prefHeight="18.0" prefWidth="266.0" text="--------------------------------">
+                                                         <VBox.margin>
+                                                            <Insets left="40.0" top="13.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox prefHeight="23.0" prefWidth="338.0">
+                                                         <children>
+                                                            <Label fx:id="PaymentID" prefHeight="20.0" prefWidth="127.0" text="6104338664781313">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets left="5.0" top="4.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <Label text="شناسه پرداخت :">
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets left="95.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets top="5.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <HBox prefHeight="114.0" prefWidth="350.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" onAction="#Back" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card3" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="بازگشت">
+                                                         <HBox.margin>
+                                                            <Insets left="58.0" top="40.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#IssuanceOfInvoices" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card2" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="صدور قبض">
+                                                         <HBox.margin>
+                                                            <Insets left="40.0" top="40.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="13.0" />
+                                                   </VBox.margin>
+                                                </HBox>
                                              </children>
-                                             <HBox.margin>
-                                                <Insets left="3.0" />
-                                             </HBox.margin>
                                           </VBox>
-                                          <Label maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="27.0" prefWidth="101.0" text="شناسه پرداخت :">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets right="5.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <Label layoutX="50.0" layoutY="112.0" prefHeight="18.0" prefWidth="266.0" text="--------------------------------">
-                                       <VBox.margin>
-                                          <Insets left="40.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <HBox alignment="CENTER" prefHeight="8.0" prefWidth="350.0">
-                                       <children>
-                                          <Pane prefHeight="20.0" prefWidth="55.0" />
-                                          <Label fx:id="NameLabel" prefHeight="25.0" prefWidth="151.0" text="امیر محمد جوادزاده">
-                                             <HBox.margin>
-                                                <Insets left="10.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Pane prefHeight="25.0" prefWidth="74.0" />
-                                          <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="78.0" text="به نام :">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <Label prefHeight="18.0" prefWidth="266.0" text="--------------------------------" textAlignment="CENTER">
-                                       <VBox.margin>
-                                          <Insets left="40.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="136.0" prefHeight="48.0" prefWidth="350.0">
-                                       <children>
-                                          <ImageView fitHeight="34.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-                                             <HBox.margin>
-                                                <Insets left="3.0" right="13.0" top="5.0" />
-                                             </HBox.margin>
-                                             <image>
-                                                <Image url="@../img/payment.png" />
-                                             </image>
-                                          </ImageView>
-                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="217.0">
+                                          <VBox fx:id="one" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="480.0" prefWidth="350.0" styleClass="free-delivery-card" stylesheets="@../values/style.css">
                                              <children>
-                                                <Label fx:id="DateLabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="87.0" text="1403/12/05">
+                                                <HBox prefHeight="25.0" prefWidth="350.0" spacing="3.0">
+                                                   <children>
+                                                      <ImageView fitHeight="20.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/check1.png" />
+                                                         </image>
+                                                         <HBox.margin>
+                                                            <Insets left="16.0" top="6.0" />
+                                                         </HBox.margin>
+                                                      </ImageView>
+                                                      <ImageView fitHeight="20.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/circle2.png" />
+                                                         </image>
+                                                         <HBox.margin>
+                                                            <Insets top="6.0" />
+                                                         </HBox.margin>
+                                                      </ImageView>
+                                                   </children>
+                                                </HBox>
+                                                <ImageView fitHeight="80.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/payment.png" />
+                                                   </image>
+                                                   <VBox.margin>
+                                                      <Insets left="140.0" top="45.0" />
+                                                   </VBox.margin>
+                                                </ImageView>
+                                                <Label text="صدور قبض">
                                                    <font>
-                                                      <Font size="15.0" />
+                                                      <Font size="25.0" />
                                                    </font>
+                                                   <VBox.margin>
+                                                      <Insets left="115.0" top="15.0" />
+                                                   </VBox.margin>
                                                 </Label>
-                                                <Label fx:id="TimeLabel" prefHeight="18.0" prefWidth="232.0" text="01:55" />
+                                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="42.0" prefWidth="334.0" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
+                                                   <styleClass>
+                                                      <String fx:value="search-box" />
+                                                      <String fx:value="shadow" />
+                                                   </styleClass>
+                                                   <children>
+                                                      <ComboBox fx:id="BillType" nodeOrientation="RIGHT_TO_LEFT" prefHeight="42.0" prefWidth="236.0" styleClass="transparent" />
+                                                      <Label prefHeight="17.0" prefWidth="141.0" text="نوع قبض :">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="55.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="42.0" prefWidth="334.0" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
+                                                   <styleClass>
+                                                      <String fx:value="search-box" />
+                                                      <String fx:value="shadow" />
+                                                   </styleClass>
+                                                   <children>
+                                                      <Label prefHeight="42.0" prefWidth="179.0" text="ریال        " />
+                                                      <TextField fx:id="BillAmountTextField" alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="379.0" promptText="مبلغ قبض :" styleClass="transparent" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
+                                                         <HBox.margin>
+                                                            <Insets />
+                                                         </HBox.margin>
+                                                         <font>
+                                                            <Font size="15.0" />
+                                                         </font>
+                                                      </TextField>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="20.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <Button mnemonicParsing="false" onAction="#CreateAnInvoice" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card2" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="ایجاد قبض">
+                                                   <VBox.margin>
+                                                      <Insets left="130.0" top="65.0" />
+                                                   </VBox.margin>
+                                                </Button>
                                              </children>
-                                             <HBox.margin>
-                                                <Insets left="3.0" />
-                                             </HBox.margin>
                                           </VBox>
-                                          <Label alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="27.0" prefWidth="61.0" text="در تاریخ :">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets right="10.0" />
-                                             </HBox.margin>
-                                          </Label>
                                        </children>
-                                       <VBox.margin>
-                                          <Insets top="5.0" />
-                                       </VBox.margin>
-                                    </HBox>
-                                    <Label alignment="CENTER" prefHeight="62.0" prefWidth="353.0" text="با موفقیت صادر شد ! ">
-                                       <font>
-                                          <Font size="25.0" />
-                                       </font>
-                                    </Label>
+                                    </Pane>
                                  </children>
                               </VBox>
-                              <HBox prefHeight="51.0" prefWidth="350.0">
+                              <Pane prefHeight="538.0" prefWidth="67.0" HBox.hgrow="ALWAYS" />
+                              <VBox prefHeight="480.0" prefWidth="350.0">
                                  <children>
-                                    <Button fx:id="Download" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card3" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="دانلود">
-                                       <HBox.margin>
-                                          <Insets left="58.0" top="5.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                    <Button mnemonicParsing="false" onAction="#reissue" prefHeight="40.0" prefWidth="111.0" styleClass="free-delivery-card2" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="صدور مجدد">
-                                       <HBox.margin>
-                                          <Insets left="40.0" top="5.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                        <VBox fx:id="Two" layoutX="220.0" layoutY="74.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="480.0" prefWidth="350.0" styleClass="free-delivery-card" stylesheets="@../values/style.css">
-                           <children>
-                              <HBox prefHeight="25.0" prefWidth="350.0" spacing="3.0">
-                                 <children>
-                                    <ImageView fitHeight="20.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../img/check1.png" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets left="16.0" top="6.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                    <ImageView fitHeight="20.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../img/check1.png" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets top="6.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                    <Label prefHeight="36.0" prefWidth="85.0" text="صدور قبض">
-                                       <font>
-                                          <Font size="17.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets left="138.0" top="10.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <ImageView fitHeight="80.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../img/payment.png" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets right="2.0" top="5.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                              <StackPane prefHeight="31.0" prefWidth="350.0">
-                                 <children>
-                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                    <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <ImageView fitHeight="12.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../img/loupe.png" />
-                                             </image>
-                                             <HBox.margin>
-                                                <Insets left="5.0" right="5.0" top="10.0" />
-                                             </HBox.margin>
-                                          </ImageView>
-                                          <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="31.0" prefWidth="310.0" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
-                                             <styleClass>
-                                                <String fx:value="search-box" />
-                                                <String fx:value="shadow" />
-                                             </styleClass>
+                                          <VBox fx:id="Two1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="480.0" prefWidth="350.0" styleClass="free-delivery-card" stylesheets="@../values/style.css">
                                              <children>
-                                                <TextField fx:id="NameTextField" alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="355.0" promptText="نام کاربر :" styleClass="transparent" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
-                                                   <HBox.margin>
-                                                      <Insets />
-                                                   </HBox.margin>
-                                                   <font>
-                                                      <Font size="15.0" />
-                                                   </font>
-                                                </TextField>
+                                                <HBox prefHeight="25.0" prefWidth="350.0" spacing="3.0">
+                                                   <children>
+                                                      <ImageView fitHeight="43.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/check.png" />
+                                                         </image>
+                                                         <HBox.margin>
+                                                            <Insets left="16.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </ImageView>
+                                                      <Label prefHeight="36.0" prefWidth="118.0" text="ثبت تلفن همراه">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="120.0" top="10.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <ImageView fitHeight="80.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../img/mobile-phone.png" />
+                                                         </image>
+                                                         <HBox.margin>
+                                                            <Insets right="2.0" top="5.0" />
+                                                         </HBox.margin>
+                                                      </ImageView>
+                                                   </children>
+                                                </HBox>
+                                                <VBox alignment="CENTER" prefHeight="267.0" prefWidth="350.0" styleClass="free-delivery-card4" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
+                                                   <children>
+                                                      <HBox alignment="CENTER" prefHeight="51.0" prefWidth="350.0">
+                                                         <children>
+                                                            <Pane prefHeight="51.0" prefWidth="67.0" />
+                                                            <Label fx:id="PhoneNumber" prefHeight="51.0" prefWidth="223.0" text="09143081984">
+                                                               <font>
+                                                                  <Font size="33.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" prefHeight="8.0" prefWidth="350.0">
+                                                         <children>
+                                                            <Pane prefHeight="17.0" prefWidth="67.0" />
+                                                            <Label fx:id="operatorLabel" prefHeight="17.0" prefWidth="105.0" text="تلفن همراه">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <Pane prefHeight="17.0" prefWidth="135.0" />
+                                                            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="78.0" text="اپراتور:">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets right="5.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <Label prefHeight="18.0" prefWidth="266.0" text="--------------------------------">
+                                                         <VBox.margin>
+                                                            <Insets left="40.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox alignment="CENTER" prefHeight="8.0" prefWidth="350.0">
+                                                         <children>
+                                                            <Pane prefHeight="20.0" prefWidth="55.0" />
+                                                            <Label fx:id="NameLabel1" prefHeight="25.0" prefWidth="146.0" text="امیر محمد جوادزاده">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <Pane prefHeight="25.0" prefWidth="59.0" />
+                                                            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="78.0" text="به نام :">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <Label prefHeight="18.0" prefWidth="266.0" text="--------------------------------" textAlignment="CENTER">
+                                                         <VBox.margin>
+                                                            <Insets left="40.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="136.0" prefHeight="48.0" prefWidth="350.0">
+                                                         <children>
+                                                            <ImageView fitHeight="34.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                                               <HBox.margin>
+                                                                  <Insets left="3.0" right="13.0" top="5.0" />
+                                                               </HBox.margin>
+                                                               <image>
+                                                                  <Image url="@../img/calendar.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="217.0">
+                                                               <children>
+                                                                  <Label fx:id="DateLabel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="87.0" text="1403/12/05">
+                                                                     <font>
+                                                                        <Font size="15.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <Label fx:id="TimeLabel1" prefHeight="18.0" prefWidth="232.0" text="01:55" />
+                                                               </children>
+                                                               <HBox.margin>
+                                                                  <Insets left="3.0" />
+                                                               </HBox.margin>
+                                                            </VBox>
+                                                            <Label alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="27.0" prefWidth="61.0" text="در تاریخ :">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets right="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets top="5.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                      <Label alignment="CENTER" prefHeight="62.0" prefWidth="353.0" text="با موفقیت ثبت شد ! ">
+                                                         <font>
+                                                            <Font size="25.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets left="5.0" right="5.0" top="20.0" />
+                                                   </VBox.margin>
+                                                </VBox>
+                                                <HBox prefHeight="51.0" prefWidth="350.0">
+                                                   <children>
+                                                      <Button fx:id="Download1" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card3" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="دانلود">
+                                                         <HBox.margin>
+                                                            <Insets left="58.0" top="12.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#Reregister" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card2" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="ثبت مجدد">
+                                                         <HBox.margin>
+                                                            <Insets left="40.0" top="12.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="50.0" />
+                                                   </VBox.margin>
+                                                </HBox>
                                              </children>
-                                          </HBox>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="28.0" />
-                                 </VBox.margin>
-                              </StackPane>
-                              <VBox fx:id="Three1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="196.0" prefWidth="338.0" styleClass="free-delivery-card4" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
-                                 <VBox.margin>
-                                    <Insets left="6.0" top="30.0" />
-                                 </VBox.margin>
-                                 <children>
-                                    <HBox prefHeight="20.0" prefWidth="338.0">
-                                       <children>
-                                          <Label prefHeight="25.0" prefWidth="41.0" text="ریال ">
-                                             <HBox.margin>
-                                                <Insets top="8.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label fx:id="PriceLabel" prefHeight="20.0" prefWidth="254.0" text="10000000000000000000000">
-                                             <HBox.margin>
-                                                <Insets left="2.0" top="6.0" />
-                                             </HBox.margin>
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <Label prefHeight="30.0" prefWidth="47.0" text="مبلغ : ">
-                                             <HBox.margin>
-                                                <Insets />
-                                             </HBox.margin>
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets top="20.0" />
-                                       </VBox.margin>
-                                    </HBox>
-                                    <Label prefHeight="18.0" prefWidth="266.0" text="--------------------------------">
-                                       <VBox.margin>
-                                          <Insets left="40.0" top="8.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <HBox prefHeight="23.0" prefWidth="338.0">
-                                       <children>
-                                          <Label fx:id="BillID" prefHeight="20.0" prefWidth="143.0" text="1234567890123">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets left="5.0" top="4.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label prefHeight="25.0" prefWidth="110.0" text="شناسه قبض :">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets left="105.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets top="8.0" />
-                                       </VBox.margin>
-                                    </HBox>
-                                    <Label prefHeight="18.0" prefWidth="266.0" text="--------------------------------">
-                                       <VBox.margin>
-                                          <Insets left="40.0" top="13.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <HBox prefHeight="23.0" prefWidth="338.0">
-                                       <children>
-                                          <Label fx:id="PaymentID" prefHeight="20.0" prefWidth="127.0" text="6104338664781313">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets left="5.0" top="4.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label text="شناسه پرداخت :">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets left="95.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets top="5.0" />
-                                       </VBox.margin>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                              <HBox prefHeight="114.0" prefWidth="350.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" onAction="#Back" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card3" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="بازگشت">
-                                       <HBox.margin>
-                                          <Insets left="58.0" top="40.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                    <Button mnemonicParsing="false" onAction="#IssuanceOfInvoices" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card2" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="صدور قبض">
-                                       <HBox.margin>
-                                          <Insets left="40.0" top="40.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="13.0" />
-                                 </VBox.margin>
-                              </HBox>
-                           </children>
-                        </VBox>
-                        <VBox fx:id="one" layoutX="220.0" layoutY="74.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="480.0" prefWidth="350.0" styleClass="free-delivery-card" stylesheets="@../values/style.css" AnchorPane.topAnchor="74.0">
-                           <children>
-                              <HBox prefHeight="25.0" prefWidth="350.0" spacing="3.0">
-                                 <children>
-                                    <ImageView fitHeight="20.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../img/check1.png" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets left="16.0" top="6.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                    <ImageView fitHeight="20.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../img/circle2.png" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets top="6.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                              <ImageView fitHeight="80.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/payment.png" />
-                                 </image>
-                                 <VBox.margin>
-                                    <Insets left="140.0" top="45.0" />
-                                 </VBox.margin>
-                              </ImageView>
-                              <Label text="صدور قبض">
-                                 <font>
-                                    <Font size="25.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets left="115.0" top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="42.0" prefWidth="334.0" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
-                                 <styleClass>
-                                    <String fx:value="search-box" />
-                                    <String fx:value="shadow" />
-                                 </styleClass>
-                                 <children>
-                                    <ComboBox fx:id="BillType" nodeOrientation="RIGHT_TO_LEFT" prefHeight="42.0" prefWidth="236.0" styleClass="transparent" />
-                                    <Label prefHeight="17.0" prefWidth="141.0" text="نوع قبض :">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="8.0" top="55.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="42.0" prefWidth="334.0" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
-                                 <styleClass>
-                                    <String fx:value="search-box" />
-                                    <String fx:value="shadow" />
-                                 </styleClass>
-                                 <children>
-                                    <Label prefHeight="42.0" prefWidth="179.0" text="ریال        " />
-                                    <TextField fx:id="BillAmountTextField" alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="379.0" promptText="مبلغ قبض :" styleClass="transparent" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
-                                       <HBox.margin>
-                                          <Insets />
-                                       </HBox.margin>
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="8.0" top="20.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <Button mnemonicParsing="false" onAction="#CreateAnInvoice" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card2" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="ایجاد قبض">
-                                 <VBox.margin>
-                                    <Insets left="130.0" top="65.0" />
-                                 </VBox.margin>
-                              </Button>
-                           </children>
-                        </VBox>
-                        <VBox fx:id="Two1" layoutX="700.0" layoutY="74.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="480.0" prefWidth="350.0" styleClass="free-delivery-card" stylesheets="@../values/style.css">
-                           <children>
-                              <HBox prefHeight="25.0" prefWidth="350.0" spacing="3.0">
-                                 <children>
-                                    <ImageView fitHeight="43.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../img/check.png" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets left="16.0" top="10.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                    <Label prefHeight="36.0" prefWidth="118.0" text="ثبت تلفن همراه">
-                                       <font>
-                                          <Font size="17.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets left="120.0" top="10.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <ImageView fitHeight="80.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../img/mobile-phone.png" />
-                                       </image>
-                                       <HBox.margin>
-                                          <Insets right="2.0" top="5.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                              <VBox alignment="CENTER" prefHeight="267.0" prefWidth="350.0" styleClass="free-delivery-card4" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
-                                 <children>
-                                    <HBox alignment="CENTER" prefHeight="51.0" prefWidth="350.0">
-                                       <children>
-                                          <Pane prefHeight="51.0" prefWidth="67.0" />
-                                          <Label fx:id="PhoneNumber" prefHeight="51.0" prefWidth="223.0" text="09143081984">
-                                             <font>
-                                                <Font size="33.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" prefHeight="8.0" prefWidth="350.0">
-                                       <children>
-                                          <Pane prefHeight="17.0" prefWidth="67.0" />
-                                          <Label fx:id="operatorLabel" prefHeight="17.0" prefWidth="105.0" text="تلفن همراه">
-                                             <HBox.margin>
-                                                <Insets left="10.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Pane prefHeight="17.0" prefWidth="135.0" />
-                                          <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="78.0" text="اپراتور:">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets right="5.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <Label prefHeight="18.0" prefWidth="266.0" text="--------------------------------">
-                                       <VBox.margin>
-                                          <Insets left="40.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <HBox alignment="CENTER" prefHeight="8.0" prefWidth="350.0">
-                                       <children>
-                                          <Pane prefHeight="20.0" prefWidth="55.0" />
-                                          <Label fx:id="NameLabel1" prefHeight="25.0" prefWidth="146.0" text="امیر محمد جوادزاده">
-                                             <HBox.margin>
-                                                <Insets left="10.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Pane prefHeight="25.0" prefWidth="59.0" />
-                                          <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="78.0" text="به نام :">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <Label prefHeight="18.0" prefWidth="266.0" text="--------------------------------" textAlignment="CENTER">
-                                       <VBox.margin>
-                                          <Insets left="40.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="136.0" prefHeight="48.0" prefWidth="350.0">
-                                       <children>
-                                          <ImageView fitHeight="34.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-                                             <HBox.margin>
-                                                <Insets left="3.0" right="13.0" top="5.0" />
-                                             </HBox.margin>
-                                             <image>
-                                                <Image url="@../img/calendar.png" />
-                                             </image>
-                                          </ImageView>
-                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="217.0">
-                                             <children>
-                                                <Label fx:id="DateLabel1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="87.0" text="1403/12/05">
-                                                   <font>
-                                                      <Font size="15.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="TimeLabel1" prefHeight="18.0" prefWidth="232.0" text="01:55" />
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets left="3.0" />
-                                             </HBox.margin>
                                           </VBox>
-                                          <Label alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="27.0" prefWidth="61.0" text="در تاریخ :">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets right="10.0" />
-                                             </HBox.margin>
-                                          </Label>
+                                          <VBox fx:id="one1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="480.0" prefWidth="350.0" styleClass="free-delivery-card" stylesheets="@../values/style.css">
+                                             <children>
+                                                <HBox prefHeight="25.0" prefWidth="350.0" spacing="3.0" />
+                                                <ImageView fitHeight="80.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/mobile-phone.png" />
+                                                   </image>
+                                                   <VBox.margin>
+                                                      <Insets left="140.0" top="45.0" />
+                                                   </VBox.margin>
+                                                </ImageView>
+                                                <Label text="ثبت تلفن همراه">
+                                                   <font>
+                                                      <Font size="25.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets left="105.0" top="15.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="42.0" prefWidth="334.0" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
+                                                   <styleClass>
+                                                      <String fx:value="search-box" />
+                                                      <String fx:value="shadow" />
+                                                   </styleClass>
+                                                   <children>
+                                                      <ComboBox fx:id="Operator" nodeOrientation="RIGHT_TO_LEFT" prefHeight="42.0" prefWidth="236.0" styleClass="transparent" />
+                                                      <Label prefHeight="17.0" prefWidth="141.0" text="اپراتور :">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="55.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="42.0" prefWidth="334.0" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
+                                                   <styleClass>
+                                                      <String fx:value="search-box" />
+                                                      <String fx:value="shadow" />
+                                                   </styleClass>
+                                                   <children>
+                                                      <TextField fx:id="NameTextField1" alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="379.0" promptText="به نام :" styleClass="transparent" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
+                                                         <HBox.margin>
+                                                            <Insets />
+                                                         </HBox.margin>
+                                                         <font>
+                                                            <Font size="15.0" />
+                                                         </font>
+                                                      </TextField>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="20.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <Button mnemonicParsing="false" onAction="#CreatePhone" prefHeight="40.0" prefWidth="128.0" styleClass="free-delivery-card2" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="ثبت تلفن همراه">
+                                                   <VBox.margin>
+                                                      <Insets left="125.0" top="65.0" />
+                                                   </VBox.margin>
+                                                </Button>
+                                             </children>
+                                          </VBox>
                                        </children>
-                                       <VBox.margin>
-                                          <Insets top="5.0" />
-                                       </VBox.margin>
-                                    </HBox>
-                                    <Label alignment="CENTER" prefHeight="62.0" prefWidth="353.0" text="با موفقیت ثبت شد ! ">
-                                       <font>
-                                          <Font size="25.0" />
-                                       </font>
-                                    </Label>
+                                    </Pane>
                                  </children>
-                                 <VBox.margin>
-                                    <Insets left="5.0" right="5.0" top="20.0" />
-                                 </VBox.margin>
                               </VBox>
-                              <HBox prefHeight="51.0" prefWidth="350.0">
-                                 <children>
-                                    <Button fx:id="Download1" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card3" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="دانلود">
-                                       <HBox.margin>
-                                          <Insets left="58.0" top="12.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                    <Button mnemonicParsing="false" onAction="#Reregister" prefHeight="40.0" prefWidth="100.0" styleClass="free-delivery-card2" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="ثبت مجدد">
-                                       <HBox.margin>
-                                          <Insets left="40.0" top="12.0" />
-                                       </HBox.margin>
-                                    </Button>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="50.0" />
-                                 </VBox.margin>
-                              </HBox>
+                              <Pane prefHeight="638.0" prefWidth="124.0" HBox.hgrow="ALWAYS" />
                            </children>
-                        </VBox>
-                        <VBox fx:id="one1" layoutX="700.0" layoutY="74.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="480.0" prefWidth="350.0" styleClass="free-delivery-card" stylesheets="@../values/style.css">
-                           <children>
-                              <HBox prefHeight="25.0" prefWidth="350.0" spacing="3.0" />
-                              <ImageView fitHeight="80.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../img/mobile-phone.png" />
-                                 </image>
-                                 <VBox.margin>
-                                    <Insets left="140.0" top="45.0" />
-                                 </VBox.margin>
-                              </ImageView>
-                              <Label text="ثبت تلفن همراه">
-                                 <font>
-                                    <Font size="25.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets left="105.0" top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="42.0" prefWidth="334.0" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
-                                 <styleClass>
-                                    <String fx:value="search-box" />
-                                    <String fx:value="shadow" />
-                                 </styleClass>
-                                 <children>
-                                    <ComboBox fx:id="Operator" nodeOrientation="RIGHT_TO_LEFT" prefHeight="42.0" prefWidth="236.0" styleClass="transparent" />
-                                    <Label prefHeight="17.0" prefWidth="141.0" text="اپراتور :">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="8.0" top="55.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="42.0" prefWidth="334.0" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
-                                 <styleClass>
-                                    <String fx:value="search-box" />
-                                    <String fx:value="shadow" />
-                                 </styleClass>
-                                 <children>
-                                    <TextField fx:id="NameTextField1" alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="379.0" promptText="به نام :" styleClass="transparent" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css">
-                                       <HBox.margin>
-                                          <Insets />
-                                       </HBox.margin>
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="8.0" top="20.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <Button mnemonicParsing="false" onAction="#CreatePhone" prefHeight="40.0" prefWidth="128.0" styleClass="free-delivery-card2" stylesheets="@../../../../../New%20folder/BankPanel-main1/BankPanel-main/src/values/style.css" text="ثبت تلفن همراه">
-                                 <VBox.margin>
-                                    <Insets left="125.0" top="65.0" />
-                                 </VBox.margin>
-                              </Button>
-                           </children>
-                        </VBox>
+                        </HBox>
                      </children></AnchorPane>
               </content>
             </Tab>
