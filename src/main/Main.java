@@ -11,6 +11,7 @@ public class Main extends Application {
     public static final String CURRENCY = "  ريال";
     @Override
     public void start(Stage primaryStage) throws Exception{
+        //login
         Parent root = FXMLLoader.load(getClass().getResource("../views/login.fxml"));
         primaryStage.setTitle("Bank");
         primaryStage.setScene(new Scene(root));

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="369.0" prefWidth="976.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ChangeUserNameControlle">
+   <children>
+      <HBox layoutY="34.0" prefHeight="2.0" prefWidth="976.0" style="-fx-background-color: #8C8C8C;" />
+      <Label alignment="CENTER_RIGHT" layoutX="844.0" layoutY="4.0" prefHeight="25.0" prefWidth="97.0" text="تغیر نام کاربری">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="39.0" fitWidth="34.0" layoutX="7.0" layoutY="-1.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/close.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="41.0" layoutY="47.0" prefHeight="299.0" prefWidth="369.0" style="-fx-background-color: #C7C7C7; -fx-background-radius: 40;">
+         <children>
+            <Button layoutX="322.0" layoutY="14.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="21.0" style="-fx-background-color: #2945A6;" />
+            <Label layoutX="14.0" layoutY="6.0" prefHeight="66.0" prefWidth="309.0" text="نام کاربری باید ترکیبی از حرف، عدد، نقطه (.)، خط تیره(-) و زیر خط (_) باشد." textAlignment="RIGHT" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <Button layoutX="322.0" layoutY="87.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="21.0" style="-fx-background-color: #2945A6;" />
+            <Label layoutX="21.0" layoutY="80.0" text="نام کاربری باید با حروف کوچک انگلیسی شروع شود">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <Button layoutX="322.0" layoutY="158.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="21.0" style="-fx-background-color: #2945A6;" />
+            <Label layoutX="4.0" layoutY="150.0" prefHeight="66.0" prefWidth="319.0" text="استفاده از حروف غیرانگلیسی در نام کاربری مجاز نیست" textAlignment="RIGHT" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <Button layoutX="322.0" layoutY="237.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="21.0" style="-fx-background-color: #2945A6;" />
+            <Label layoutX="53.0" layoutY="229.0" prefHeight="66.0" prefWidth="270.0" text="طول نام کاربری باید حداقل 5 و جداکثر 30 باشد" textAlignment="RIGHT" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Button layoutX="728.0" layoutY="296.0" mnemonicParsing="false" onMouseClicked="#saveButton" prefHeight="40.0" prefWidth="97.0" style="-fx-background-radius: 10;" styleClass="darkBlueButton" stylesheets="@../values/changeUser.css" text="تغیر نام کاربری" />
+      <Button layoutX="619.0" layoutY="296.0" mnemonicParsing="false" onMouseClicked="#close" prefHeight="40.0" prefWidth="97.0" style="-fx-background-radius: 10;" styleClass="buttongrayButton" stylesheets="@../values/changeUser.css" text="انصراف" />
+      <Label fx:id="label1" alignment="CENTER_RIGHT" layoutX="441.0" layoutY="128.0" prefHeight="20.0" prefWidth="521.0" textFill="#940000">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="label2" alignment="CENTER_RIGHT" layoutX="441.0" layoutY="214.0" prefHeight="20.0" prefWidth="521.0" textFill="#940000">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="oldusername" layoutX="441.0" layoutY="91.0" prefHeight="34.0" prefWidth="521.0">
+         <padding>
+            <Insets left="33.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <TextField fx:id="newusername" layoutX="441.0" layoutY="180.0" prefHeight="34.0" prefWidth="521.0">
+         <padding>
+            <Insets left="33.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Label fx:id="label3" layoutX="864.0" layoutY="98.0" text="نام کاربری فعلی*" textFill="#8c8c8c">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="label4" layoutX="866.0" layoutY="187.0" text="نام کاربری جدید*" textFill="#8c8c8c">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="34.0" fitWidth="49.0" layoutX="441.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons8-user.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="34.0" fitWidth="49.0" layoutX="441.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons8-user.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="34.0" fitWidth="52.0" layoutX="942.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons8-user(1).gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ProfileController">
+   <children>
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="1315.0" styleClass="hbox" stylesheets="@../values/style_U.css">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER" layoutX="14.0" prefHeight="100.0" prefWidth="250.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" onMouseClicked="#userPage" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/profile-user.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="profileName" prefHeight="25.0" prefWidth="200.0" textFill="WHITE">
+                           <font>
+                              <Font name="B Lotus" size="22.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="7.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="300.0">
+               <children>
+                  <Label text="بانک جاواد" textFill="WHITE">
+                     <font>
+                        <Font name="B Paatch Bold" size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Javad Bank" textFill="WHITE">
+                     <font>
+                        <Font name="Ink Free" size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="5.0" right="20.0" top="5.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../img/pfizer.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <AnchorPane layoutX="7.0" layoutY="108.0" prefHeight="686.0" prefWidth="1298.0" style="-fx-border-color: #7F7F7F; -fx-border-width: 5; -fx-border-radius: 20;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <children>
+            <AnchorPane layoutX="176.39999999999998" layoutY="2.0" prefHeight="199.0" prefWidth="953.0" styleClass="rounded-bottom" stylesheets="@../values/profile.css" AnchorPane.leftAnchor="171.0" AnchorPane.rightAnchor="171.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane layoutX="841.0" layoutY="76.0" prefHeight="35.0" prefWidth="35.0" rotate="135.0" style="-fx-background-color: #fff; -fx-background-radius: 40;">
+                     <children>
+                        <ImageView fitHeight="22.0" fitWidth="21.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icons8-key(1).gif" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="747.0" layoutY="76.0" onMouseClicked="#changePassword" prefHeight="32.0" prefWidth="133.0" styleClass="cool-label" stylesheets="@../values/profile.css" text="تغیر رمز عبور" textAlignment="RIGHT">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" right="1.0" />
+                     </padding>
+                  </Label>
+                  <AnchorPane layoutX="541.0" layoutY="76.0" prefHeight="35.0" prefWidth="35.0" style="-fx-background-color: #fff; -fx-background-radius: 40;">
+                     <children>
+                        <ImageView fitHeight="22.0" fitWidth="21.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icons8-user.gif" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="447.0" layoutY="76.0" onMouseClicked="#changeUsername" prefHeight="32.0" prefWidth="133.0" styleClass="cool-label" stylesheets="@../values/profile.css" text="تغیر نام کاربری" textAlignment="RIGHT">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="239.0" layoutY="76.0" prefHeight="35.0" prefWidth="35.0" style="-fx-background-color: #fff; -fx-background-radius: 40;">
+                     <children>
+                        <ImageView fitHeight="22.0" fitWidth="21.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/icons8-logout-rounded.gif" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="105.0" layoutY="76.0" onMouseClicked="#outLogin" prefHeight="32.0" prefWidth="177.0" styleClass="cool-label" stylesheets="@../values/profile.css" text="خروج از حساب کاربری" textAlignment="RIGHT">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

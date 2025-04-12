@@ -1,5 +1,6 @@
 package Controller;
 
+import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -321,6 +322,17 @@ public class EmployeeController {
 
         return users;
     }
+
+    @FXML
+    private Label username12;
+
+    public void setId(String username1){
+        username12.setText(username1);
+        Role.setText("کارمند");
+    }
+
+
+
 
     // تابع برای استخراج مقادیر از خط‌ها
     private String extractValue(String line) {

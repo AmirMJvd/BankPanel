@@ -1,0 +1,35 @@
+/* استایل برای دکمه آبی تیره */
+.darkBlueButton {
+    -fx-background-color: #003366; /* رنگ آبی تیره */
+    -fx-text-fill: white; /* رنگ متن */
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.darkBlueButton:hover {
+    -fx-background-color: #0055aa; /* تغییر رنگ در هنگام رفتن ماوس */
+}
+
+.darkBlueButton:pressed {
+    -fx-background-color: #002244; /* تغییر رنگ در هنگام کلیک */
+}
+
+/* استایل برای دکمه خاکستری */
+.buttongrayButton {
+    -fx-background-color: #808080; /* رنگ خاکستری */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.buttongrayButton:hover {
+    -fx-background-color: #a9a9a9; /* تغییر رنگ در هنگام رفتن ماوس */
+}
+
+.buttongrayButton:pressed {
+    -fx-background-color: #696969; /* تغییر رنگ در هنگام کلیک */
+}

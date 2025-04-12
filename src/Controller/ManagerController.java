@@ -1,5 +1,6 @@
 package Controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -282,6 +283,8 @@ public class ManagerController {
             return; // اگر عدد نیست از متد خارج شو
         }
 
+
+
         if (firstName.isEmpty() || lastName.isEmpty() || nationalCode.isEmpty() || birthDate == null ||
                 selectedGender == null || AccountNumber.isEmpty() || ShabaNumber.isEmpty() ||CardNumber.isEmpty() ||CVV2Numer.isEmpty() ||inventoryPrice.isEmpty() ||CardPassvord.isEmpty()
                 ||expirationDate == null ||  AccountType == null ) {
@@ -333,6 +336,14 @@ public class ManagerController {
             showAlert("خطا", "مشکلی در ذخیره اطلاعات رخ داده است!", Alert.AlertType.ERROR);
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private Label username12;
+
+    public void setId(String username1){
+        username12.setText(username1);
+        Role.setText("مدیر");
     }
 
     // متد برای پاک کردن محتویات فیلدها

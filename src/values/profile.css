@@ -1,0 +1,16 @@
+.rounded-bottom {
+    -fx-background-color: #c1c1c1; /* رنگ پس‌زمینه اختیاری */
+    -fx-background-radius: 0 0 30px 30px; /* بالاچپ، بالاراست، پایین‌راست، پایین‌چپ */
+}
+.cool-label {
+    -fx-text-fill: black;
+    -fx-cursor: hand; /* تغییر ظاهر موس */
+}
+
+.cool-label:hover {
+    -fx-text-fill: #575757; /* خاکستری روشن */
+}
+
+.cool-label:pressed {
+    -fx-text-fill: white; /* هنگام کلیک */
+}

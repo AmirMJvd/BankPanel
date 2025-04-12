@@ -121,14 +121,18 @@ public class LoginController {
             if (title.equals("Bank")) {
                 UserPageController  controller = loader.getController();
                 controller.setId(username);
+                controller.setMani(username,password.getText());
             }
-//              UserPageController  controller = loader.getController();
-//                controller.setId(username);
-//            }
-//            } else if (title.equals("Admin Panel")) {
-//                admin1Controller controller = loader.getController();
-//                controller.setId(username);
-//            }
+
+            else if (title.equals("Employee Panel")) {
+              EmployeeController controller = loader.getController();
+              controller.setId(username);
+            }
+
+            else if (title.equals("Manager Panel")) {
+                ManagerController controller = loader.getController();
+                controller.setId(username);
+            }
 
             Scene scene = new Scene(pane, 1315, 810);
             Stage newStage = new Stage();

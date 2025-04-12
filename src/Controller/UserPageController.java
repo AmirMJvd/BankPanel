@@ -13,10 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Card;
@@ -304,7 +301,31 @@ public class UserPageController {
 
     @FXML
     private Label username;
+///   /////////
+    String password;
 
+    String username_mani;
+
+    public void setMani(String username_mani , String password) {
+        this.username_mani = username_mani;
+        this.password = password;
+    }
+/// ///////////
+    public void clickProfileImage(MouseEvent event) {
+        Stage stage = (Stage) Five.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/profile.fxml"));
+        try {
+            Scene scene = new Scene(loader.load());
+            ProfileController controller = loader.getController();
+            controller.setUsername(username12.getText());
+            controller.setPassword(password);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+/// //////
     public void setId(String username1){
         username12.setText(username1);
 
