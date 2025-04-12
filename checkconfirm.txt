@@ -1,0 +1,10 @@
+Type: تایید چک
+checkId: 1234567890123456
+serial: 111111
+series: 2222
+amount: 8000000
+date: 2025-04-30
+nationalCode: 1234567890
+saveDate: 2025/04/11
+saveTime: 13:30
+----------------------------------

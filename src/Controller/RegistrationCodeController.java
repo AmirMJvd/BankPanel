@@ -6,8 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -25,6 +27,15 @@ public class RegistrationCodeController {
 
     @FXML
     private AnchorPane rootPane;
+
+    @FXML
+    private ImageView closeIcon;
+
+    @FXML
+    void closeApp(MouseEvent event) {
+        Stage stage = (Stage) closeIcon.getScene().getWindow();
+        stage.close();
+    }
 
     @FXML
     void BackLogin(MouseEvent event) throws IOException {
@@ -151,6 +162,12 @@ public class RegistrationCodeController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    @FXML
+    void Reset(MouseEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/forgetfulness.fxml"));
+        rootPane.getChildren().setAll(pane);
     }
 
 }

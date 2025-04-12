@@ -10,7 +10,7 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="80.0" prefWidth="425.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserItemController">
    <children>
-      <ImageView fx:id="img" fitHeight="63.0" fitWidth="53.0" onMouseClicked="#moreinfo" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img" fitHeight="63.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>
             <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
          </HBox.margin>
@@ -43,9 +43,9 @@
          </HBox.margin>
       </Label>
       <Pane prefHeight="80.0" prefWidth="55.0" />
-      <ImageView fitHeight="29.0" fitWidth="38.0" onMouseClicked="#delet" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="29.0" fitWidth="38.0" onMouseClicked="#moreinfo" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/remove.png" />
+            <Image url="@../img/more-information.png" />
          </image>
          <HBox.margin>
             <Insets top="25.0" />

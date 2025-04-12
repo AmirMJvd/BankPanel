@@ -1,5 +1,7 @@
 package Controller;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,10 +9,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.SharedData;
 
 import java.io.File;
@@ -28,9 +34,33 @@ public class LoginController {
     private TextField userName;
 
     @FXML
+       private VBox vbox1;
+
+    @FXML
+       private VBox vbox2;
+
+    @FXML
+    private HBox hbox1;
+
+    @FXML
+    private ImageView closeIcon;
+
+    @FXML
+    private ImageView img1, img2, img3, img4, img5;
+
+
+    @FXML
+    void closeApp(MouseEvent event) {
+        Stage stage = (Stage) closeIcon.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
     public void initialize() {
         userName.setOnAction(event -> password.requestFocus());
         password.setOnAction(event -> Login(new ActionEvent()));
+        vbox2.setVisible(false);
+        vbox2.setManaged(false);
     }
 
     @FXML
@@ -158,4 +188,38 @@ public class LoginController {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/forgetfulness.fxml"));
         rootPane.getChildren().setAll(pane);
     }
+
+    @FXML
+    void handleLoginAction() {
+        // انتقال vbox1 به سمت چپ
+        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), vbox1);
+        translateTransition.setByX(-200);
+        translateTransition.play();
+
+        // ظاهر شدن vbox2
+        vbox2.setVisible(true);
+        vbox2.setDisable(false);
+        vbox2.setManaged(true);
+        img1.setVisible(false);
+        img2.setVisible(false);
+        img3.setVisible(false);
+        img4.setVisible(false);
+        img5.setVisible(false);
+
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), vbox2);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+
+        hbox1.setVisible(false);
+    }
+
+
+
+    @FXML
+    void BackLogin(MouseEvent event) throws IOException{
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/Login.fxml"));
+        rootPane.getChildren().setAll(pane);
+    }
+
 }

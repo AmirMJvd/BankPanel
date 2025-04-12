@@ -115,8 +115,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -141,6 +143,15 @@ public class forgetfulnessController {
 
     @FXML
     private TextField userName1;
+
+    @FXML
+    private ImageView closeIcon;
+
+    @FXML
+    void closeApp(MouseEvent event) {
+        Stage stage = (Stage) closeIcon.getScene().getWindow();
+        stage.close();
+    }
 
     private static String verificationCode;
     private static String verifiedEmail;
@@ -282,5 +293,13 @@ public class forgetfulnessController {
     public static String getVerifiedEmail() {
         return verifiedEmail;
     }
+
+    @FXML
+    void LodRegister(MouseEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/RegistrationCode.fxml"));
+        rootPane.getChildren().setAll(pane);
+    }
+
+
 }
 

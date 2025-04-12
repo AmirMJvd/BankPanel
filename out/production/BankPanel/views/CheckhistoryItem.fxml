@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="140.0" prefWidth="190.0" style="-fx-background-color: #b5b3b3; -fx-background-radius: 10;" styleClass="shadow" stylesheets="@../values/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CheckhistoryItemController">
+   <children>
+      <VBox prefHeight="140.0" prefWidth="190.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="Type" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="153.0" text="پرداخت قبض">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="24.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/wallet.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="Time" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="48.0" text="12:15" textFill="#828282">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="2.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ImageView fitHeight="15.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/clock.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="Date" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="74.0" text="2022/08/09" textFill="#828282">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="19.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/date.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="statusLabel" prefHeight="18.0" text="در حال بررسی" textFill="#ff3700">
+                     <HBox.margin>
+                        <Insets bottom="2.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="codeLabel" alignment="CENTER" prefHeight="18.0" prefWidth="36.0" text="1234">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="50.0" text="کد پیگیری:" textFill="#828282">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

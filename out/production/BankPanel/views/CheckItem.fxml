@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="checkItemBox" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="90.0" prefWidth="850.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;" stylesheets="@../values/style_U.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CheckItemController">
+   <children>
+      <ImageView fx:id="rejectImage" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#handleRejectClick" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../img/cross%20(1).png" />
+         </image>
+         <HBox.margin>
+            <Insets right="10.0" />
+         </HBox.margin>
+      </ImageView>
+      <ImageView fx:id="approveImage" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#handleApproveClick" pickOnBounds="true" preserveRatio="true" styleClass="button">
+         <image>
+            <Image url="@../img/checked%20(2).png" />
+         </image>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </ImageView>
+      <Pane prefHeight="89.0" prefWidth="51.0" />
+      <VBox alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="340.0">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="(" />
+                  <Label fx:id="acctype" alignment="CENTER_RIGHT" text="قرض الحسنه" />
+                  <Label text=")">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin></Label>
+                  <Label fx:id="AccNumLab" alignment="CENTER_RIGHT" text="66666666666666">
+                     <HBox.margin>
+                        <Insets right="8.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefWidth="92.0" text="شماره حساب:" textFill="#847272">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="برگ">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin></Label>
+                  <Label fx:id="PageLab" alignment="CENTER_RIGHT" text="50">
+                     <HBox.margin>
+                        <Insets right="8.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefWidth="92.0" text="تعداد برگه دسته چک:" textFill="#847272">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="CodeLab" alignment="CENTER_RIGHT" prefWidth="220.0" text="1234">
+                     <HBox.margin>
+                        <Insets right="8.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefWidth="92.0" text="کد پیگیری:" textFill="#847272">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER_RIGHT" prefHeight="75.0" prefWidth="340.0">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="NameLab" alignment="CENTER_RIGHT" prefWidth="220.0" text="نام ونام خانوادگی">
+                     <HBox.margin>
+                        <Insets right="8.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefWidth="85.0" text="نام و نام خانوادگی:" textFill="#847272">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="nationall" alignment="CENTER_RIGHT" prefWidth="220.0" text="1234567890">
+                     <HBox.margin>
+                        <Insets right="8.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefWidth="85.0" text="کدملی:" textFill="#847272">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="phonenumb" alignment="CENTER_RIGHT" prefWidth="220.0" text="1234">
+                     <HBox.margin>
+                        <Insets right="8.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefWidth="85.0" text="شماره موبایل:" textFill="#847272">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="postnumb" alignment="CENTER_RIGHT" prefWidth="220.0" text="1234">
+                     <HBox.margin>
+                        <Insets right="8.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefWidth="85.0" text="آدرس کدپستی:" textFill="#847272">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+         <HBox.margin>
+            <Insets right="15.0" />
+         </HBox.margin>
+      </VBox>
+   </children>
+   <styleClass>
+      <String fx:value="border-style" />
+      <String fx:value="shadow" />
+   </styleClass>
+</HBox>

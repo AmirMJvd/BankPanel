@@ -1,0 +1,22 @@
+Type: ثبت چک
+checkId: 1234567890123456
+accountNumber: 12345678901234
+serial: 111111
+seri: 2222
+amount: 5000
+due date: 2025-05-06
+nationalCode: 1364065177
+Date: 2025/04/11
+Time: 16:24
+----------------------------------
+Type: ثبت چک
+checkId: 1234567890123456
+accountNumber: 12345678901234
+serial: 111111
+seri: 5555
+amount: 7412000
+due date: 2025-05-06
+nationalCode: 1364065177
+Date: 2025/04/11
+Time: 17:19
+----------------------------------

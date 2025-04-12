@@ -1,0 +1,20 @@
+.shadow{
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
+}
+
+.button:hover {
+    -fx-scale-x: 1.005; /* Grow horizontally */
+    -fx-scale-y: 1.005; /* Grow vertically */
+    -fx-effect: dropshadow(gaussian, rgb(129, 132, 142), 10, 0.5, 0, 2); /* Emphasized shadow */
+}
+
+.border-style {
+    -fx-border-color: #111111;
+    -fx-border-radius: 20px;
+}
+
+.button-style {
+    -fx-border-color: #111111;
+    -fx-border-radius: 20px;
+    -fx-background-color: #828282;
+}

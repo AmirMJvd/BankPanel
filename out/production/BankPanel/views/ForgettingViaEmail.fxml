@@ -8,145 +8,253 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="810.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ForgettingViaEmailController">
+<AnchorPane fx:id="rootPane" prefHeight="650.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ForgettingViaEmailController">
     <children>
-        <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <left>
-                <VBox prefHeight="810.0" prefWidth="363.0" BorderPane.alignment="CENTER">
+      <Pane layoutX="99.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+                <VBox alignment="CENTER" layoutX="455.0" layoutY="122.0" prefHeight="460.0" prefWidth="360.0" style="-fx-background-radius: 25; -fx-background-color: #e8ebeb;">
                     <children>
-                        <ImageView fitHeight="920.0" fitWidth="540.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../img/Flux_Dev_A_modern_highcontrast_photograph_of_the_Javad_Bank_bu_2.jpeg" />
-                            </image>
-                        </ImageView>
-                    </children>
-                </VBox>
-            </left>
-            <right>
-                <VBox prefHeight="810.0" prefWidth="553.0" styleClass="right-bar" stylesheets="@../values/style.css" BorderPane.alignment="CENTER">
-                    <children>
-                        <HBox alignment="CENTER" prefHeight="49.0" prefWidth="952.0">
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/forgot-password.png" />
+                     </image></ImageView>
+                        <HBox alignment="CENTER" prefHeight="38.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 25;">
                             <children>
-                                <Pane prefHeight="97.0" prefWidth="227.0" />
-                                <ImageView fitHeight="71.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../img/bank.png" />
-                                    </image>
-                                    <HBox.margin>
-                                        <Insets bottom="5.0" top="20.0" />
-                                    </HBox.margin>
-                                </ImageView>
-                                <Pane prefHeight="97.0" prefWidth="192.0" />
-                                <ImageView fitHeight="40.0" fitWidth="63.0" onMouseClicked="#BackLogin" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../img/close.png" />
-                                    </image>
-                                    <HBox.margin>
-                                        <Insets bottom="55.0" />
-                                    </HBox.margin>
-                                </ImageView>
-                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="952.0">
-                            <children>
-                                <Label prefHeight="49.0" prefWidth="128.0" text="BOOK" textFill="#878787">
-                                    <font>
-                                        <Font name="Cambria Bold" size="40.0" />
-                                    </font>
-                                </Label>
-                                <Label text="store" textFill="#878787">
-                                    <font>
-                                        <Font name="Cambria" size="40.0" />
-                                    </font>
-                                </Label>
-                            </children>
-                        </HBox>
-                        <HBox prefHeight="121.0" prefWidth="553.0" />
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                            <children>
-                                <TextField fx:id="userName1" alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="295.0" promptText="نام کاربری" styleClass="search-box" stylesheets="@../values/StyleA.css">
-                                    <HBox.margin>
-                                        <Insets top="10.0" />
-                                    </HBox.margin>
-                                    <font>
-                                        <Font name="System Italic" size="16.0" />
-                                    </font>
-                                </TextField>
-                                <Pane prefHeight="100.0" prefWidth="18.0" />
-                                <ImageView fitHeight="61.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../img/programmer.png" />
-                                    </image>
-                                </ImageView>
-                            </children>
-                        </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <TextField fx:id="VerificationCode" alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="295.0" promptText="کد تایید" styleClass="search-box" stylesheets="@../values/StyleA.css">
-                           <font>
-                              <Font name="System Italic" size="16.0" />
-                           </font>
-                        </TextField>
-                        <Pane prefHeight="100.0" prefWidth="18.0" />
-                        <ImageView fitHeight="61.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/password.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                            <children>
-                        <PasswordField fx:id="password" alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="295.0" promptText="رمز ورود جدید" styleClass="search-box">
-                           <font>
-                              <Font name="System Italic" size="16.0" />
-                           </font>
-                        </PasswordField>
-                                <Pane prefHeight="100.0" prefWidth="18.0" />
-                                <ImageView fitHeight="61.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../img/password1.png" />
-                                    </image>
-                                </ImageView>
-                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                            <children>
-                        <PasswordField fx:id="passwordAgn" alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="295.0" promptText="رمز ورود جدید" styleClass="search-box">
-                           <font>
-                              <Font name="System Italic" size="16.0" />
-                           </font>
-                        </PasswordField>
-                                <Pane prefHeight="100.0" prefWidth="18.0" />
-                                <ImageView fitHeight="61.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../img/password1.png" />
-                                    </image>
-                                </ImageView>
-                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="125.0" prefWidth="553.0">
-                            <children>
-                                <Button mnemonicParsing="false" onAction="#Reset" prefHeight="54.0" prefWidth="118.0" styleClass="search-button" text="بازنشانی رمز ورود " textFill="WHITE">
-                                    <font>
-                                        <Font size="13.0" />
-                                    </font>
+                                <TextField fx:id="userName1" alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="295.0" promptText="نام کاربری" style="-fx-background-color: no;">
                                     <HBox.margin>
                                         <Insets />
                                     </HBox.margin>
-                                </Button>
+                                    <font>
+                                        <Font name="B Mitra" size="16.0" />
+                                    </font>
+                                </TextField>
+                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../img/programmer.png" />
+                                    </image>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                                </ImageView>
                             </children>
+                     <VBox.margin>
+                        <Insets left="45.0" right="45.0" top="5.0" />
+                     </VBox.margin>
                         </HBox>
+                  <HBox alignment="CENTER" prefHeight="38.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 25;">
+                     <children>
+                        <TextField fx:id="VerificationCode" alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="295.0" promptText="کد تایید" style="-fx-background-color: no;">
+                           <font>
+                              <Font name="B Mitra" size="16.0" />
+                           </font>
+                        </TextField>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/password.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="45.0" right="45.0" top="15.0" />
+                     </VBox.margin>
+                  </HBox>
+                        <HBox alignment="CENTER" prefHeight="38.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 25;">
+                            <children>
+                        <PasswordField fx:id="password" alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="295.0" promptText="رمز ورود جدید" style="-fx-background-color: no;">
+                           <font>
+                              <Font name="B Mitra" size="16.0" />
+                           </font>
+                        </PasswordField>
+                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../img/password1.png" />
+                                    </image>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                                </ImageView>
+                            </children>
+                     <VBox.margin>
+                        <Insets left="45.0" right="45.0" top="15.0" />
+                     </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="38.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 25;">
+                            <children>
+                        <PasswordField fx:id="passwordAgn" alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="295.0" promptText="تکرار رمز ورود جدید" style="-fx-background-color: no;" styleClass="search-box">
+                           <font>
+                              <Font name="B Mitra" size="16.0" />
+                           </font>
+                        </PasswordField>
+                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../img/password1.png" />
+                                    </image>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                                </ImageView>
+                            </children>
+                     <VBox.margin>
+                        <Insets left="45.0" right="45.0" top="15.0" />
+                     </VBox.margin>
+                        </HBox>
+                          <Button mnemonicParsing="false" onAction="#Reset" prefHeight="42.0" prefWidth="120.0" style="-fx-background-color: #828282; -fx-background-radius: 25;" text="بازنشانی رمز ورود " textFill="WHITE">
+                              <font>
+                                  <Font name="B Roya" size="16.0" />
+                              </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                          </Button>
+                  <HBox fx:id="hbox1" alignment="CENTER" prefHeight="40.0" prefWidth="357.0">
+                     <children>
+                        <Label onMouseClicked="#LodRegister" text="فعال سازی اینترنت بانک" textFill="#6e6666">
+                           <font>
+                              <Font name="B Nazanin" size="16.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/active-user.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="7.0" top="5.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" prefWidth="20.0" text="|" textFill="#6e6666" />
+                        <Label onMouseClicked="#BackLogin" text="صفحه اصلی" textFill="#6e6666">
+                           <font>
+                              <Font name="B Nazanin" size="16.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="21.0" fitWidth="21.0" onMouseClicked="#BackLogin" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/log-in%20(1).png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="5.0" top="8.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
                     </children>
                 </VBox>
-            </right>
-        </BorderPane>
+                    <ImageView fx:id="closeIcon" fitHeight="35.0" fitWidth="35.0" layoutX="815.0" onMouseClicked="#closeApp" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../img/close.png" />
+                        </image>
+                    </ImageView>
+            <VBox fx:id="vbox1" alignment="TOP_CENTER" layoutX="36.0" layoutY="158.0" prefHeight="388.0" prefWidth="366.0">
+               <children>
+                  <Label text="به سامانه بانکداری اینترنتی بانک جاواد خوش آمدید !">
+                     <font>
+                        <Font name="B Homa" size="19.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.006729475100942127">
+                                 <color>
+                                    <Color red="0.26822611689567566" green="0.9052631855010986" blue="0.7778557538986206" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ImageView fitHeight="180.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <image>
+                        <Image url="@../img/mobile-banking%20(2).gif" />
+                     </image>
+                  </ImageView>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0">
+                     <children>
+                        <Label text="امکان دسترسی امن و آسان">
+                           <font>
+                              <Font name="B Tabassom" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/shield.gif" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin></ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets right="40.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0">
+                     <children>
+                        <Label text="امکان مدیریت دقیق و آنلاین حساب ها">
+                           <font>
+                              <Font name="B Tabassom" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/shield.gif" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin></ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets right="40.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0">
+                     <children>
+                        <Label text="بدون نیاز به مراجعه حضوری">
+                           <font>
+                              <Font name="B Tabassom" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/shield.gif" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin></ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets right="40.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
     </children>
 
 
