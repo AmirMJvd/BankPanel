@@ -3367,7 +3367,7 @@
                     <children>
                         <HBox alignment="CENTER" layoutX="14.0" prefHeight="100.0" prefWidth="250.0">
                             <children>
-                                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="35.0" fitWidth="35.0" onMouseClicked="#clickProfileImage" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/profile-user.png" />
                            </image></ImageView>

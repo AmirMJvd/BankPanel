@@ -6,7 +6,7 @@ Card Password: 7539
 expiration Date: 1409/01
 CVV2 Number: 323
 Account Type: سپرده سرمایه گذاری بلند مدت
-inventory Price: 102  ريال
+inventory Price: 104.0400000000000062527760746888816356658935546875  ريال
 create Date: 2025-03-29
 ---------------
 User ID: @0579b68e
@@ -17,7 +17,7 @@ Card Password: 4635
 expiration Date: 1409/01
 CVV2 Number: 549
 Account Type:   سپرده سرمایه گذاری کوتاه مدت
-inventory Price: 101.5  ريال
+inventory Price: 1030.22499999999990905052982270717620849609375  ريال
 create Date: 2025-03-29
 ---------------
 User ID: @d3a4025d
@@ -28,7 +28,7 @@ Card Password: 5212
 expiration Date: 1409/01
 CVV2 Number: 550
 Account Type:  سپرده سرمایه گذاری کوتاه مدت
-inventory Price: 101.5  ريال
+inventory Price: 1030.22499999999990905052982270717620849609375  ريال
 create Date: 2025-01-29
 ---------------
 User ID: @9a5f8b52
@@ -50,6 +50,6 @@ Card Password:
 expiration Date: /
 CVV2 Number: 
 Account Type: سپرده سرمایه گذاری بلند مدت
-inventory Price: 328.43999999999999772626324556767940521240234375  ريال
+inventory Price: 33500880000000002571198949418876183970937044992  ريال
 create Date: 2025-02-11
 ---------------

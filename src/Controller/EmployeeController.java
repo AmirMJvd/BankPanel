@@ -381,6 +381,14 @@ public class EmployeeController {
         return users;
     }
 
+    @FXML
+    private Label username12;
+
+    public void setId(String username1){
+        username12.setText(username1);
+        Role.setText("کارمند");
+    }
+
     // تابع برای استخراج مقادیر از خط‌ها
     private String extractValue(String line) {
         // فرض بر این است که حرف اضافه با دو نقطه (: ) تمام می‌شود.

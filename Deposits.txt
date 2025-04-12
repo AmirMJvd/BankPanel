@@ -190,3 +190,35 @@ tracking code : 423839891
 Date :2025-04-12
 Time : 00:00:19
 -------------
+Amount transferred : 2.0400000000000062527760746888816356658935546875
+Transfer type :واریز سود
+destination number :61228886408112
+destination name : امیر جوادزاده
+tracking code : 042797089
+Date :2025-04-13
+Time : 00:27:07
+-------------
+Amount transferred : 15.22499999999990905052982270717620849609375
+Transfer type :واریز سود
+destination number :61228886408115
+destination name : پیام اسدی
+tracking code : 323608301
+Date :2025-04-13
+Time : 00:27:07
+-------------
+Amount transferred : 15.22499999999990905052982270717620849609375
+Transfer type :واریز سود
+destination number :71977481652020
+destination name : امیر جوادی
+tracking code : 520384930
+Date :2025-04-13
+Time : 00:27:07
+-------------
+Amount transferred : 656880000000002237734348421628696385898414080
+Transfer type :واریز سود
+destination number :84114691539704
+destination name : علی احمدی
+tracking code : 156511102
+Date :2025-04-13
+Time : 00:27:07
+-------------

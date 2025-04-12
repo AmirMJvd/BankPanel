@@ -58,10 +58,10 @@ public class ProfileController implements Initializable {
 
     public void changePassword(MouseEvent actionEvent) {
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/ChangePassword.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/ChangePasswordProfile.fxml"));
         try {
             Scene scene = new Scene(fxmlLoader.load());
-            ChangePasswordController controller = fxmlLoader.getController();
+            ChangePasswordProfileController controller = fxmlLoader.getController();
             controller.setPassword(password);
             controller.setUsername(username);
             stage.setScene(scene);

@@ -534,6 +534,31 @@ public class UserPageController {
     private TextField searchTextField;
 
 
+    String password;
+
+    String username_mani;
+
+    public void setMani(String username_mani , String password) {
+        this.username_mani = username_mani;
+        this.password = password;
+    }
+    /// ///////////
+    public void clickProfileImage(MouseEvent event) {
+        Stage stage = (Stage) Five.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/profile.fxml"));
+        try {
+            Scene scene = new Scene(loader.load());
+            ProfileController controller = loader.getController();
+            controller.setUsername(username12.getText());
+            controller.setPassword(password);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 
     public void setId(String username1) {
         username12.setText(username1);
