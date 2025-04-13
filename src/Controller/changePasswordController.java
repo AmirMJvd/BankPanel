@@ -60,8 +60,8 @@ public class changePasswordController {
     @FXML
     public void initialize() {
         Platform.runLater(() -> {
-        cardNumber.setText(CardNumber1);
-        Date.setText(ExpireDate);
+            cardNumber.setText(CardNumber1);
+            Date.setText(ExpireDate);
         });
 
     }
@@ -90,7 +90,7 @@ public class changePasswordController {
 
             Scanner scanner = new Scanner(new FileReader(fileName));
             while (scanner.hasNextLine()) {
-                 String line = (scanner.nextLine());
+                String line = (scanner.nextLine());
                 if(line.startsWith("Card Number: " + CardNumber1)){
                     scanner.nextLine();
                     scanner.nextLine();

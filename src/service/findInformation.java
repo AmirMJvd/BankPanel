@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class findInformation {
 
     // تابع برای استخراج مقادیر از خط‌ها
-    private String extractValue(String line) {
+    private static String extractValue(String line) {
         // فرض بر این است که حرف اضافه با دو نقطه (: ) تمام می‌شود.
         if (line.contains(":")) {
             return line.split(":")[1].trim();  // مقدار بعد از ":" را گرفته و فضای اضافی را حذف می‌کنیم.
