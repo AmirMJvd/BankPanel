@@ -4,12 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.application.Platform;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
@@ -27,7 +27,13 @@ import java.nio.file.StandardCopyOption;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+import static service.findInformation.searchUserNationalCodeByUserId;
+
 public class EzdevajController implements Initializable {
+
+
+    @FXML
+    private TextField accountNumberField;
 
     @FXML
     private ScrollPane scrollPane;
@@ -44,7 +50,7 @@ public class EzdevajController implements Initializable {
     private final String[] filePaths = new String[7];
 
     private final String[] fileTitles = {
-            "اشتغال به کار", "محل سکونت", "صورت حساب بانک", "سند ازدواج", "اشتغال به کار ضامن", "صورت حساب بانک ضامن", "شناسنامه ضامن"
+            "Employment", "Location", "Bank statement", "Marriage", "Guaranteed employment",  "Guarantor bank statement", "Guarantor's ID card"
     };
 
     @Override
@@ -89,7 +95,16 @@ public class EzdevajController implements Initializable {
     }
 
     private boolean saveFile(File selectedFile) {
-        File destinationDir = new File("vam");
+        String username = SharedData.getInstance().getUsername(); // گرفتن نام کاربری
+        String userID = findUserID(username); // پیدا کردن آیدی کاربر
+        String nationalCode = searchUserNationalCodeByUserId(userID); // گرفتن کد ملی با متدی که دادی
+
+        if (nationalCode == null || nationalCode.isEmpty()) {
+            System.out.println("کد ملی یافت نشد!");
+            return false;
+        }
+
+        File destinationDir = new File("vam/" + nationalCode); // ذخیره در پوشه‌ای به اسم کد ملی
         if (!destinationDir.exists()) {
             destinationDir.mkdirs();
         }
@@ -120,9 +135,18 @@ public class EzdevajController implements Initializable {
             System.out.println("خطا در خواندن فایل: " + e.getMessage());
         }
 
+        String enteredAccountNumber = accountNumberField.getText().trim();
+        if (enteredAccountNumber.isEmpty()) {
+            errorLabel.setText("شماره حساب را وارد کنید.");
+            errorLabel.setStyle("-fx-text-fill: red;");
+            return;
+        }
+
         try (FileWriter writer = new FileWriter(infoFile, true)) {
             writer.write("EZDEVAJ\n");
             writer.write("ID: " + userID + "\n");
+            writer.write("Account Number: " + enteredAccountNumber + "\n");
+            writer.write("status: " + "در حال بررسی" + "\n");
 
             for (int i = 0; i < fileTitles.length; i++) {
                 String filePath = (filePaths[i] != null) ? filePaths[i] : "آپلود نشده";
@@ -182,16 +206,22 @@ public class EzdevajController implements Initializable {
 
     @FXML
     void uploadfile1(MouseEvent event) { uploadFile(event, 0, uploadLabel1); }
+
     @FXML
     void uploadfile2(MouseEvent event) { uploadFile(event, 1, uploadLabel2); }
+
     @FXML
     void uploadfile3(MouseEvent event) { uploadFile(event, 2, uploadLabel3); }
+
     @FXML
     void uploadfile4(MouseEvent event) { uploadFile(event, 3, uploadLabel4); }
+
     @FXML
     void uploadfile5(MouseEvent event) { uploadFile(event, 4, uploadLabel5); }
+
     @FXML
     void uploadfile6(MouseEvent event) { uploadFile(event, 5, uploadLabel6); }
+
     @FXML
     void uploadfile7(MouseEvent event) { uploadFile(event, 6, uploadLabel7); }
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="737.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoadingController">
+   <children>
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="810.0" fitWidth="1315.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/308f2fd627c36e007527bc50337f6c7b.jpg" />
+               </image>
+            </ImageView>
+            <ProgressIndicator fx:id="progressIndicator" prefHeight="42.0" prefWidth="42.0">
+               <StackPane.margin>
+                  <Insets top="650.0" />
+               </StackPane.margin>
+            </ProgressIndicator>
+            <Label fx:id="statusLabel" alignment="CENTER" prefHeight="58.0" prefWidth="624.0" text="در حال بررسی اتصال به اینترنت..." textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets top="550.0" />
+               </StackPane.margin>
+            </Label>
+            <ImageView fitHeight="209.0" fitWidth="209.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/pfizer.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets bottom="300.0" right="550.0" />
+               </StackPane.margin>
+            </ImageView>
+            <Label prefHeight="32.0" prefWidth="434.0" text="جاواد بانک">
+               <font>
+                  <Font size="100.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets right="520.0" top="60.0" />
+               </StackPane.margin>
+            </Label>
+            <Label prefHeight="38.0" prefWidth="199.0" text="بانکی قابل اعتماد" textFill="#510000">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets right="735.0" top="215.0" />
+               </StackPane.margin>
+            </Label>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

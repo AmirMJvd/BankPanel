@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.application.Platform;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -22,7 +23,13 @@ import java.nio.file.StandardCopyOption;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+import static service.findInformation.searchUserNationalCodeByUserId;
+
 public class MaskanController implements Initializable {
+
+
+    @FXML
+    private TextField accountNumberField;
 
     @FXML
     private ScrollPane scrollPane;
@@ -84,9 +91,19 @@ public class MaskanController implements Initializable {
         return null;
     }
 
-    private boolean saveFile(File selectedFile){
-        File destinationDir = new File("vam");
-        if (!destinationDir.exists()){
+
+    private boolean saveFile(File selectedFile) {
+        String username = SharedData.getInstance().getUsername(); // گرفتن نام کاربری
+        String userID = findUserID(username); // پیدا کردن آیدی کاربر
+        String nationalCode = searchUserNationalCodeByUserId(userID); // گرفتن کد ملی با متدی که دادی
+
+        if (nationalCode == null || nationalCode.isEmpty()) {
+            System.out.println("کد ملی یافت نشد!");
+            return false;
+        }
+
+        File destinationDir = new File("vam/" + nationalCode); // ذخیره در پوشه‌ای به اسم کد ملی
+        if (!destinationDir.exists()) {
             destinationDir.mkdirs();
         }
 
@@ -119,15 +136,30 @@ public class MaskanController implements Initializable {
     private void saveFileInfo(String userID) {
         File infoFile = new File("vaminfo.txt");
 
-        if (isUserSaved(userID)) {
-            errorLabel.setText("مدارک قبلاً ثبت شده‌اند!");
-            errorLabel.setStyle("-fx-text-fill: orange;");
-            return; // جلوگیری از ذخیره مجدد
+        try (Scanner scanner = new Scanner(infoFile)) {
+            while (scanner.hasNextLine()) {
+                if (scanner.nextLine().equals("ID: " + userID)) {
+                    errorLabel.setText("مدارک قبلاً ثبت شده‌اند.");
+                    errorLabel.setStyle("-fx-text-fill: orange;");
+                    return;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("خطا در خواندن فایل: " + e.getMessage());
+        }
+
+        String enteredAccountNumber = accountNumberField.getText().trim();
+        if (enteredAccountNumber.isEmpty()) {
+            errorLabel.setText("شماره حساب را وارد کنید.");
+            errorLabel.setStyle("-fx-text-fill: red;");
+            return;
         }
 
         try (FileWriter writer = new FileWriter(infoFile, true)) {
-            writer.write("MASKAN\n");
-            writer.write("ID:" + userID + "\n");
+            writer.write("EZDEVAJ\n");
+            writer.write("ID: " + userID + "\n");
+            writer.write("Account Number: " + enteredAccountNumber + "\n");
+            writer.write("status: " + "در حال بررسی" + "\n");
 
             for (int i = 0; i < fileTitles.length; i++) {
                 String filePath = (filePaths[i] != null) ? filePaths[i] : "آپلود نشده";
@@ -144,6 +176,7 @@ public class MaskanController implements Initializable {
             errorLabel.setStyle("-fx-text-fill: red;");
         }
     }
+
 
     private int countUploadedFiles(){
         int count = 0;

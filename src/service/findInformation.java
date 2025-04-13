@@ -480,6 +480,56 @@ public class findInformation {
             return false;
         }
     }
+    public static String searchUserNationalCodeByUserId(String userID) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("user.txt"))) {
+            String line;
+            String NationalCode = null;
 
+            while ((line = reader.readLine()) != null) {
+                if (line.startsWith("User ID: " + userID)) {
+                    // به دنبال نام و نام خانوادگی می‌گردیم
+                    while ((line = reader.readLine()) != null) {
+                        if (line.startsWith("National Code: ")) {
+                            NationalCode = line.split(":")[1].trim();
+                        }
+                        if (NationalCode != null ) {
+                            break;
+                        }
+                    }
+                    return NationalCode;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
+    public static void updatevam(String accountNumber, String status) throws FileNotFoundException {
+        String fileName = "vaminfo.txt";
+        List<String> lines = new ArrayList<>();
+
+        try {
+            // خواندن تمام خطوط فایل
+            lines = Files.readAllLines(Paths.get(fileName));
+
+            for (int i = 0; i < lines.size(); i++) {
+                if (lines.get(i).trim().equals("Account Number: " + accountNumber)) {
+                    int targetLineIndex = i + 1; // رفتن به خط هشتم
+
+                    if (targetLineIndex < lines.size()) {
+                        // تغییر مقدار inventory
+                        lines.set(targetLineIndex, "status: " + status);
+                    }
+                    break; // بعد از تغییر، نیازی به ادامه جستجو نیست
+                }
+            }
+
+            // بازنویسی فایل با مقادیر جدید
+            Files.write(Paths.get(fileName), lines, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
+
+        } catch (IOException e) {
+            System.out.println("خطایی رخ داد: " + e.getMessage());
+        }
+    }
 }

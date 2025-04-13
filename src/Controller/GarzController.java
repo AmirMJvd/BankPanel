@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.application.Platform;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
@@ -28,7 +29,13 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+import static service.findInformation.searchUserNationalCodeByUserId;
+
 public class GarzController implements Initializable {
+
+
+    @FXML
+    private TextField accountNumberField;
 
     @FXML
     private ScrollPane scrollPane;
@@ -44,8 +51,8 @@ public class GarzController implements Initializable {
 
     private final String[] filePaths = new String[7];
 
-    private final String[] fileTitles = {"Employment", "Location", "Bank statement", "Military discharge card", "Guaranteed employment",  "Guarantor bank statement", "Guarantor's ID card"
-    };
+    private final String[] fileTitles = {"Employment", "Location", "Bank statement", "Military discharge card",
+                                        "Guaranteed employment",  "Guarantor bank statement", "Guarantor's ID card"};
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -88,17 +95,28 @@ public class GarzController implements Initializable {
         return null ;
     }
 
-    private boolean saveFile(File selectedFile){
-        File destinationDir = new File("vam");
-        if (!destinationDir.exists()){
+
+
+    private boolean saveFile(File selectedFile) {
+        String username = SharedData.getInstance().getUsername(); // گرفتن نام کاربری
+        String userID = findUserId(username); // پیدا کردن آیدی کاربر
+        String nationalCode = searchUserNationalCodeByUserId(userID); // گرفتن کد ملی با متدی که دادی
+
+        if (nationalCode == null || nationalCode.isEmpty()) {
+            System.out.println("کد ملی یافت نشد!");
+            return false;
+        }
+
+        File destinationDir = new File("vam/" + nationalCode); // ذخیره در پوشه‌ای به اسم کد ملی
+        if (!destinationDir.exists()) {
             destinationDir.mkdirs();
         }
 
         File destinationFile = new File(destinationDir, selectedFile.getName());
 
-        try{
+        try {
             Files.copy(selectedFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            return true ;
+            return true;
         } catch (IOException e) {
             System.out.println(" خطا در ذخیره فایل: " + e.getMessage());
             return false;
@@ -120,9 +138,18 @@ public class GarzController implements Initializable {
             System.out.println("خطا در خواندن فایل: " + e.getMessage());
         }
 
+        String enteredAccountNumber = accountNumberField.getText().trim();
+        if (enteredAccountNumber.isEmpty()) {
+            errorLabel.setText("شماره حساب را وارد کنید.");
+            errorLabel.setStyle("-fx-text-fill: red;");
+            return;
+        }
+
         try (FileWriter writer = new FileWriter(infoFile, true)) {
-            writer.write("GARZ\n");
+            writer.write("EZDEVAJ\n");
             writer.write("ID: " + userID + "\n");
+            writer.write("Account Number: " + enteredAccountNumber + "\n");
+            writer.write("status: " + "در حال بررسی" + "\n");
 
             for (int i = 0; i < fileTitles.length; i++) {
                 String filePath = (filePaths[i] != null) ? filePaths[i] : "آپلود نشده";
@@ -139,7 +166,6 @@ public class GarzController implements Initializable {
             errorLabel.setStyle("-fx-text-fill: red;");
         }
     }
-
 
     @FXML
     void request(ActionEvent event){

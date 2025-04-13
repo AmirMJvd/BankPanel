@@ -2330,9 +2330,52 @@
                            <children>
                               <VBox prefHeight="661.0" prefWidth="241.0">
                                  <children>
-                                    <TextField fx:id="NameAndFamilyTextfield" prefHeight="41.0" prefWidth="236.0" promptText="نام و نام خانوادگی" />
-                                    <TextField fx:id="nationalCodeTextfield" prefHeight="41.0" prefWidth="236.0" promptText="کد ملی" />
-                                    <Button mnemonicParsing="false" onAction="#searchbtn" text="Button" />
+                                    <Label alignment="CENTER" prefHeight="28.0" prefWidth="331.0" text="جست و جوی کارت : ">
+                                       <font>
+                                          <Font name="System Bold" size="23.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="30.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="2.0" prefWidth="238.0" text="------------------------------" />
+                                    <Label prefHeight="28.0" prefWidth="269.0" text="نام و نام خانوادگی :">
+                                       <VBox.margin>
+                                          <Insets top="40.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="NameAndFamilyTextfield" alignment="CENTER" prefHeight="60.0" prefWidth="238.0" promptText="نام و نام خانوادگی" stylesheets="@../values/style.css">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                       <styleClass>
+                                          <String fx:value="search-box" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </TextField>
+                                    <Label layoutX="10.0" layoutY="108.0" prefHeight="28.0" prefWidth="269.0" text="کد ملی :">
+                                       <VBox.margin>
+                                          <Insets top="35.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="nationalCodeTextfield" alignment="CENTER" prefHeight="60.0" prefWidth="238.0" promptText="کد ملی" stylesheets="@../values/style.css">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <styleClass>
+                                          <String fx:value="search-box" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </TextField>
+                                    <Button mnemonicParsing="false" onAction="#searchbtn" prefHeight="40.0" prefWidth="155.0" style="-fx-background-radius: 30; -fx-background-color: #b8b4b4;" text="جست و جو ">
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="button-style" />
+                                       </styleClass>
+                                       <VBox.margin>
+                                          <Insets left="40.0" top="170.0" />
+                                       </VBox.margin>
+                                    </Button>
                                  </children>
                               </VBox>
                               <ScrollPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="661.0" prefWidth="1068.0">
@@ -2358,9 +2401,46 @@
                            <children>
                               <VBox prefHeight="661.0" prefWidth="241.0">
                                  <children>
-                                    <TextField fx:id="NameAndFamilyTextfield1" prefHeight="41.0" prefWidth="236.0" promptText="نام و نام خانوادگی" />
-                                    <TextField fx:id="nationalCodeTextfield1" prefHeight="41.0" prefWidth="236.0" promptText="کد ملی" />
-                                    <Button mnemonicParsing="false" onAction="#searchbtn1" text="Button" />
+                                    <Label alignment="CENTER" prefHeight="28.0" prefWidth="331.0" text="جست و جوی حساب: ">
+                                       <font>
+                                          <Font name="System Bold" size="23.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="30.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="10.0" prefWidth="238.0" text="------------------------------" />
+                                    <Label prefHeight="28.0" prefWidth="269.0" text="نام و نام خانوادگی :">
+                                       <VBox.margin>
+                                          <Insets top="40.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="NameAndFamilyTextfield1" alignment="CENTER" prefHeight="60.0" prefWidth="236.0" promptText="نام و نام خانوادگی" stylesheets="@../values/style.css">
+                                       <styleClass>
+                                          <String fx:value="search-box" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </TextField>
+                                    <Label layoutX="10.0" layoutY="143.0" prefHeight="28.0" prefWidth="269.0" text="کدملی :">
+                                       <VBox.margin>
+                                          <Insets top="35.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="nationalCodeTextfield1" alignment="CENTER" prefHeight="60.0" prefWidth="236.0" promptText="کد ملی" stylesheets="@../values/style.css">
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="search-box" />
+                                       </styleClass>
+                                    </TextField>
+                                    <Button mnemonicParsing="false" onAction="#searchbtn1" prefHeight="40.0" prefWidth="155.0" style="-fx-background-radius: 30; -fx-background-color: #b8b4b4;" text="جست و جو">
+                                       <VBox.margin>
+                                          <Insets left="40.0" right="40.0" top="170.0" />
+                                       </VBox.margin>
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="button-style" />
+                                       </styleClass>
+                                    </Button>
                                  </children>
                               </VBox>
                               <ScrollPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="661.0" prefWidth="1068.0">
@@ -2391,7 +2471,7 @@
                <children>
                   <VBox alignment="CENTER_RIGHT" layoutX="93.0" layoutY="-1.0" prefHeight="102.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="username12" prefHeight="25.0" prefWidth="200.0" text="نام کاربر" textFill="WHITE">
+                        <Label prefHeight="25.0" prefWidth="200.0" text="نام کاربر" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>
