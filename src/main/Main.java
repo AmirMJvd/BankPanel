@@ -14,7 +14,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // لود فایل FXML
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/Employee.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/loading.fxml"));
         Parent root = loader.load();
 
         // تنظیمات صحنه
@@ -28,7 +28,7 @@ public class Main extends Application {
         primaryStage.setTitle("ورود به سامانه");
         primaryStage.show();
 
-//        // تنظیم ابعاد پنجره
+        // تنظیم ابعاد پنجره
 //        primaryStage.setWidth(850);
 //        primaryStage.setHeight(650);
 

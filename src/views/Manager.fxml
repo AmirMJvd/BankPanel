@@ -24,7 +24,7 @@
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1315.0" style="-fx-background-color: #e6e7e8;" stylesheets="@../values/style-E.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ManagerController">
    <center>
       <TabPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6e7e8;" stylesheets="@../values/style_U.css" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-        <tabs>
+         <tabs>
             <Tab text="مدیر جدید">
                <content>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -208,9 +208,9 @@
                               <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#RegistrationAdmin" prefHeight="40.0" prefWidth="111.0" style="-fx-background-radius: 20;" styleClass="button-style" stylesheets="@../values/style_U.css" text="ثبت اطلاعات" textFill="WHITE">
+                              <Button mnemonicParsing="false" onAction="#RegistrationAdmin" prefHeight="37.0" prefWidth="111.0" style="-fx-background-color: no color; -fx-border-color: #4e52cc;" stylesheets="@../../../../../New%20folder/Adminb1/Adminb/src/main/resources/com/example/adminb/style.css" text="ثبت اطلاعات" textFill="#4e52cc">
                                  <font>
                                     <Font name="B Mehr Bold" size="16.0" />
                                  </font>
@@ -229,9 +229,8 @@
                <content>
                   <AnchorPane fx:id="anch" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <HBox fx:id="first" alignment="CENTER" prefHeight="636.0" prefWidth="1300.0" AnchorPane.topAnchor="10.0">
+                        <HBox fx:id="first" alignment="CENTER" prefHeight="636.0" prefWidth="1300.0">
                            <children>
-                              <Pane prefHeight="638.0" prefWidth="124.0" HBox.hgrow="ALWAYS" />
                               <VBox alignment="CENTER" prefHeight="480.0" prefWidth="350.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 30;">
                                  <children>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -256,17 +255,20 @@
                                     <Insets bottom="85.0" top="85.0" />
                                  </HBox.margin>
                               </VBox>
-                              <Pane prefHeight="636.0" prefWidth="32.0" HBox.hgrow="ALWAYS" />
+                              <Pane prefHeight="200.0" prefWidth="200.0" />
                               <VBox alignment="CENTER" prefHeight="480.0" prefWidth="350.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 30;">
                                  <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/loan1.png" />
+                                       </image></ImageView>
                                     <Label prefHeight="80.0" text="تسهیلات">
                                        <font>
                                           <Font name="B Yekan" size="25.0" />
                                        </font>
                                     </Label>
                                     <Pane prefHeight="86.0" prefWidth="350.0" />
-                                    <Label alignment="CENTER" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" stylesheets="@../../../../mabani/Bank%20Panel/src/values/style_U.css" text="بیشتر">
+                                    <Label alignment="CENTER" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" stylesheets="@../../../../mabani/Bank%20Panel/src/values/style_U.css" text="مشاهده">
                                        <font>
                                           <Font name="B Mitra" size="25.0" />
                                        </font>
@@ -280,12 +282,11 @@
                                     <Insets bottom="85.0" top="85.0" />
                                  </HBox.margin>
                               </VBox>
-                              <Pane prefHeight="638.0" prefWidth="124.0" HBox.hgrow="ALWAYS" />
                            </children>
                         </HBox>
                         <HBox fx:id="checkBox" layoutX="1.0" prefHeight="634.0" prefWidth="1303.0" visible="false">
                            <children>
-                              <VBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="634.0" prefWidth="247.0" spacing="100.0" style="-fx-background-color: #d3d3d3;">
+                              <VBox fx:id="vBox" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="634.0" prefWidth="247.0" spacing="100.0" style="-fx-background-color: #d3d3d3;">
                                  <children>
                                     <Button fx:id="toggleButton" mnemonicParsing="false" prefHeight="105.0" prefWidth="165.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" stylesheets="@../values/style.css" text="درخواست چک">
                                        <font>
@@ -296,7 +297,7 @@
                                           <String fx:value="button" />
                                        </styleClass>
                                     </Button>
-                                    <Button mnemonicParsing="false" prefHeight="105.0" prefWidth="165.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" stylesheets="@../values/style.css" text="تسهیلات">
+                                    <Button fx:id="toggleButton2" mnemonicParsing="false" prefHeight="105.0" prefWidth="165.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 30;" stylesheets="@../values/style.css" text="تسهیلات">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
@@ -326,17 +327,33 @@
                               </ScrollPane>
                            </children>
                         </HBox>
+                        <HBox fx:id="checkhbox1" layoutX="260.0" layoutY="10.0" prefHeight="638.0" prefWidth="1057.0" visible="false">
+                           <children>
+                              <ScrollPane fx:id="yourScrollPane1" prefHeight="638.0" prefWidth="1055.0" HBox.hgrow="ALWAYS">
+                                 <content>
+                                    <StackPane alignment="TOP_CENTER" prefHeight="634.0" prefWidth="1053.0">
+                                       <children>
+                                          <GridPane fx:id="vamGrid" alignment="TOP_CENTER" nodeOrientation="RIGHT_TO_LEFT" prefWidth="5.0">
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                       </children>
+                                    </StackPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </HBox>
                      </children>
                   </AnchorPane>
                </content>
             </Tab>
             <Tab text="ثبت قبض">
-              <content>
-                <AnchorPane layoutY="74.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <content>
+                  <AnchorPane layoutY="74.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <HBox alignment="CENTER" layoutX="-25.0" layoutY="197.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
                            <children>
-                              <Pane prefHeight="638.0" prefWidth="124.0" HBox.hgrow="ALWAYS" />
                               <VBox prefHeight="480.0" prefWidth="350.0">
                                  <children>
                                     <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
@@ -840,7 +857,7 @@
                                     </Pane>
                                  </children>
                               </VBox>
-                              <Pane prefHeight="538.0" prefWidth="67.0" HBox.hgrow="ALWAYS" />
+                              <Pane prefHeight="638.0" prefWidth="124.0" />
                               <VBox prefHeight="480.0" prefWidth="350.0">
                                  <children>
                                     <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
@@ -1063,27 +1080,12 @@
                                     </Pane>
                                  </children>
                               </VBox>
-                              <Pane prefHeight="638.0" prefWidth="124.0" HBox.hgrow="ALWAYS" />
                            </children>
                         </HBox>
                      </children></AnchorPane>
-              </content>
-            </Tab>
-            <Tab text="کاربران">
-               <content>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                    </content>
-                     <styleClass>
-                        <String fx:value="custom-scroll-pane" />
-                        <String fx:value="scroll-bar" />
-                        <String fx:value="viewport" />
-                     </styleClass>
-                  </ScrollPane>
                </content>
             </Tab>
-        </tabs>
+         </tabs>
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
