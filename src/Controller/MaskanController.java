@@ -3,6 +3,7 @@ package Controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -59,10 +60,28 @@ public class MaskanController implements Initializable {
         });
     }
 
+//    @FXML
+//    void back(MouseEvent event) throws IOException {
+//        BorderPane pane = FXMLLoader.load(getClass().getResource("../views/userpage.fxml"));
+//        rootPane.getChildren().setAll(pane);
+//    }
+
+    private String username;
+
+    public void setUsername(String username){
+        this.username = username;
+    }
+
     @FXML
     void back(MouseEvent event) throws IOException {
-        BorderPane pane = FXMLLoader.load(getClass().getResource("../views/userpage.fxml"));
-        rootPane.getChildren().setAll(pane);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/userpage.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+        UserPageController userPageController = fxmlLoader.getController();
+        userPageController.setId(username);
+        stage.setTitle("Bank");
+        stage.show();
     }
 
     @FXML

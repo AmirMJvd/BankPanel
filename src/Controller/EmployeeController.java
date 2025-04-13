@@ -1211,6 +1211,7 @@ public class EmployeeController {
                         String.valueOf(today.getDayOfMonth())  // روز
                 };
 
+
                 // دریافت زمان فعلی
                 LocalTime now = LocalTime.now();
                 String[] timeArray = {
@@ -1270,6 +1271,13 @@ public class EmployeeController {
         }
 
     }
+
+//    @FXML
+//    private Label username12;
+//
+//    public void setId(String username1) {
+//        username12.setText(username1);
+//    }
 
 
     @FXML

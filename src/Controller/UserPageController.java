@@ -533,6 +533,9 @@ public class UserPageController {
     @FXML
     private TextField searchTextField;
 
+    @FXML
+            private VBox vboxscrol;
+
 
     String password;
 
@@ -838,6 +841,14 @@ public class UserPageController {
         // ریسپانسیو کردن AnchorPane
         anch1.prefWidthProperty().bind(tabpane.widthProperty());
         anch1.prefHeightProperty().bind(tabpane.heightProperty());
+        anch4.prefWidthProperty().bind(tabpane.widthProperty());
+        anch4.prefHeightProperty().bind(tabpane.heightProperty());
+        hbox.prefWidthProperty().bind(tabpane.widthProperty());
+        hbox.prefHeightProperty().bind(tabpane.heightProperty());
+        anch7.prefWidthProperty().bind(tabpane.widthProperty());
+        anch7.prefHeightProperty().bind(tabpane.heightProperty());
+        anch8.prefWidthProperty().bind(tabpane.widthProperty());
+        anch8.prefHeightProperty().bind(tabpane.heightProperty());
 
         // ریسپانسیو کردن HBox
         hboxmain.prefWidthProperty().bind(anch1.widthProperty());
@@ -847,30 +858,15 @@ public class UserPageController {
         vfirst.prefWidthProperty().bind(hboxmain.widthProperty().divide(3));
         vsecound.prefWidthProperty().bind(hboxmain.widthProperty().divide(3));
         vthird.prefWidthProperty().bind(hboxmain.widthProperty().divide(3));
-
-        // اگر خواستی ارتفاعشون هم با HBox یکی باشه:
         vfirst.prefHeightProperty().bind(hboxmain.heightProperty());
         vsecound.prefHeightProperty().bind(hboxmain.heightProperty());
         vthird.prefHeightProperty().bind(hboxmain.heightProperty());
 
         scrollPaneId.prefWidthProperty().bind(tabpane.widthProperty());
         scrollPaneId.prefHeightProperty().bind(tabpane.heightProperty());
+        scrollPane3.prefWidthProperty().bind(tabpane.widthProperty());
+        scrollPane3.prefHeightProperty().bind(tabpane.heightProperty());
 
-        // سایز anch3 با tabpane هماهنگ
-        anch3.prefWidthProperty().bind(tabpane.widthProperty());
-        anch3.prefHeightProperty().bind(tabpane.heightProperty());
-
-        // ScrollPane هم‌ اندازه‌ی anch3
-        scrollPane3.prefWidthProperty().bind(anch3.widthProperty());
-        scrollPane3.prefHeightProperty().bind(anch3.heightProperty());
-
-        // StackPane داخل ScrollPane ریسپانسیو
-        anch3StackPane.prefWidthProperty().bind(scrollPane3.widthProperty());
-        anch3StackPane.prefHeightProperty().bind(scrollPane3.heightProperty());
-
-        // anch4 ریسپانسیو با tabpane
-        anch4.prefWidthProperty().bind(tabpane.widthProperty());
-        anch4.prefHeightProperty().bind(tabpane.heightProperty());
 
         // pane4 هماهنگ با anch4
         pane4.prefWidthProperty().bind(anch4.widthProperty());
@@ -879,17 +875,13 @@ public class UserPageController {
         // VboxLabel هماهنگ با pane4
         VboxLabel.prefWidthProperty().bind(pane4.widthProperty());
         VboxLabel.prefHeightProperty().bind(pane4.heightProperty());
-
         mainvbox.prefWidthProperty().bind(pane4.widthProperty());
         mainvbox.prefHeightProperty().bind(pane4.heightProperty());
-
-        // هماهنگ‌سازی عرض و ارتفاع HBox با TabPane
-        hbox.prefWidthProperty().bind(tabpane.widthProperty());
-        hbox.prefHeightProperty().bind(tabpane.heightProperty());
-
-        // ScrollPane اندازه‌اش با AnchorPane برابر باشه
-        scroll3.prefWidthProperty().bind(anch7.widthProperty());
-        scroll3.prefHeightProperty().bind(anch7.heightProperty());
+        CheckregistrationVbox.prefHeightProperty().bind(anch4.heightProperty());
+        // ست کردن عرض HBox برابر با 2/3 عرض AnchorPane
+        CheckregistrationVbox.prefWidthProperty().bind(anch4.widthProperty().multiply(4.0 / 5.0));
+        requestCheckVBox.prefWidthProperty().bind(anch4.widthProperty().multiply(4.0 / 5.0));
+        CheckConfirmation.prefWidthProperty().bind(anch4.widthProperty().multiply(4.0 / 5.0));
 
         // ScrollPane اندازه‌اش با AnchorPane برابر باشه
         scroll4.prefWidthProperty().bind(anch8.widthProperty());
@@ -897,27 +889,19 @@ public class UserPageController {
 
 
         // StackPane اندازه‌اش با ScrollPane برابر باشه
-        stack3.prefWidthProperty().bind(scroll3.widthProperty());
-        stack3.prefHeightProperty().bind(scroll3.heightProperty());
-
-        // آیتم‌ها در مرکز StackPane قرار بگیرن
-        stack3.setAlignment(grid3, Pos.CENTER);
-
-        // StackPane اندازه‌اش با ScrollPane برابر باشه
         stack4.prefWidthProperty().bind(scroll4.widthProperty());
         stack4.prefHeightProperty().bind(scroll4.heightProperty());
 
-        // آیتم‌ها در مرکز StackPane قرار بگیرن
-        stack4.setAlignment(grid4, Pos.CENTER);
+        // ScrollPane اندازه‌اش با AnchorPane برابر باشه
+        scroll3.prefWidthProperty().bind(anch7.widthProperty());
+        scroll3.prefHeightProperty().bind(anch7.heightProperty());
 
-        // ست کردن ارتفاع HBox برابر با ارتفاع AnchorPane
-        CheckregistrationVbox.prefHeightProperty().bind(anch4.heightProperty());
 
-        // ست کردن عرض HBox برابر با 2/3 عرض AnchorPane
+        // StackPane اندازه‌اش با ScrollPane برابر باشه
+        stack3.prefWidthProperty().bind(scroll3.widthProperty());
+        stack3.prefHeightProperty().bind(scroll3.heightProperty());
 
-        CheckregistrationVbox.prefWidthProperty().bind(anch4.widthProperty().multiply(4.0 / 5.0));
-        requestCheckVBox.prefWidthProperty().bind(anch4.widthProperty().multiply(4.0 / 5.0));
-        CheckConfirmation.prefWidthProperty().bind(anch4.widthProperty().multiply(4.0 / 5.0));
+        vboxscrol.prefWidthProperty().bind(anch7.widthProperty());
         // مقداردهی اولیه
         updateCircleColors();
 
@@ -2412,6 +2396,8 @@ public class UserPageController {
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
+            EzdevajController ezdevajController = loader.getController();
+            ezdevajController.setUsername(username12.getText());
             stage.setTitle("تسهیلات");
             stage.show();
         } catch (IOException e) {
@@ -2425,6 +2411,8 @@ public class UserPageController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/maskan.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            MaskanController maskanController = loader.getController();
+            maskanController.setUsername(username12.getText());
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
@@ -2438,6 +2426,8 @@ public class UserPageController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/garz.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            GarzController garzController = loader.getController();
+            garzController.setUsername(username12.getText());
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {

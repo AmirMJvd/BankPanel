@@ -1,5 +1,6 @@
 package Controller;
 
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -219,6 +220,13 @@ public class ManagerController {
         first.setVisible(false);
         checkBox.setVisible(true);
         checkhbox.setVisible(true);
+    }
+
+    @FXML
+    private Label username12;
+
+    public void setId(String username1) {
+        username12.setText(username1);
     }
 
 

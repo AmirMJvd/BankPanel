@@ -14,7 +14,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // لود فایل FXML
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/loading.fxml"));
         Parent root = loader.load();
 
         // تنظیمات صحنه
